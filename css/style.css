@@ -297,7 +297,7 @@ pre {
 /* main-navigation */
 .main-navigation {
   text-align: center;
-  background: #00CCFF;
+  background: #3F4352;
   border-top: 1px solid #ebebeb;
   margin-bottom: 30px;
   border-bottom: 2px solid #e1e1e1;
@@ -312,10 +312,12 @@ pre {
   position: relative;
 }
 .main-navigation .menu li a {
-  color: #505050;
-  line-height: 4em;
+  color: #EE113D;
+  line-height: 3em;
   display: block;
-  padding: 0 21px;
+  padding: 0 25px;
+  font-weight:bold;
+  font-size:18px;
 }
 .main-navigation .menu li:hover > a {
   color: #e67e22;
