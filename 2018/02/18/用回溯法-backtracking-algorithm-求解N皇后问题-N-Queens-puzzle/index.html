@@ -1,0 +1,454 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="无限Coding">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>用回溯法(backtracking algorithm)求解N皇后问题(N-Queens puzzle) | 无限Coding</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="无限Coding" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://oyxhmjutw.bkt.clouddn.com/18-2-18/83165848.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题">  
+             
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/C|C++/"><i class="fa fa-fw "></i>C|C++</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/全栈/"><i class="fa fa-fw "></i>全栈</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/心情/"><i class="fa fa-fw "></i>心情</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/算法/"><i class="fa fa-fw "></i>算法</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/数据结构/"><i class="fa fa-fw "></i>数据结构</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/Linux/"><i class="fa fa-fw "></i>Linux</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="用回溯法(backtracking algorithm)求解N皇后问题(N-Queens puzzle)">
+            
+	            用回溯法(backtracking algorithm)求解N皇后问题(N-Queens puzzle)
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/算法">
+            算法
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a href="/tags/算法">
+               算法
+            </a>
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/02/18</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="什么是N-皇后问题"><a href="#什么是N-皇后问题" class="headerlink" title="什么是N-皇后问题?"></a>什么是N-皇后问题?</h2><p>说到这个N-皇后问题，就不得不先提一下这个历史上著名的8皇后问题啦。</p>
+<blockquote>
+<p>八皇后问题，是一个古老而著名的问题.该问题是国际西洋棋棋手马克斯·贝瑟尔于1848年提出：在8×8格的国际象棋上摆放八个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法?</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/10386940-eabd5bfe5d266d85.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>那么，我们将8皇后问题推广一下，就可以得到我们的N皇后问题了。N皇后问题是一个经典的问题，在一个NxN的棋盘上放置N个皇后，使其不能互相攻击 <strong>(同一行、同一列、同一斜线上的皇后都会自动攻击)</strong> 那么问，有多少种摆法？</p>
+<h2 id="回溯算法-backtracking-algorithm"><a href="#回溯算法-backtracking-algorithm" class="headerlink" title="回溯算法(backtracking algorithm)"></a>回溯算法(backtracking algorithm)</h2><p>N皇后问题其实就是回溯算法中的一个典型应用。为此，在这里先介绍一下回溯算法。</p>
+<h4 id="定义-参考至百度百科"><a href="#定义-参考至百度百科" class="headerlink" title="定义(参考至百度百科)"></a>定义(参考至百度百科)</h4><blockquote>
+<p>回溯算法实际上一个类似枚举的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。许多复杂的，规模较大的问题都可以使用回溯法，有“通用解题方法”的美称。</p>
+</blockquote>
+<h4 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h4><blockquote>
+<p>回溯算法的基本思想是：<strong>从一条路往前走，能进则进，不能进则退回来，换一条路再试。</strong>在包含问题的所有解的解空间树中，按照深度优先搜索的策略，从根结点出发深度探索解空间树。当探索到某一结点时，要先判断该结点是否包含问题的解，如果包含，就从该结点出发继续探索下去，如果该结点不包含问题的解，则逐层向其祖先结点回溯。</p>
+</blockquote>
+<ul>
+<li>若用回溯法求<strong>问题的所有解时</strong>，要回溯到根，且根结点的所有可行的子树都要已被搜索遍才结束。</li>
+<li>而若使用回溯法求<strong>任一个解时</strong>，只要搜索到问题的一个解就可以结束。</li>
+</ul>
+<h4 id="什么是深度优先搜索？"><a href="#什么是深度优先搜索？" class="headerlink" title="什么是深度优先搜索？"></a>什么是深度优先搜索？</h4><ul>
+<li>深度优先搜索(DFS即Depth First Search)其过程简要来说是对每一个可能的分支路径<strong>深入到不能再深入为止</strong>，而且每个节点只能访问一次。</li>
+</ul>
+<h4 id="解决问题的一般步骤"><a href="#解决问题的一般步骤" class="headerlink" title="解决问题的一般步骤"></a>解决问题的一般步骤</h4><ul>
+<li>针对所给问题，定义问题的解空间，它<strong>至少包含问题的一个（最优）解。</strong></li>
+<li>确定易于搜索的解空间结构,使得能用回溯法方便地搜索整个解空间 。</li>
+<li>以深度优先的方式搜索解空间，并且在搜索过程中用剪枝函数避免无效搜索。</li>
+</ul>
+<p>确定了解空间的组织结构后，回溯法就从开始结点（根结点）出发，以<strong>深度优先的方式</strong>搜索整个解空间。这个开始结点就成为一个活结点，同时也成为当前的扩展结点。在当前的扩展结点处，搜索向纵深方向移至一个新结点。这个新结点就成为一个新的活结点，并成为当前扩展结点。如果在当前的扩展结点处不能再向纵深方向移动，则当前扩展结点就成为死结点。<strong>此时，应往回移动（回溯）至最近的一个活结点处，并使这个活结点成为当前的扩展结点。</strong>回溯法即以这种工作方式递归地在解空间中搜索，直至找到所要求的解或解空间中已没有活结点时为止。</p>
+<h4 id="解空间和解空间树"><a href="#解空间和解空间树" class="headerlink" title="解空间和解空间树"></a>解空间和解空间树</h4><ul>
+<li><strong>解空间</strong><br>一个复杂问题的解决往往由多部分构成，那么，一个大的解决方案就可以看成是由若干个小的决策组成。很多时候它们构成一个决策序列。解决一个问题的所有可能的决策序列构成该问题的解空间。解空间中满足约束条件的决策序列称为可行解。一般说来，解任何问题都有一个目标，在约束条件下使目标值达到最大（或最小）的可行解称为该问题的最优解。<strong>在解空间中，前k项决策已经取定的所有决策序列之集，称为k定子解空间。0定子解空间即是该问题的解空间</strong>。这个空间必须至少包含一个解（可能是最优的）。</li>
+<li><strong>解空间树</strong><br>因为回溯方法的基本思想是通过搜索解空间来找到问题所要求的解，所以如何组织解空间的结构会直接影响对问题的求解效率。<strong>一般地，我们可以用一棵树来描述解空间，并称之为解空间树。</strong></li>
+</ul>
+<h4 id="算法框架"><a href="#算法框架" class="headerlink" title="算法框架"></a>算法框架</h4><ul>
+<li><p><strong>针对N叉树的递归回溯方法</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//针对N叉树的递归回溯方法  </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">backtrack</span> <span class="params">(<span class="keyword">int</span> t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (t&gt;n)</span><br><span class="line">    &#123;</span><br><span class="line">        output(x); <span class="comment">//叶子节点，输出结果，x是可行解</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> i = <span class="number">1</span> to k<span class="comment">//当前节点的所有子节点</span></span><br><span class="line">        &#123;</span><br><span class="line">            x[t]=value(i); <span class="comment">//每个子节点的值赋值给x</span></span><br><span class="line">            <span class="comment">//满足约束条件和限界条件</span></span><br><span class="line">            <span class="keyword">if</span> (constraint(t)&amp;&amp;bound(t))</span><br><span class="line">            backtrack(t+<span class="number">1</span>); <span class="comment">//递归下一层</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>针对N叉树的迭代回溯方法</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//针对N叉树的迭代回溯方法</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">iterativeBacktrack</span> <span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">int</span> t=<span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">while</span> (t&gt;<span class="number">0</span>)</span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">if</span>(ExistSubNode(t)) <span class="comment">//当前节点的存在子节点  </span></span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">for</span> i = <span class="number">1</span> to k  <span class="comment">//遍历当前节点的所有子节点  </span></span><br><span class="line">            &#123;  </span><br><span class="line">                x[t]=value(i);<span class="comment">//每个子节点的值赋值给x  </span></span><br><span class="line">                <span class="keyword">if</span> (constraint(t)&amp;&amp;bound(t))<span class="comment">//满足约束条件和限界条件   </span></span><br><span class="line">                &#123;  </span><br><span class="line">                    <span class="comment">//solution表示在节点t处得到了一个解  </span></span><br><span class="line">                    <span class="keyword">if</span> (solution(t))</span><br><span class="line">                        output(x);<span class="comment">//得到问题的一个可行解，输出  </span></span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        t++;<span class="comment">//没有得到解，继续向下搜索  </span></span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span> <span class="comment">//不存在子节点，返回上一层  </span></span><br><span class="line">            t--;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="N皇后问题的solve"><a href="#N皇后问题的solve" class="headerlink" title="N皇后问题的solve"></a>N皇后问题的solve</h2><h4 id="算法伪代码描述"><a href="#算法伪代码描述" class="headerlink" title="算法伪代码描述"></a>算法伪代码描述</h4><p>下面是算法的高级伪码描述，这里用一个N*N的矩阵来存储棋盘：</p>
+<p>1) 算法开始, 清空棋盘，当前行设为第一行，当前列设为第一列</p>
+<p>2) 在当前行，当前列的位置上判断是否满足条件(即保证经过这一点的行,列与斜线上都没有两个皇后)，若不满足，跳到第4步</p>
+<p>3) 在当前位置上满足条件的情形：</p>
+<ul>
+<li>在当前位置放一个皇后，若当前行是最后一行，记录一个解；</li>
+<li>若当前行不是最后一行，当前行设为下一行, 当前列设为当前行的第一个待测位置；</li>
+<li>若当前行是最后一行，当前列不是最后一列，当前列设为下一列；</li>
+<li>若当前行是最后一行，当前列是最后一列，回溯，即清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置。</li>
+<li>以上返回到第2步</li>
+</ul>
+<p>4) 在当前位置上不满足条件的情形：</p>
+<ul>
+<li>若当前列不是最后一列，当前列设为下一列，返回到第2步;</li>
+<li>若当前列是最后一列了，回溯，即，若当前行已经是第一行了，算法退出，否则，清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置，返回到第2步;</li>
+</ul>
+<h4 id="图解问题过程"><a href="#图解问题过程" class="headerlink" title="图解问题过程"></a>图解问题过程</h4><p>为了让大家更好理解，这里画了一张图。<br><img src="http://upload-images.jianshu.io/upload_images/10386940-6150c8085b37ef16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="coding-time"><a href="#coding-time" class="headerlink" title="coding time"></a>coding time</h4><p>我们之前说过N皇后问题是回溯算法的经典应用。因此我们可以使用回溯法来解决该问题，具体实现也有两个途径，递归和非递归。</p>
+<ul>
+<li><p>递归法<br>其实递归法算是比较简单的了。我们使用一个一维数组来存储棋盘。具体细节如下：把棋盘存储为一个一维数组a[N]，数组中第i个元素的值代表第i行的皇后位置。在判断是否冲突时也很简单：</p>
+<ul>
+<li>首先每行只有一个皇后，且在数组中只占据一个元素的位置，行冲突就不存在了。</li>
+<li>其次是列冲突，判断一下是否有a[i]与当前要放置皇后的列j相等即可。</li>
+<li>至于斜线冲突，通过观察可以发现所有在斜线上冲突的皇后的位置都有规律。即它们所在的行列互减的绝对值相等，即| row – i | = | col – a[i] | 。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">20</span>;   <span class="comment">//最多放皇后的个数</span></span><br><span class="line"><span class="keyword">int</span> q[N];         <span class="comment">//i表示皇后所在的行号，</span></span><br><span class="line">				  <span class="comment">//q[i]表示皇后所在的列号</span></span><br><span class="line"><span class="keyword">int</span> cont = <span class="number">0</span>;     <span class="comment">//统计解的个数</span></span><br><span class="line"><span class="comment">//输出一个解</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    cont++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"第%d个解："</span>,cont);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"(%d,%d) "</span>,i,q[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)        <span class="comment">//行</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)    <span class="comment">//列</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(q[i]!=j)</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"x "</span>);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"Q "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//检验第i行的k列上是否可以摆放皇后</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(j&lt;i)  <span class="comment">//j=1~i-1是已经放置了皇后的行</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//第j行的皇后是否在k列或(j,q[j])与(i,k)是否在斜线上</span></span><br><span class="line">        <span class="keyword">if</span>(q[j]==k || <span class="built_in">abs</span>(j-i)==<span class="built_in">abs</span>(q[j]-k))</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//放置皇后到棋盘上</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">place</span><span class="params">(<span class="keyword">int</span> k,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j;</span><br><span class="line">    <span class="keyword">if</span>(k&gt;n)</span><br><span class="line">        print(n); <span class="comment">//递归出口</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)   <span class="comment">//试探第k行的每一个列</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(find(k,j))</span><br><span class="line">            &#123;</span><br><span class="line">                q[k] = j;   <span class="comment">//保存位置</span></span><br><span class="line">                place(k+<span class="number">1</span>,n);  <span class="comment">//接着下一行</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main1111</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入皇后的个数(n&lt;=20),n=:"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">20</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"n值太大，不能求解!\n"</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d皇后问题求解如下(每列的皇后所在的行数):\n"</span>,n);</span><br><span class="line">        place(<span class="number">1</span>,n);        <span class="comment">//问题从最初状态解起</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>迭代法<br>为什么还要迭代呢？因为递归效率有时候并不是那么的高。具体思路：首先对N行中的每一行进行探测，查找该行中可以放皇后的位置。具体怎么做呢？</p>
+<ul>
+<li>首先对该行的逐列进行探测，看是否可以放置皇后，如果可以，则在该列放置一个皇后，然后继续探测下一行的皇后位置。</li>
+<li>如果已经探测完所有的列都没有找到可以放置皇后的列，这时候就应该回溯了，把上一行皇后的位置往后移一列。</li>
+<li>如果上一行皇后移动后也找不到位置，则继续回溯直至某一行找到皇后的位置或回溯到第一行，如果第一行皇后也无法找到可以放置皇后的位置，则说明已经找到所有的解，程序终止。</li>
+<li>如果该行已经是最后一行，则探测完该行后，如果找到放置皇后的位置，则说明找到一个结果，打印出来。</li>
+<li>但是此时并不能在此处结束程序，因为我们要找的是所有N皇后问题所有的解，此时应该清除该行的皇后，从当前放置皇后列数的下一列继续探测。</li>
+</ul>
+</li>
+</ul>
+<p>由此可见，非递归方法的一个重要问题时何时回溯及如何回溯的问题。</p>
+<p>具体代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> QUEEN 8     <span class="comment">//皇后的数目</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INITIAL -10000 <span class="comment">//棋盘的初始值</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[QUEEN];    <span class="comment">//一维数组表示棋盘</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span>  <span class="comment">//对棋盘进行初始化</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *p;</span><br><span class="line">    <span class="keyword">for</span> (p = a; p &lt; a + QUEEN; ++p)</span><br><span class="line">    &#123;</span><br><span class="line">        *p = INITIAL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">valid</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col)</span>    <span class="comment">//判断第row行第col列是否可以放置皇后</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; QUEEN; ++i)  <span class="comment">//对棋盘进行扫描</span></span><br><span class="line">    &#123;   <span class="comment">//判断列冲突与斜线上的冲突</span></span><br><span class="line">        <span class="keyword">if</span> (a[i] == col || <span class="built_in">abs</span>(i - row) == <span class="built_in">abs</span>(a[i] - col))</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span>    <span class="comment">//打印输出N皇后的一组解</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; QUEEN; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; QUEEN; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] != j)      <span class="comment">//a[i]为初始值</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%c "</span>, <span class="string">'.'</span>);</span><br><span class="line">            <span class="keyword">else</span>                <span class="comment">//a[i]表示在第i行的第a[i]列可以放置皇后</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%c "</span>, <span class="string">'#'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; QUEEN; ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"--------------------------------\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">queen</span><span class="params">()</span>      <span class="comment">//N皇后程序</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; QUEEN)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (j &lt; QUEEN)        <span class="comment">//对i行的每一列进行探测，看是否可以放置皇后</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(valid(i, j))      <span class="comment">//该位置可以放置皇后</span></span><br><span class="line">            &#123;</span><br><span class="line">                a[i] = j;        <span class="comment">//第i行放置皇后</span></span><br><span class="line">                j = <span class="number">0</span>;           <span class="comment">//第i行放置皇后以后，需要继续探测下一行的皇后位置，</span></span><br><span class="line">                                 <span class="comment">//所以此处将j清零，从下一行的第0列开始逐列探测</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                ++j;             <span class="comment">//继续探测下一列</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[i] == INITIAL)         <span class="comment">//第i行没有找到可以放置皇后的位置</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span>)             <span class="comment">//回溯到第一行，仍然无法找到可以放置皇后的位置，</span></span><br><span class="line">                                    <span class="comment">//则说明已经找到所有的解，程序终止</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">else</span>                    <span class="comment">//没有找到可以放置皇后的列，此时就应该回溯</span></span><br><span class="line">            &#123;</span><br><span class="line">                --i;</span><br><span class="line">                j = a[i] + <span class="number">1</span>;        <span class="comment">//把上一行皇后的位置往后移一列</span></span><br><span class="line">                a[i] = INITIAL;      <span class="comment">//把上一行皇后的位置清除，重新探测</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (i == QUEEN - <span class="number">1</span>)          <span class="comment">//最后一行找到了一个皇后位置，</span></span><br><span class="line">									 <span class="comment">//说明找到一个结果，打印出来</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"answer %d : \n"</span>, ++n);</span><br><span class="line">            print();</span><br><span class="line">            <span class="comment">//不能在此处结束程序，因为我们要找的是N皇后问题的所有解，</span></span><br><span class="line">			<span class="comment">//此时应该清除该行的皇后，从当前放置皇后列数的下一列继续探测。</span></span><br><span class="line">            j = a[i] + <span class="number">1</span>;             <span class="comment">//从最后一行放置皇后列数的下一列继续探测</span></span><br><span class="line">            a[i] = INITIAL;           <span class="comment">//清除最后一行的皇后位置</span></span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ++i;              <span class="comment">//继续探测下一行的皇后位置</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    init();</span><br><span class="line">    queen();</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注：资料整合自网络。</p>
+<p>================================END==================================</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">infinitor</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2018/02/18/数据结构-单循环链表代码-C-类模板封装/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	<!--PC和WAP自适应版-->
+<div id="SOHUCS"></div>
+<script type="text/javascript">
+	(function(){var appid='cyt8KmUC1';var conf='prod_855a68d3b3d91855360a6215672a505a';var width=window.innerWidth||document.documentElement.clientWidth;if(width<960){window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id='+appid+'&conf='+conf+'"><\/script>');}else{var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}
+	c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})});}})();
+</script>	
+
+    </div>
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+                    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Google Search"><button type="submit" class="search-form-submit">谷歌搜索</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>大家好，欢迎来到我的个人博客。这里记录了我的成长过程，如果能帮到你一点点，我很开心。 <br/>
+</p>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xiaoshiyisss" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:2638512393@qq.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
+			    	<i class="qq fa fa-qq"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="微博" target="_blank">
+			    	<i class="weibo fa fa-weibo"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="QQ群" target="_blank">
+			    	<i class="users fa fa-users"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python全栈/"><i class="fa" aria-hidden="true">Python全栈</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/"><i class="fa" aria-hidden="true">数据结构</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/算法/"><i class="fa" aria-hidden="true">算法</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">February 2018</i></a><span class="archive-list-count">9</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Python全栈/" style="font-size: 15px;">Python全栈</a> <a href="/tags/数据结构/" style="font-size: 20px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+  </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">友链</h3>
+        <div class="content friends-link">
+        
+            <a href="https://www.csdn.net/" class="fa" target="_blank">CSDN</a>
+        
+            <a href="https://www.cnblogs.com/" class="fa" target="_blank">博客园</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>
