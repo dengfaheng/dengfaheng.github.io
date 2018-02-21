@@ -38,6 +38,7 @@ html {
   position: relative;
   font-family: "YaHei Monaco Hybird", sans-serif;
 }
+/*background: #ebebeb*/
 body {
   color: #505050;
   line-height: 1.75em;
@@ -299,10 +300,10 @@ pre {
   -webkit-background-size: cover;
   background-size: cover;
 }
-/* main-navigation */
+/* main-navigation 3F4352 EE113D #9BD5E9*/
 .main-navigation {
   text-align: center;
-  background: #3F4352;
+  background: #FFFFFF;
   border-top: 1px solid #ebebeb;
   margin-bottom: 30px;
   border-bottom: 2px solid #e1e1e1;
@@ -317,12 +318,12 @@ pre {
   position: relative;
 }
 .main-navigation .menu li a {
-  color: #EE113D;
-  line-height: 3em;
+  color: #363636;
+  line-height: 3.5em;
   display: block;
-  padding: 0 25px;
-  font-weight:bold;
-  font-size:18px;
+  padding: 0 20px;
+  /*font-weight:bold;*/
+  font-size:16px;
 }
 .main-navigation .menu li:hover > a {
   color: #e67e22;
