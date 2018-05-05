@@ -1,181 +1,123 @@
-<!DOCTYPE HTML>
-<html lang="">
-<head>
-    <!--Setting-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta name="apple-mobile-web-app-capable" content="无限Coding">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no,email=no,adress=no">
-    <meta name="browsermode" content="application">
-    <meta name="screen-orientation" content="portrait">
-    <link rel="dns-prefetch" href="http://yoursite.com">
-    <!--SEO-->
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  数据结构-线性表|顺序表|链表(中) |   短短的代码写写停停 </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
 
 
-
-
-
-<meta name="robots" content="all" />
-<meta name="google" content="all" />
-<meta name="googlebot" content="all" />
-<meta name="verify" content="all" />
-    <!--Title-->
-
-
-<title>数据结构-线性表|顺序表|链表(中) | 无限Coding</title>
-
-
-    <link rel="alternate" href="/atom.xml" title="无限Coding" type="application/atom+xml">
-
-
-    <link rel="icon" href="/favicon.ico">
-
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
     
+      <header class="header">
+	
+  <nav class="header-nav">        
+   
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
 
+    <a class="header-logo" href="/">infinitor的个人博客</a>  
 
-
-<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
-<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
-
-
-
-
-    
-	<div class="hide">
-		<script type="text/javascript">
-			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-	</div>
-
-
-
-
-
-
-    
-</head>
-
-
-<!--[if lte IE 8]>
-<style>
-    html{ font-size: 1em }
-</style>
-<![endif]-->
-<!--[if lte IE 9]>
-<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
-<![endif]-->
-
-<body>
-    <header class="main-header"  style="background-image:url(http://oyxhmjutw.bkt.clouddn.com/18-2-21/37655074.jpg)"  >
-    <div class="main-header-box">
-        <a class="header-avatar" href="/" title="">
-            <img src="/img/avatar.jpg" alt="logo头像">
-        </a>
-        <div class="branding">
-        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+    <div class="header-menu">          
+              
             
-                 <img src="/img/branding.png" alt="Snippet 博客主题">  
-             
-    	</div>
-    </div>
-</header>
-    <nav class="main-navigation">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
-                    <span class="sr-only">Toggle navigation</span>
-                    <i class="fa fa-bars"></i>
-                    </span>
-                </div>
-                <div class="collapse navbar-collapse" id="main-menu">
-                    <ul class="menu">
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
-                            </li>
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>推荐</a>
-                            </li>
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>资源</a>
-                            </li>
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>随想</a>
-                            </li>
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>关于</a>
-                            </li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-    <section class="content-wrap">
-        <div class="container">
-            <div class="row">
-                <main class="col-md-8 main-content m-post">
-                    <p id="process"></p>
-<article class="post">
-    <div class="post-head">
-        <h1 id="数据结构-线性表|顺序表|链表(中)">
+
+              <a class="header-menu-link" id="header-menu-home" href="/">Home</a>     
+
             
-	            数据结构-线性表|顺序表|链表(中)
             
-        </h1>
-        <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/数据结构">
-            数据结构
-        </a>
-    </span>
-    
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
             
-            <a href="/tags/数据结构">
-               数据结构
-            </a>
+
+              <a class="header-menu-link" id="header-menu-categories" href="/categories">Categories</a>     
+
             
-        </span>
-    </span>
+            
+            
+
+              <a class="header-menu-link" id="header-menu-archives" href="/archives">Archives</a>     
+
+            
+            
+            
+
+              <a class="header-menu-link" id="header-menu-tags" href="/tags">Tags</a>     
+
+            
+            
+            
+
+              <a class="header-menu-link" id="header-menu-about" href="/about">About</a>     
+
+            
+            
+            
+
+              <a class="iconfont icon-menu-search header-menu-link" id="header-menu-search"></a>
+
+            
+                
+    </div>  
     
-    
-    <span class="fa-wrap">
-        <i class="fa fa-clock-o"></i>
-        <span class="date-meta">2018/02/18</span>
-    </span>
+  </nav>
+</header>   
+
+      <div class="container">       
+          
+          
+            <section class="main">  
+          
+
+          <article class="post">
+  
+	<div class="post-header">
+
+	<p class="post-title">	
+		数据结构-线性表|顺序表|链表(中)
+	</p>
+			
+
+	<div class="meta-info">	
+	<span>
+		Feb 18, 2018
+	</span>
+
+	
+	
+		<i class="iconfont icon-words"></i>
+		<span>
+			20189
+		</span>
+	
 </div>
 
-            
-            
-    </div>
-    
-    <div class="post-body post-content">
-        <p><img src="http://oyxhmjutw.bkt.clouddn.com/18-2-18/61897969.jpg" alt=""></p>
-<h1 id="数据结构-线性表-顺序表-链表-中"><a href="#数据结构-线性表-顺序表-链表-中" class="headerlink" title="数据结构-线性表|顺序表|链表(中)"></a>数据结构-线性表|顺序表|链表(中)</h1><h2 id="本节纲要"><a href="#本节纲要" class="headerlink" title="本节纲要"></a>本节纲要</h2><ul>
+</div> 
+	 
+
+	  <div class="post-content slideDownMin">
+
+		
+
+			
+					<h1 id="数据结构-线性表-顺序表-链表-中"><a href="#数据结构-线性表-顺序表-链表-中" class="headerlink" title="数据结构-线性表|顺序表|链表(中)"></a>数据结构-线性表|顺序表|链表(中)</h1><h2 id="本节纲要"><a href="#本节纲要" class="headerlink" title="本节纲要"></a>本节纲要</h2><ul>
 <li>预备知识</li>
 <li>顺序表(Sequential List)</li>
 <li><strong>单链表(Singly Linked List )</strong></li>
 <li><strong>静态链表(Static list )</strong></li>
 <li>循环链表(circular linked list)</li>
-<li>双向链表(doubly linked list)<h2 id="03-单链表-Singly-Linked-List"><a href="#03-单链表-Singly-Linked-List" class="headerlink" title="03 单链表(Singly Linked List )"></a>03 单链表(Singly Linked List )</h2><h3 id="3-1-什么是单链表？"><a href="#3-1-什么是单链表？" class="headerlink" title="3.1 什么是单链表？"></a>3.1 什么是单链表？</h3>单链表是一种链式存储的结构。它动态的为节点分配存储单元。当有节点插入时，系统动态的为结点分配空间。在结点删除时，应该及时释放相应的存储单元，以防止内存泄露。由于是链式存储，所以操作单链表时，必须知道头结点或者头指针的位置。并且，在查找第i个节点时，必须找到第i-1个节点。</li>
+<li>双向链表(doubly linked list)</li>
 </ul>
-<h3 id="3-2-单链表的存储结构代码描述"><a href="#3-2-单链表的存储结构代码描述" class="headerlink" title="3.2 单链表的存储结构代码描述"></a>3.2 单链表的存储结构代码描述</h3><p>对于链式存储，通过上一节的讲解相信大家已经了解得够清楚了。如下图所示：<br><img src="http://upload-images.jianshu.io/upload_images/10386940-6b9928e162e91a25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<a id="more"></a>
+<h2 id="03-单链表-Singly-Linked-List"><a href="#03-单链表-Singly-Linked-List" class="headerlink" title="03 单链表(Singly Linked List )"></a>03 单链表(Singly Linked List )</h2><h3 id="3-1-什么是单链表？"><a href="#3-1-什么是单链表？" class="headerlink" title="3.1 什么是单链表？"></a>3.1 什么是单链表？</h3><p>单链表是一种链式存储的结构。它动态的为节点分配存储单元。当有节点插入时，系统动态的为结点分配空间。在结点删除时，应该及时释放相应的存储单元，以防止内存泄露。由于是链式存储，所以操作单链表时，必须知道头结点或者头指针的位置。并且，在查找第i个节点时，必须找到第i-1个节点。</p>
+<h3 id="3-2-单链表的存储结构代码描述"><a href="#3-2-单链表的存储结构代码描述" class="headerlink" title="3.2 单链表的存储结构代码描述"></a>3.2 单链表的存储结构代码描述</h3><p>对于链式存储，通过上一节的讲解相信大家已经了解得够清楚了。如下图所示：<br><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-6b9928e162e91a25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
 <p>下面我们来看看单链表存储是如何用代码来实现的。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单链表的存储结构C语言代码</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">SListNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    datatype data;    <span class="comment">//数据域</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">SListNode</span> * <span class="title">pnext</span>;</span><span class="comment">//指针域</span></span><br><span class="line">&#125;SLinkList;</span><br></pre></td></tr></table></figure></p>
-<p>由上面的结构我们可以看出，一个节点由存放数据的数据域和存放地址的指针域组成。假如p指向了第i个节点，那么p-&gt;data就是该节点存放的数据，而p-&gt;pnext自然就是指向下一个节点的指针。如下图所示：<br><img src="http://upload-images.jianshu.io/upload_images/10386940-2fa902f061b0fdfa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>由上面的结构我们可以看出，一个节点由存放数据的数据域和存放地址的指针域组成。假如p指向了第i个节点，那么p-&gt;data就是该节点存放的数据，而p-&gt;pnext自然就是指向下一个节点的指针。如下图所示：<br><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-2fa902f061b0fdfa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
 <p>那么接下来我们看看单链表的各个操作具体实现吧。(只讲几个关键步骤)<br>备注：下面的代码基于这样的一个单链表：</p>
 <ul>
 <li>有一个头指针phead</li>
@@ -183,7 +125,7 @@
 <li>头指针指向头结点，头结点位置记为0<h3 id="3-3-单链表的读取"><a href="#3-3-单链表的读取" class="headerlink" title="3.3 单链表的读取"></a>3.3 单链表的读取</h3>在拿到头指针以后，单链表的读取也并非一件难事。一开始设置一个计数变量，不断遍历链表，让计数器自增。找到合适的位置将数据读取出来。具体代码实现如下：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> status bool</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR false</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK true</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 函数功能：获取位置index节点的数据</span></span><br><span class="line"><span class="comment"> * 参数说明：phead链表头结点，e用来获取的变量，index索引</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function">status <span class="title">GetSListIndexNode</span><span class="params">(Node * phead,DType *e, <span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> icount = <span class="number">0</span>; <span class="comment">//计数器</span></span><br><span class="line">    <span class="comment">//注：0号位为头结点，头结点不存放任何数据</span></span><br><span class="line">	<span class="keyword">if</span> (phead-&gt;pnext == <span class="literal">nullptr</span> || index &lt; <span class="number">1</span> || index &gt; GetSListLength()<span class="comment">/*此处为链表长度*/</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ERROR; <span class="comment">//异常 处理</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (phead-&gt;pnext != <span class="literal">nullptr</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		icount++;</span><br><span class="line">		phead = phead-&gt;pnext;</span><br><span class="line">		<span class="keyword">if</span> (icount == index)</span><br><span class="line">		&#123;</span><br><span class="line">			*e = phead-&gt;data;</span><br><span class="line">			<span class="keyword">return</span> OK;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="3-4-单链表的插入"><a href="#3-4-单链表的插入" class="headerlink" title="3.4 单链表的插入"></a>3.4 单链表的插入</h3><h4 id="3-4-1-指定位置后插"><a href="#3-4-1-指定位置后插" class="headerlink" title="3.4.1 指定位置后插"></a>3.4.1 指定位置后插</h4><p>其实链表的插入和删除都是很简单的操作，初学者只要抓住指针指向的节点，并加以区分开来，就很easy了。如下图：<br><img src="http://upload-images.jianshu.io/upload_images/10386940-44961ddce9ca5a82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="3-4-单链表的插入"><a href="#3-4-单链表的插入" class="headerlink" title="3.4 单链表的插入"></a>3.4 单链表的插入</h3><h4 id="3-4-1-指定位置后插"><a href="#3-4-1-指定位置后插" class="headerlink" title="3.4.1 指定位置后插"></a>3.4.1 指定位置后插</h4><p>其实链表的插入和删除都是很简单的操作，初学者只要抓住指针指向的节点，并加以区分开来，就很easy了。如下图：<br><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-44961ddce9ca5a82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
 <p>图中，假如此时p指向了我们要插入的节点的位置。那么，怎样把我们的S节点给插入到p指向的节点之后？在这里我们先不要惊动p以及p后面的节点：</p>
 <ol>
 <li>我们先让S节点指向p之后的节点(步骤①)</li>
@@ -200,7 +142,7 @@
 </ol>
 <h4 id="3-4-1-指定位置前插"><a href="#3-4-1-指定位置前插" class="headerlink" title="3.4.1 指定位置前插"></a>3.4.1 指定位置前插</h4><p>咳咳，聪明的小伙伴，用脑子想想。指定位置前插 == 指定位置的前一个位置进行后插。懂了吧？直接看具体代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 函数功能：指定位置后插</span></span><br><span class="line"><span class="comment"> * 参数说明：phead链表头结点，IData插入的数据，index索引</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">status <span class="title">InsertSListNodeBack</span><span class="params">(Node * phead, DType IData, <span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (phead-&gt;pnext == <span class="literal">nullptr</span> || index &lt; <span class="number">1</span> || index &gt; GetSListLength())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ERROR; <span class="comment">//异常 处理</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> iCount = <span class="number">0</span>; <span class="comment">//计数器</span></span><br><span class="line">	Node&lt;DType&gt; * q = <span class="literal">nullptr</span>; <span class="comment">//备用</span></span><br><span class="line">	<span class="keyword">while</span> (phead-&gt;pnext != <span class="literal">nullptr</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		iCount++;</span><br><span class="line">		q = phead;</span><br><span class="line">		phead = phead-&gt;pnext;</span><br><span class="line">		<span class="keyword">if</span> (iCount == index)</span><br><span class="line">		&#123;</span><br><span class="line">			Node&lt;DType&gt; * p = <span class="keyword">new</span> Node&lt;DType&gt;;</span><br><span class="line">			q = phead;</span><br><span class="line">			phead = phead-&gt;pnext; <span class="comment">//后插就是后一个节点的前插咯</span></span><br><span class="line">			p-&gt;data = IData;</span><br><span class="line">			p-&gt;pnext = phead;</span><br><span class="line">			q-&gt;pnext = p;   </span><br><span class="line">			<span class="keyword">return</span> OK;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="3-5-单链表的删除"><a href="#3-5-单链表的删除" class="headerlink" title="3.5 单链表的删除"></a>3.5 单链表的删除</h3><p>单链表的删除其实也是很简单。只要比如要删除p指向的节点，只需要让p之前的节点的指针域直接指向p之后的节点，再把p给free就OK了。如下图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10386940-ea2faa21a4da59c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-ea2faa21a4da59c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
 <p>算法描述:</p>
 <ol>
 <li>声明一个指针p指向链表头结点，向后遍历p=p-&gt;next，找到要删除的节点位置。</li>
@@ -216,7 +158,7 @@
 <li>数据域data</li>
 <li>指针域cur</li>
 </ul>
-<p>数据域是存放数据的，而指针域，这里和链表不同是，它存的不再是指向下一个节点的内存地址。而是下一个节点在数组中的下标。我们就把这种用数组描述的链表称为静态表，该方法也称之为游标实现法。如下图所示：<br><img src="http://upload-images.jianshu.io/upload_images/10386940-66b8deab6693fddd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>数据域是存放数据的，而指针域，这里和链表不同是，它存的不再是指向下一个节点的内存地址。而是下一个节点在数组中的下标。我们就把这种用数组描述的链表称为静态表，该方法也称之为游标实现法。如下图所示：<br><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-66b8deab6693fddd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
 <p>由上图我们需要注意以下几点：</p>
 <ul>
 <li>我们对数组的第一个元素和最后一个元素做特殊处理，不存放数据。</li>
@@ -225,7 +167,7 @@
 <li>数组的最后一个元素的cur域存放第一个有数据的节点的下标，相当于链表中头结点的存在。链表为空时，其值为0。</li>
 </ul>
 <p>如下图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10386940-fdfdfdad92a5417f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-fdfdfdad92a5417f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
 <p>引出的问题：数组的长度定义的问题，无法预支。所以，为了防止溢出，我们一般将静态表开得大一点。</p>
 <h3 id="4-2-静态链表存储的代码描述"><a href="#4-2-静态链表存储的代码描述" class="headerlink" title="4.2 静态链表存储的代码描述"></a>4.2 静态链表存储的代码描述</h3><p>基于上面的讲解，我们来看看代码是怎么描述这种存储结构的。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//---------线性表的静态单链表存储结构--------</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 1000 <span class="comment">/*假设链表最大长度为1000*/</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    datatype data;</span><br><span class="line">    <span class="keyword">int</span> cur;   <span class="comment">//为0时表示无指向</span></span><br><span class="line">&#125;SLinkList[MAXSIZE];</span><br></pre></td></tr></table></figure></p>
 <p>接下来我们讲解几个重要的操作实现。</p>
@@ -251,220 +193,242 @@
 <p>这次就先到这里吧。更多精彩内容，请期待下回分解。</p>
 <p>另外：部分资料参考自网络，来源和作者实在无法考证，如果有侵犯到您的劳动成果，请速与我联系。</p>
 <p>========================END=======================</p>
+  	
+					
+	  </div>     
+	  
 
-    </div>
+	
+<div class="post-meta">
+      
+        <i class="iconfont icon-category"></i>       
+        <a class="category-link" href="/categories/数据结构/">数据结构</a> 	
+     
+      	
 
-    <div class="post-footer">   
-        <div>
-            
-                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">infinitor</a>
-            
-        </div>
-        <div>
-            
-        </div>  
-    </div>
-</article>
-
-<div class="article-nav prev-next-wrap clearfix">
-    
-        <a href="/2018/02/18/数据结构-静态链表代码-C-类模板封装/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
-    
-    
-        <a href="/2018/02/18/数据结构-线性表-顺序表-链表-上/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
-    
+      
+        <i class="iconfont icon-tag"></i>     
+          <a class="tag-link" href="/tags/数据结构/">数据结构</a>    
+      	
 </div>
 
 
-    <div id="comments">
+
+
+
+<div class="post-footer">
+  <div class="pf-left">
+      <img class="pf-avatar lazyload" src="/images/placeholder.png" data-src="/images/header.jpg">
+      <p class="pf-des">hello，大家好。</p>
+  </div>
+
+  <div class="pf-right">           
+      <div class="pf-links">
+        
+
+
+
+
+<span class="donate-btn">
+	<span class="iconfont icon-donate"></span>
+</span>
+
+
+<div id="donate-box" class="sildeUpMin">
+
+	<span class="donate-cancel iconfont icon-cancel"></span>
+
+	<div class="donate-img-box">
+		<img id="donate-qr-wechat" class="donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate1.png">	
+		<img id="donate-qr-alipay" class="donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate2.png">	
+	</div>
+
+	<span class="donate-word">世界美好 你也是</span>
+
+	<div class="donate-list">
+		<span class="iconfont icon-donate-wechat"></span>
+		<span class="iconfont icon-donate-alipay"></span>
+	</div>
+
+</div>
+
+ 
         
 	
-  <script id="dsq-count-scr" src="https://snippet.disqus.com/count.js" async></script>
+<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=21d601593a1de"></script>
+	
+	<span class="share-btn">
+	<span class="iconfont icon-share"></span>
+	</span>
 
 
-<script type="text/javascript">
-  var disqus_config = function () {
-    this.page.url = 'http://yoursite.com/2018/02/18/数据结构-线性表-顺序表-链表-中/';
-    this.page.identifier = '2018/02/18/数据结构-线性表-顺序表-链表-中/';
-    this.page.title = '数据结构-线性表|顺序表|链表(中)';
-  };
-  var d = document, s = d.createElement('script');
-  s.src = 'https://snippet.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', '' + +new Date());
-  (d.head || d.body).appendChild(s);
+	<div class="-mob-share sildeUpMin">
+		   			             
+            <a class="iconfont  icon-share-qq -mob-share-qq"></a>		
+     	   			             
+            <a class="iconfont  icon-share-weixin -mob-share-weixin"></a>		
+     	   			             
+            <a class="iconfont  icon-share-weibo -mob-share-weibo"></a>		
+     	   			             
+            <a class="iconfont  icon-share-douban -mob-share-douban"></a>		
+     	   			             
+            <a class="iconfont  icon-share-facebook -mob-share-facebook"></a>		
+     	   			             
+            <a class="iconfont  icon-share-twitter -mob-share-twitter"></a>		
+     	   			             
+            <a class="iconfont  icon-share-google -mob-share-google"></a>		
+     	   
+	</div>	
+
+      </div>  
+    <nav class="pf-paginator">
+      
+         
+          <a href="/2018/02/18/数据结构-静态链表代码-C-类模板封装/" data-hover="数据结构-静态链表代码(C++类模板封装)">Prev</a>      
+            
+        
+      
+        
+        <a href="/2018/02/18/数据结构-线性表-顺序表-链表-上/" data-hover="数据结构-线性表|顺序表|链表(上)"> Next</a>
+            
+  </nav>   
+  </div>
+</div> 
+	
+
+
+    
+    <div id="disqus_thread"></div>
+
+    <script>
+    (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://'+'lemonreds'+'.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());    
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+
+    <noscript>Please enable JavaScript to view the  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+
+
+	
+</article>
+
+          </section> 
+      </div>            
+    
+    <a id="backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+
+        
+        <div class="search-container sildeUpMin">
+
+
+            <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">  
+            <span class="search-cancel iconfont icon-cancel"></span>
+          
+            </div>
+              
+            <div id="search-result" class="search-result"></div>
+
+        </div>
+ 
+
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon lazyload" src="/images/placeholder.png" data-src="/images/favicon.png">   
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/categories">Categories
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>        
+    
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?636802045446222199ae541e32c8133e"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
 </script>
 
 
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+		
+		2018		
 	
+		infinitor
+		<br>
 
-    </div>
+		Built By Theme
+		<a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>	
+		</div>			
+	 
+</footer>   
 
+  
 
-
-
-
-                </main>
-                
-    <aside class="col-md-4 sidebar">
-        
-        
-    <div class="widget">    
-        <h3 class="title">搜索</h3>
-        <div id="search-form">
-            <div id="result-mask" class="hide"></div>
-            <div class="search-area">
-                
-                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
-                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
-                
-                
-                    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Google Search"><button type="submit" class="search-form-submit">谷歌搜索</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-                
-            </div>
-            <div id="result-wrap" class="hide">
-                <div id="search-result"></div>
-            </div>
-            <div class="hide">
-                <template id="search-tpl">
-                    <div class="item">
-                        <a href="/{path}" title="{title}">
-                            <div class="title">{title}</div>
-                            <div class="content">{content}</div>
-                        </a>
-                    </div>
-                </template>
-            </div>
-        </div>
-    </div>
-
-        
-        
-    <div class="widget notification">
-        <h3 class="title">网站公告</h3>
-        <div>
-            <p>大家好，欢迎来到我的个人博客。这里记录了我的成长过程，如果能帮到你一点点，我很开心。 <br/>
-</p>
-        </div>
-    </div>
-
-        
-        
-    <div class="widget">
-      <h3 class="title">社交</h3> 
-        <div class="content social">
-            
-	            <a href="//github.com/xiaoshiyisss" rel="external nofollow" title="Github" target="_blank">
-			    	<i class="git fa fa-git"></i>
-			    </a>
-            
-	            <a href="mailto:2638512393@qq.com" rel="external nofollow" title="邮箱" target="_blank">
-			    	<i class="envelope-o fa fa-envelope-o"></i>
-			    </a>
-            
-	            <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
-			    	<i class="qq fa fa-qq"></i>
-			    </a>
-            
-	            <a href="/" rel="external nofollow" title="微博" target="_blank">
-			    	<i class="weibo fa fa-weibo"></i>
-			    </a>
-            
-	            <a href="/" rel="external nofollow" title="QQ群" target="_blank">
-			    	<i class="users fa fa-users"></i>
-			    </a>
-            
-	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
-			    	<i class="feed fa fa-feed"></i>
-			    </a>
-            
-        </div>
-    </div>
-
-
-        
-        
-    <div class="widget">
-        <h3 class="title">分类</h3>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/全栈/"><i class="fa" aria-hidden="true">全栈</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/"><i class="fa" aria-hidden="true">数据结构</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/"><i class="fa" aria-hidden="true">算法</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/随想/"><i class="fa" aria-hidden="true">随想</i></a><span class="category-list-count">1</span></li></ul>
-    </div>
-
-
-        
-        
-    <div class="widget">
-      <h3 class="title">归档</h3>
-        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">February 2018</i></a><span class="archive-list-count">9</span></li></ul>
-    </div>
-
-
-        
-        
-  <div class="widget">
-    <h3 class="title">标签云</h3>
-    <div class="content tag-cloud">
-        <a href="/tags/Python-游戏/" style="font-size: 10px;">Python, 游戏</a> <a href="/tags/数据结构/" style="font-size: 20px;">数据结构</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/随想/" style="font-size: 10px;">随想</a>
-    </div>
-  </div>
-
-
-        
-        
-    <div class="widget">
-        <h3 class="title">友链</h3>
-        <div class="content friends-link">
-        
-            <a href="https://www.csdn.net/" class="fa" target="_blank">CSDN</a>
-        
-            <a href="https://www.cnblogs.com/" class="fa" target="_blank">博客园</a>
-        
-        </div>
-    </div>
-
-
-        
-    </aside>
-
-            </div>
-        </div>
-    </section>
-    <footer class="main-footer">
-    <div class="container">
-        <div class="row">
-        </div>
-    </div>
-</footer>
-
-<a id="back-to-top" class="hide">
-	<i class="fa fa-chevron-up"></i>
-</a>
-
-
-
-
-    <div class="copyright">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12"> 
-                <span>Copyright &copy; 2017
-                </span> | 
-                <span>
-                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
-                </span> | 
-                <span>
-                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-	<script src="/js/search.js?rev=@@hash"></script>
-
-
-<script src="/js/app.js?rev=@@hash"></script>
-
-
-</body>
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
 </html>

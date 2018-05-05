@@ -1,179 +1,121 @@
-<!DOCTYPE HTML>
-<html lang="">
-<head>
-    <!--Setting-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta name="apple-mobile-web-app-capable" content="无限Coding">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no,email=no,adress=no">
-    <meta name="browsermode" content="application">
-    <meta name="screen-orientation" content="portrait">
-    <link rel="dns-prefetch" href="http://yoursite.com">
-    <!--SEO-->
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  10分钟教你用python打造贪吃蛇超详细教程 |   短短的代码写写停停 </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
 
 
-
-
-
-<meta name="robots" content="all" />
-<meta name="google" content="all" />
-<meta name="googlebot" content="all" />
-<meta name="verify" content="all" />
-    <!--Title-->
-
-
-<title>10分钟教你用python打造贪吃蛇超详细教程 | 无限Coding</title>
-
-
-    <link rel="alternate" href="/atom.xml" title="无限Coding" type="application/atom+xml">
-
-
-    <link rel="icon" href="/favicon.ico">
-
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
     
+      <header class="header">
+	
+  <nav class="header-nav">        
+   
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
 
+    <a class="header-logo" href="/">infinitor的个人博客</a>  
 
-
-<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
-<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
-
-
-
-
-    
-	<div class="hide">
-		<script type="text/javascript">
-			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-	</div>
-
-
-
-
-
-
-    
-</head>
-
-
-<!--[if lte IE 8]>
-<style>
-    html{ font-size: 1em }
-</style>
-<![endif]-->
-<!--[if lte IE 9]>
-<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
-<![endif]-->
-
-<body>
-    <header class="main-header"  style="background-image:url(http://oyxhmjutw.bkt.clouddn.com/18-2-21/37655074.jpg)"  >
-    <div class="main-header-box">
-        <a class="header-avatar" href="/" title="">
-            <img src="/img/avatar.jpg" alt="logo头像">
-        </a>
-        <div class="branding">
-        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+    <div class="header-menu">          
+              
             
-                 <img src="/img/branding.png" alt="Snippet 博客主题">  
-             
-    	</div>
-    </div>
-</header>
-    <nav class="main-navigation">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
-                    <span class="sr-only">Toggle navigation</span>
-                    <i class="fa fa-bars"></i>
-                    </span>
-                </div>
-                <div class="collapse navbar-collapse" id="main-menu">
-                    <ul class="menu">
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
-                            </li>
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>推荐</a>
-                            </li>
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>资源</a>
-                            </li>
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>随想</a>
-                            </li>
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>关于</a>
-                            </li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-    <section class="content-wrap">
-        <div class="container">
-            <div class="row">
-                <main class="col-md-8 main-content m-post">
-                    <p id="process"></p>
-<article class="post">
-    <div class="post-head">
-        <h1 id="10分钟教你用python打造贪吃蛇超详细教程">
+
+              <a class="header-menu-link" id="header-menu-home" href="/">Home</a>     
+
             
-	            10分钟教你用python打造贪吃蛇超详细教程
             
-        </h1>
-        <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/全栈">
-            全栈
-        </a>
-    </span>
-    
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
             
-            <a href="/tags/Python, 游戏">
-               Python, 游戏
-            </a>
+
+              <a class="header-menu-link" id="header-menu-categories" href="/categories">Categories</a>     
+
             
-        </span>
-    </span>
+            
+            
+
+              <a class="header-menu-link" id="header-menu-archives" href="/archives">Archives</a>     
+
+            
+            
+            
+
+              <a class="header-menu-link" id="header-menu-tags" href="/tags">Tags</a>     
+
+            
+            
+            
+
+              <a class="header-menu-link" id="header-menu-about" href="/about">About</a>     
+
+            
+            
+            
+
+              <a class="iconfont icon-menu-search header-menu-link" id="header-menu-search"></a>
+
+            
+                
+    </div>  
     
-    
-    <span class="fa-wrap">
-        <i class="fa fa-clock-o"></i>
-        <span class="date-meta">2018/02/19</span>
-    </span>
+  </nav>
+</header>   
+
+      <div class="container">       
+          
+          
+            <section class="main">  
+          
+
+          <article class="post">
+  
+	<div class="post-header">
+
+	<p class="post-title">	
+		10分钟教你用python打造贪吃蛇超详细教程
+	</p>
+			
+
+	<div class="meta-info">	
+	<span>
+		Feb 19, 2018
+	</span>
+
+	
+	
+		<i class="iconfont icon-words"></i>
+		<span>
+			12552
+		</span>
+	
 </div>
 
-            
-            
-    </div>
-    
-    <div class="post-body post-content">
-        <h1 id="10分钟教你用python打造贪吃蛇超详细教程"><a href="#10分钟教你用python打造贪吃蛇超详细教程" class="headerlink" title="10分钟教你用python打造贪吃蛇超详细教程"></a>10分钟教你用python打造贪吃蛇超详细教程</h1><p>在家闲着没妹子约, 刚好最近又学了一下python，听说pygame挺好玩的。今天就在家研究一下， 弄了个贪吃蛇出来。希望没女朋友的大家喜欢~~~</p>
+</div> 
+	 
+
+	  <div class="post-content slideDownMin">
+
+		
+
+			
+					<h1 id="10分钟教你用python打造贪吃蛇超详细教程"><a href="#10分钟教你用python打造贪吃蛇超详细教程" class="headerlink" title="10分钟教你用python打造贪吃蛇超详细教程"></a>10分钟教你用python打造贪吃蛇超详细教程</h1><p>在家闲着没妹子约, 刚好最近又学了一下python，听说pygame挺好玩的。今天就在家研究一下， 弄了个贪吃蛇出来。希望大家喜欢。</p>
+<a id="more"></a>
 <p>先看程序效果：</p>
-<p><img src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/23248360.jpg" alt=""></p>
-<p><img src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/83022057.jpg" alt=""></p>
+<p><img src="/images/placeholder.png" alt="" data-src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/23248360.jpg" class="lazyload"></p>
+<p><img src="/images/placeholder.png" alt="" data-src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/83022057.jpg" class="lazyload"></p>
 <h2 id="01-整体框架"><a href="#01-整体框架" class="headerlink" title="01 整体框架"></a>01 整体框架</h2><p>平台：pycharm</p>
 <p>关于pygame的安装这里就不在赘述，大家自行上网找合适自己的版本的安装即可。关于pygame模块知识会穿插在下面代码中介绍，用到什么就介绍什么。这里就不统一介绍了。</p>
 <p>整个程序由于是调用了大量的pygame里面的库函数，所以也非常简单（卧槽你这不是调包侠嘛）。也就200多行代码。基于整体怎么设计的呢？看下面的图：</p>
-<p><img src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/23040142.jpg" alt=""></p>
+<p><img src="/images/placeholder.png" alt="" data-src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/23040142.jpg" class="lazyload"></p>
 <p>由于程序没有多么复杂，就直接用面向过程的思路写了。毕竟这么小的程序没必要整一大堆class来为难自己对吧。</p>
-<p>程序整体代码框架：<br><img src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/69724254.jpg" alt=""></p>
+<p>程序整体代码框架：<br><img src="/images/placeholder.png" alt="" data-src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/69724254.jpg" class="lazyload"></p>
 <p>pycharm里面一堆波浪线也是很无奈。</p>
 <h2 id="02-main主函数-开始工作"><a href="#02-main主函数-开始工作" class="headerlink" title="02 main主函数-开始工作"></a>02 main主函数-开始工作</h2><p>此函数也非常简单。主要承担一些游戏窗口的初始化工作，以及调用相关函数运行游戏。代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#主函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">	pygame.init() <span class="comment"># 模块初始化</span></span><br><span class="line">	snake_speed_clock = pygame.time.Clock() <span class="comment"># 创建Pygame时钟对象</span></span><br><span class="line">	screen = pygame.display.set_mode((windows_width, windows_height)) <span class="comment">#</span></span><br><span class="line">	screen.fill(white)</span><br><span class="line"></span><br><span class="line">	pygame.display.set_caption(<span class="string">"Python 贪吃蛇小游戏"</span>) <span class="comment">#设置标题</span></span><br><span class="line">	show_start_info(screen)               <span class="comment">#欢迎信息</span></span><br><span class="line">	<span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">		running_game(screen, snake_speed_clock)</span><br><span class="line">		show_gameover_info(screen)</span><br></pre></td></tr></table></figure>
@@ -199,7 +141,7 @@
 <p>以上讲完，然后就是运行我们游戏三个函数了。</p>
 <ul>
 <li><p>show_start_info(screen)<br>显示欢迎信息，最终效果表现为：</p>
-<p>  <img src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/72595853.jpg" alt=""></p>
+<p>  <img src="/images/placeholder.png" alt="" data-src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/72595853.jpg" class="lazyload"></p>
 <p>  当然，怎么实现，待会说。</p>
 </li>
 </ul>
@@ -208,7 +150,7 @@
 <li><p><strong>游戏主体running_game(screen, snake_speed_clock)</strong><br>贪吃蛇运行的主体函数。整个程序的精髓所在。</p>
 </li>
 <li><p><strong>show_gameover_info(screen)</strong><br>贪吃蛇死了，显示GameOver，表现为：</p>
-<p>  <img src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/66638657.jpg" alt=""><br>  怎么实现，下面说。</p>
+<p>  <img src="/images/placeholder.png" alt="" data-src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/66638657.jpg" class="lazyload"><br>  怎么实现，下面说。</p>
 </li>
 </ul>
 <h2 id="03-show-start-info-欢迎进入游戏"><a href="#03-show-start-info-欢迎进入游戏" class="headerlink" title="03 show_start_info()欢迎进入游戏"></a>03 show_start_info()欢迎进入游戏</h2><p>先贴代码，待会讲解。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#开始信息显示</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_start_info</span><span class="params">(screen)</span>:</span></span><br><span class="line">	font = pygame.font.Font(<span class="string">'myfont.ttf'</span>, <span class="number">40</span>)</span><br><span class="line">	tip = font.render(<span class="string">'按任意键开始游戏~~~'</span>, <span class="keyword">True</span>, (<span class="number">65</span>, <span class="number">105</span>, <span class="number">225</span>))</span><br><span class="line">	gamestart = pygame.image.load(<span class="string">'gamestart.png'</span>)</span><br><span class="line">	screen.blit(gamestart, (<span class="number">140</span>, <span class="number">30</span>))</span><br><span class="line">	screen.blit(tip, (<span class="number">240</span>, <span class="number">550</span>))</span><br><span class="line">	pygame.display.update()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> <span class="keyword">True</span>:  <span class="comment">#键盘监听事件</span></span><br><span class="line">		<span class="keyword">for</span> event <span class="keyword">in</span> pygame.event.get():  <span class="comment"># event handling loop</span></span><br><span class="line">			<span class="keyword">if</span> event.type == QUIT:</span><br><span class="line">				terminate()     <span class="comment">#终止程序</span></span><br><span class="line">			<span class="keyword">elif</span> event.type == KEYDOWN:</span><br><span class="line">				<span class="keyword">if</span> (event.key == K_ESCAPE):  <span class="comment">#终止程序</span></span><br><span class="line">					terminate() <span class="comment">#终止程序</span></span><br><span class="line">				<span class="keyword">else</span>:</span><br><span class="line">					<span class="keyword">return</span> <span class="comment">#结束此函数, 开始游戏</span></span><br></pre></td></tr></table></figure></p>
@@ -244,227 +186,249 @@
 </ul>
 <h2 id="05-draw-snake-画出我们的贪吃蛇"><a href="#05-draw-snake-画出我们的贪吃蛇" class="headerlink" title="05 draw_snake-画出我们的贪吃蛇"></a>05 draw_snake-画出我们的贪吃蛇</h2><p>直接看代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_snake</span><span class="params">(screen, snake_coords)</span>:</span></span><br><span class="line">	<span class="keyword">for</span> coord <span class="keyword">in</span> snake_coords:</span><br><span class="line">		x = coord[<span class="string">'x'</span>] * cell_size</span><br><span class="line">		y = coord[<span class="string">'y'</span>] * cell_size</span><br><span class="line">		wormSegmentRect = pygame.Rect(x, y, cell_size, cell_size)</span><br><span class="line">		pygame.draw.rect(screen, dark_blue, wormSegmentRect)</span><br><span class="line">		wormInnerSegmentRect = pygame.Rect(                <span class="comment">#蛇身子里面的第二层亮蓝色色</span></span><br><span class="line">			x + <span class="number">4</span>, y + <span class="number">4</span>, cell_size - <span class="number">8</span>, cell_size - <span class="number">8</span>)</span><br><span class="line">		pygame.draw.rect(screen, blue, wormInnerSegmentRect)</span><br></pre></td></tr></table></figure></p>
 <p>代码很easy，主要是获取相关坐标，最后调用pygame.draw.rect将身体各个部分画出来即可。不过为了美观，我们选择再在里面画一层不同颜色的，表现为：</p>
-<p><img src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/70241636.jpg" alt=""></p>
+<p><img src="/images/placeholder.png" alt="" data-src="http://oyxhmjutw.bkt.clouddn.com/18-2-19/70241636.jpg" class="lazyload"></p>
 <h2 id="06-draw-food-画出我们的食物"><a href="#06-draw-food-画出我们的食物" class="headerlink" title="06 draw_food-画出我们的食物"></a>06 draw_food-画出我们的食物</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将食物画出来</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_food</span><span class="params">(screen, food)</span>:</span></span><br><span class="line">	x = food[<span class="string">'x'</span>] * cell_size</span><br><span class="line">	y = food[<span class="string">'y'</span>] * cell_size</span><br><span class="line">	appleRect = pygame.Rect(x, y, cell_size, cell_size)</span><br><span class="line">	pygame.draw.rect(screen, Red, appleRect)</span><br></pre></td></tr></table></figure>
 <p>更简单的代码了，获取位置，画矩形。</p>
 <h2 id="07-draw-score-画出我们的成绩"><a href="#07-draw-score-画出我们的成绩" class="headerlink" title="07 draw_score-画出我们的成绩"></a>07 draw_score-画出我们的成绩</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#画成绩</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_score</span><span class="params">(screen,score)</span>:</span></span><br><span class="line">	font = pygame.font.Font(<span class="string">'myfont.ttf'</span>, <span class="number">30</span>)</span><br><span class="line">	scoreSurf = font.render(<span class="string">'得分: %s'</span> % score, <span class="keyword">True</span>, Green)</span><br><span class="line">	scoreRect = scoreSurf.get_rect()</span><br><span class="line">	scoreRect.topleft = (windows_width - <span class="number">120</span>, <span class="number">10</span>)</span><br><span class="line">	screen.blit(scoreSurf, scoreRect)</span><br></pre></td></tr></table></figure>
 <p>画成绩也比较简单。获得Font对象以后，render写字，最后设置位置，在屏幕上blit出来。</p>
 <h2 id="08-完整代码"><a href="#08-完整代码" class="headerlink" title="08 完整代码"></a>08 完整代码</h2><p>整个程序大体如上，其他细枝末节直接看源代码吧。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">## 导入相关模块</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> pygame</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pygame.locals <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">snake_speed = <span class="number">15</span> <span class="comment">#贪吃蛇的速度</span></span><br><span class="line">windows_width = <span class="number">800</span></span><br><span class="line">windows_height = <span class="number">600</span> <span class="comment">#游戏窗口的大小</span></span><br><span class="line">cell_size = <span class="number">20</span>       <span class="comment">#贪吃蛇身体方块大小,注意身体大小必须能被窗口长宽整除</span></span><br><span class="line"></span><br><span class="line"><span class="string">''' #初始化区</span></span><br><span class="line"><span class="string">由于我们的贪吃蛇是有大小尺寸的, 因此地图的实际尺寸是相对于贪吃蛇的大小尺寸而言的</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">map_width = int(windows_width / cell_size)</span><br><span class="line">map_height = int(windows_height / cell_size)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 颜色定义</span></span><br><span class="line">white = (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>)</span><br><span class="line">black = (<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">gray = (<span class="number">230</span>, <span class="number">230</span>, <span class="number">230</span>)</span><br><span class="line">dark_gray = (<span class="number">40</span>, <span class="number">40</span>, <span class="number">40</span>)</span><br><span class="line">DARKGreen = (<span class="number">0</span>, <span class="number">155</span>, <span class="number">0</span>)</span><br><span class="line">Green = (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>)</span><br><span class="line">Red = (<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">blue = (<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>)</span><br><span class="line">dark_blue =(<span class="number">0</span>,<span class="number">0</span>, <span class="number">139</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">BG_COLOR = black <span class="comment">#游戏背景颜色</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义方向</span></span><br><span class="line">UP = <span class="number">1</span></span><br><span class="line">DOWN = <span class="number">2</span></span><br><span class="line">LEFT = <span class="number">3</span></span><br><span class="line">RIGHT = <span class="number">4</span></span><br><span class="line"></span><br><span class="line">HEAD = <span class="number">0</span> <span class="comment">#贪吃蛇头部下标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#主函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">	pygame.init() <span class="comment"># 模块初始化</span></span><br><span class="line">	snake_speed_clock = pygame.time.Clock() <span class="comment"># 创建Pygame时钟对象</span></span><br><span class="line">	screen = pygame.display.set_mode((windows_width, windows_height)) <span class="comment">#</span></span><br><span class="line">	screen.fill(white)</span><br><span class="line"></span><br><span class="line">	pygame.display.set_caption(<span class="string">"Python 贪吃蛇小游戏"</span>) <span class="comment">#设置标题</span></span><br><span class="line">	show_start_info(screen)               <span class="comment">#欢迎信息</span></span><br><span class="line">	<span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">		running_game(screen, snake_speed_clock)</span><br><span class="line">		show_gameover_info(screen)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#游戏运行主体</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">running_game</span><span class="params">(screen,snake_speed_clock)</span>:</span></span><br><span class="line">	startx = random.randint(<span class="number">3</span>, map_width - <span class="number">8</span>) <span class="comment">#开始位置</span></span><br><span class="line">	starty = random.randint(<span class="number">3</span>, map_height - <span class="number">8</span>)</span><br><span class="line">	snake_coords = [&#123;<span class="string">'x'</span>: startx, <span class="string">'y'</span>: starty&#125;,  <span class="comment">#初始贪吃蛇</span></span><br><span class="line">                  &#123;<span class="string">'x'</span>: startx - <span class="number">1</span>, <span class="string">'y'</span>: starty&#125;,</span><br><span class="line">                  &#123;<span class="string">'x'</span>: startx - <span class="number">2</span>, <span class="string">'y'</span>: starty&#125;]</span><br><span class="line"></span><br><span class="line">	direction = RIGHT       <span class="comment">#  开始时向右移动</span></span><br><span class="line"></span><br><span class="line">	food = get_random_location()     <span class="comment">#实物随机位置</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">		<span class="keyword">for</span> event <span class="keyword">in</span> pygame.event.get():</span><br><span class="line">			<span class="keyword">if</span> event.type == QUIT:</span><br><span class="line">				terminate()</span><br><span class="line">			<span class="keyword">elif</span> event.type == KEYDOWN:</span><br><span class="line">				<span class="keyword">if</span> (event.key == K_LEFT <span class="keyword">or</span> event.key == K_a) <span class="keyword">and</span> direction != RIGHT:</span><br><span class="line">					direction = LEFT</span><br><span class="line">				<span class="keyword">elif</span> (event.key == K_RIGHT <span class="keyword">or</span> event.key == K_d) <span class="keyword">and</span> direction != LEFT:</span><br><span class="line">					direction = RIGHT</span><br><span class="line">				<span class="keyword">elif</span> (event.key == K_UP <span class="keyword">or</span> event.key == K_w) <span class="keyword">and</span> direction != DOWN:</span><br><span class="line">					direction = UP</span><br><span class="line">				<span class="keyword">elif</span> (event.key == K_DOWN <span class="keyword">or</span> event.key == K_s) <span class="keyword">and</span> direction != UP:</span><br><span class="line">					direction = DOWN</span><br><span class="line">				<span class="keyword">elif</span> event.key == K_ESCAPE:</span><br><span class="line">					terminate()</span><br><span class="line"></span><br><span class="line">		move_snake(direction, snake_coords) <span class="comment">#移动蛇</span></span><br><span class="line"></span><br><span class="line">		ret = snake_is_alive(snake_coords)</span><br><span class="line">		<span class="keyword">if</span> <span class="keyword">not</span> ret:</span><br><span class="line">			<span class="keyword">break</span> <span class="comment">#蛇跪了. 游戏结束</span></span><br><span class="line">		snake_is_eat_food(snake_coords, food) <span class="comment">#判断蛇是否吃到食物</span></span><br><span class="line"></span><br><span class="line">		screen.fill(BG_COLOR)</span><br><span class="line">		<span class="comment">#draw_grid(screen)</span></span><br><span class="line">		draw_snake(screen, snake_coords)</span><br><span class="line">		draw_food(screen, food)</span><br><span class="line">		draw_score(screen, len(snake_coords) - <span class="number">3</span>)</span><br><span class="line">		pygame.display.update()</span><br><span class="line">		snake_speed_clock.tick(snake_speed) <span class="comment">#控制fps</span></span><br><span class="line"><span class="comment">#将食物画出来</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_food</span><span class="params">(screen, food)</span>:</span></span><br><span class="line">	x = food[<span class="string">'x'</span>] * cell_size</span><br><span class="line">	y = food[<span class="string">'y'</span>] * cell_size</span><br><span class="line">	appleRect = pygame.Rect(x, y, cell_size, cell_size)</span><br><span class="line">	pygame.draw.rect(screen, Red, appleRect)</span><br><span class="line"><span class="comment">#将贪吃蛇画出来</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_snake</span><span class="params">(screen, snake_coords)</span>:</span></span><br><span class="line">	<span class="keyword">for</span> coord <span class="keyword">in</span> snake_coords:</span><br><span class="line">		x = coord[<span class="string">'x'</span>] * cell_size</span><br><span class="line">		y = coord[<span class="string">'y'</span>] * cell_size</span><br><span class="line">		wormSegmentRect = pygame.Rect(x, y, cell_size, cell_size)</span><br><span class="line">		pygame.draw.rect(screen, dark_blue, wormSegmentRect)</span><br><span class="line">		wormInnerSegmentRect = pygame.Rect(                <span class="comment">#蛇身子里面的第二层亮绿色</span></span><br><span class="line">			x + <span class="number">4</span>, y + <span class="number">4</span>, cell_size - <span class="number">8</span>, cell_size - <span class="number">8</span>)</span><br><span class="line">		pygame.draw.rect(screen, blue, wormInnerSegmentRect)</span><br><span class="line"><span class="comment">#画网格(可选)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_grid</span><span class="params">(screen)</span>:</span></span><br><span class="line">	<span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, windows_width, cell_size):  <span class="comment"># draw 水平 lines</span></span><br><span class="line">		pygame.draw.line(screen, dark_gray, (x, <span class="number">0</span>), (x, windows_height))</span><br><span class="line">	<span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">0</span>, windows_height, cell_size):  <span class="comment"># draw 垂直 lines</span></span><br><span class="line">		pygame.draw.line(screen, dark_gray, (<span class="number">0</span>, y), (windows_width, y))</span><br><span class="line"><span class="comment">#移动贪吃蛇</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">move_snake</span><span class="params">(direction, snake_coords)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> direction == UP:</span><br><span class="line">        newHead = &#123;<span class="string">'x'</span>: snake_coords[HEAD][<span class="string">'x'</span>], <span class="string">'y'</span>: snake_coords[HEAD][<span class="string">'y'</span>] - <span class="number">1</span>&#125;</span><br><span class="line">    <span class="keyword">elif</span> direction == DOWN:</span><br><span class="line">        newHead = &#123;<span class="string">'x'</span>: snake_coords[HEAD][<span class="string">'x'</span>], <span class="string">'y'</span>: snake_coords[HEAD][<span class="string">'y'</span>] + <span class="number">1</span>&#125;</span><br><span class="line">    <span class="keyword">elif</span> direction == LEFT:</span><br><span class="line">        newHead = &#123;<span class="string">'x'</span>: snake_coords[HEAD][<span class="string">'x'</span>] - <span class="number">1</span>, <span class="string">'y'</span>: snake_coords[HEAD][<span class="string">'y'</span>]&#125;</span><br><span class="line">    <span class="keyword">elif</span> direction == RIGHT:</span><br><span class="line">        newHead = &#123;<span class="string">'x'</span>: snake_coords[HEAD][<span class="string">'x'</span>] + <span class="number">1</span>, <span class="string">'y'</span>: snake_coords[HEAD][<span class="string">'y'</span>]&#125;</span><br><span class="line"></span><br><span class="line">    snake_coords.insert(<span class="number">0</span>, newHead)</span><br><span class="line"><span class="comment">#判断蛇死了没</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">snake_is_alive</span><span class="params">(snake_coords)</span>:</span></span><br><span class="line">	tag = <span class="keyword">True</span></span><br><span class="line">	<span class="keyword">if</span> snake_coords[HEAD][<span class="string">'x'</span>] == <span class="number">-1</span> <span class="keyword">or</span> snake_coords[HEAD][<span class="string">'x'</span>] == map_width <span class="keyword">or</span> snake_coords[HEAD][<span class="string">'y'</span>] == <span class="number">-1</span> <span class="keyword">or</span> \</span><br><span class="line">			snake_coords[HEAD][<span class="string">'y'</span>] == map_height:</span><br><span class="line">		tag = <span class="keyword">False</span> <span class="comment"># 蛇碰壁啦</span></span><br><span class="line">	<span class="keyword">for</span> snake_body <span class="keyword">in</span> snake_coords[<span class="number">1</span>:]:</span><br><span class="line">		<span class="keyword">if</span> snake_body[<span class="string">'x'</span>] == snake_coords[HEAD][<span class="string">'x'</span>] <span class="keyword">and</span> snake_body[<span class="string">'y'</span>] == snake_coords[HEAD][<span class="string">'y'</span>]:</span><br><span class="line">			tag = <span class="keyword">False</span> <span class="comment"># 蛇碰到自己身体啦</span></span><br><span class="line">	<span class="keyword">return</span> tag</span><br><span class="line"><span class="comment">#判断贪吃蛇是否吃到食物</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">snake_is_eat_food</span><span class="params">(snake_coords, food)</span>:</span>  <span class="comment">#如果是列表或字典，那么函数内修改参数内容，就会影响到函数体外的对象。</span></span><br><span class="line">	<span class="keyword">if</span> snake_coords[HEAD][<span class="string">'x'</span>] == food[<span class="string">'x'</span>] <span class="keyword">and</span> snake_coords[HEAD][<span class="string">'y'</span>] == food[<span class="string">'y'</span>]:</span><br><span class="line">		food[<span class="string">'x'</span>] = random.randint(<span class="number">0</span>, map_width - <span class="number">1</span>)</span><br><span class="line">		food[<span class="string">'y'</span>] = random.randint(<span class="number">0</span>, map_height - <span class="number">1</span>) <span class="comment"># 实物位置重新设置</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="keyword">del</span> snake_coords[<span class="number">-1</span>]  <span class="comment"># 如果没有吃到实物, 就向前移动, 那么尾部一格删掉</span></span><br><span class="line"><span class="comment">#食物随机生成</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_location</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="keyword">return</span> &#123;<span class="string">'x'</span>: random.randint(<span class="number">0</span>, map_width - <span class="number">1</span>), <span class="string">'y'</span>: random.randint(<span class="number">0</span>, map_height - <span class="number">1</span>)&#125;</span><br><span class="line"><span class="comment">#开始信息显示</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_start_info</span><span class="params">(screen)</span>:</span></span><br><span class="line">	font = pygame.font.Font(<span class="string">'myfont.ttf'</span>, <span class="number">40</span>)</span><br><span class="line">	tip = font.render(<span class="string">'按任意键开始游戏~~~'</span>, <span class="keyword">True</span>, (<span class="number">65</span>, <span class="number">105</span>, <span class="number">225</span>))</span><br><span class="line">	gamestart = pygame.image.load(<span class="string">'gamestart.png'</span>)</span><br><span class="line">	screen.blit(gamestart, (<span class="number">140</span>, <span class="number">30</span>))</span><br><span class="line">	screen.blit(tip, (<span class="number">240</span>, <span class="number">550</span>))</span><br><span class="line">	pygame.display.update()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> <span class="keyword">True</span>:  <span class="comment">#键盘监听事件</span></span><br><span class="line">		<span class="keyword">for</span> event <span class="keyword">in</span> pygame.event.get():  <span class="comment"># event handling loop</span></span><br><span class="line">			<span class="keyword">if</span> event.type == QUIT:</span><br><span class="line">				terminate()     <span class="comment">#终止程序</span></span><br><span class="line">			<span class="keyword">elif</span> event.type == KEYDOWN:</span><br><span class="line">				<span class="keyword">if</span> (event.key == K_ESCAPE):  <span class="comment">#终止程序</span></span><br><span class="line">					terminate() <span class="comment">#终止程序</span></span><br><span class="line">				<span class="keyword">else</span>:</span><br><span class="line">					<span class="keyword">return</span> <span class="comment">#结束此函数, 开始游戏</span></span><br><span class="line"><span class="comment">#游戏结束信息显示</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_gameover_info</span><span class="params">(screen)</span>:</span></span><br><span class="line">	font = pygame.font.Font(<span class="string">'myfont.ttf'</span>, <span class="number">40</span>)</span><br><span class="line">	tip = font.render(<span class="string">'按Q或者ESC退出游戏, 按任意键重新开始游戏~'</span>, <span class="keyword">True</span>, (<span class="number">65</span>, <span class="number">105</span>, <span class="number">225</span>))</span><br><span class="line">	gamestart = pygame.image.load(<span class="string">'gameover.png'</span>)</span><br><span class="line">	screen.blit(gamestart, (<span class="number">60</span>, <span class="number">0</span>))</span><br><span class="line">	screen.blit(tip, (<span class="number">80</span>, <span class="number">300</span>))</span><br><span class="line">	pygame.display.update()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> <span class="keyword">True</span>:  <span class="comment">#键盘监听事件</span></span><br><span class="line">		<span class="keyword">for</span> event <span class="keyword">in</span> pygame.event.get():  <span class="comment"># event handling loop</span></span><br><span class="line">			<span class="keyword">if</span> event.type == QUIT:</span><br><span class="line">				terminate()     <span class="comment">#终止程序</span></span><br><span class="line">			<span class="keyword">elif</span> event.type == KEYDOWN:</span><br><span class="line">				<span class="keyword">if</span> event.key == K_ESCAPE <span class="keyword">or</span> event.key == K_q:  <span class="comment">#终止程序</span></span><br><span class="line">					terminate() <span class="comment">#终止程序</span></span><br><span class="line">				<span class="keyword">else</span>:</span><br><span class="line">					<span class="keyword">return</span> <span class="comment">#结束此函数, 重新开始游戏</span></span><br><span class="line"><span class="comment">#画成绩</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_score</span><span class="params">(screen,score)</span>:</span></span><br><span class="line">	font = pygame.font.Font(<span class="string">'myfont.ttf'</span>, <span class="number">30</span>)</span><br><span class="line">	scoreSurf = font.render(<span class="string">'得分: %s'</span> % score, <span class="keyword">True</span>, Green)</span><br><span class="line">	scoreRect = scoreSurf.get_rect()</span><br><span class="line">	scoreRect.topleft = (windows_width - <span class="number">120</span>, <span class="number">10</span>)</span><br><span class="line">	screen.blit(scoreSurf, scoreRect)</span><br><span class="line"><span class="comment">#程序终止</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">terminate</span><span class="params">()</span>:</span></span><br><span class="line">	pygame.quit()</span><br><span class="line">	sys.exit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure></p>
 <p>程序及资源下载：<a href="https://pan.baidu.com/s/1jJ0rawm" target="_blank" rel="noopener">https://pan.baidu.com/s/1jJ0rawm</a></p>
+  	
+					
+	  </div>     
+	  
 
-    </div>
+	
+<div class="post-meta">
+      
+        <i class="iconfont icon-category"></i>       
+        <a class="category-link" href="/categories/全栈/">全栈</a> 	
+     
+      	
 
-    <div class="post-footer">   
-        <div>
-            
-                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">infinitor</a>
-            
-        </div>
-        <div>
-            
-        </div>  
-    </div>
-</article>
-
-<div class="article-nav prev-next-wrap clearfix">
-    
-        <a href="/2018/02/21/来自酷壳一些话的感想/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
-    
-    
-        <a href="/2018/02/18/用模拟退火-SA-Simulated-Annealing-算法解决旅行商问题-TSP-Traveling-Salesman-Problem/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
-    
+      
+        <i class="iconfont icon-tag"></i>     
+          <a class="tag-link" href="/tags/Python-游戏/">Python, 游戏</a>    
+      	
 </div>
 
 
-    <div id="comments">
+
+
+
+<div class="post-footer">
+  <div class="pf-left">
+      <img class="pf-avatar lazyload" src="/images/placeholder.png" data-src="/images/header.jpg">
+      <p class="pf-des">hello，大家好。</p>
+  </div>
+
+  <div class="pf-right">           
+      <div class="pf-links">
+        
+
+
+
+
+<span class="donate-btn">
+	<span class="iconfont icon-donate"></span>
+</span>
+
+
+<div id="donate-box" class="sildeUpMin">
+
+	<span class="donate-cancel iconfont icon-cancel"></span>
+
+	<div class="donate-img-box">
+		<img id="donate-qr-wechat" class="donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate1.png">	
+		<img id="donate-qr-alipay" class="donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate2.png">	
+	</div>
+
+	<span class="donate-word">世界美好 你也是</span>
+
+	<div class="donate-list">
+		<span class="iconfont icon-donate-wechat"></span>
+		<span class="iconfont icon-donate-alipay"></span>
+	</div>
+
+</div>
+
+ 
         
 	
-  <script id="dsq-count-scr" src="https://snippet.disqus.com/count.js" async></script>
+<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=21d601593a1de"></script>
+	
+	<span class="share-btn">
+	<span class="iconfont icon-share"></span>
+	</span>
 
 
-<script type="text/javascript">
-  var disqus_config = function () {
-    this.page.url = 'http://yoursite.com/2018/02/19/Python实现贪吃蛇(超详细)/';
-    this.page.identifier = '2018/02/19/Python实现贪吃蛇(超详细)/';
-    this.page.title = '10分钟教你用python打造贪吃蛇超详细教程';
-  };
-  var d = document, s = d.createElement('script');
-  s.src = 'https://snippet.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', '' + +new Date());
-  (d.head || d.body).appendChild(s);
+	<div class="-mob-share sildeUpMin">
+		   			             
+            <a class="iconfont  icon-share-qq -mob-share-qq"></a>		
+     	   			             
+            <a class="iconfont  icon-share-weixin -mob-share-weixin"></a>		
+     	   			             
+            <a class="iconfont  icon-share-weibo -mob-share-weibo"></a>		
+     	   			             
+            <a class="iconfont  icon-share-douban -mob-share-douban"></a>		
+     	   			             
+            <a class="iconfont  icon-share-facebook -mob-share-facebook"></a>		
+     	   			             
+            <a class="iconfont  icon-share-twitter -mob-share-twitter"></a>		
+     	   			             
+            <a class="iconfont  icon-share-google -mob-share-google"></a>		
+     	   
+	</div>	
+
+      </div>  
+    <nav class="pf-paginator">
+      
+         
+          <a href="/2018/02/21/来自酷壳一些话的感想/" data-hover="经典语录">Prev</a>      
+            
+        
+      
+        
+        <a href="/2018/02/18/用模拟退火-SA-Simulated-Annealing-算法解决旅行商问题-TSP-Traveling-Salesman-Problem/" data-hover="用模拟退火(SA, Simulated Annealing)算法解决旅行商问题 (TSP, Traveling S..."> Next</a>
+            
+  </nav>   
+  </div>
+</div> 
+	
+
+
+    
+    <div id="disqus_thread"></div>
+
+    <script>
+    (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://'+'lemonreds'+'.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());    
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+
+    <noscript>Please enable JavaScript to view the  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+
+
+	
+</article>
+
+          </section> 
+      </div>            
+    
+    <a id="backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+
+        
+        <div class="search-container sildeUpMin">
+
+
+            <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">  
+            <span class="search-cancel iconfont icon-cancel"></span>
+          
+            </div>
+              
+            <div id="search-result" class="search-result"></div>
+
+        </div>
+ 
+
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon lazyload" src="/images/placeholder.png" data-src="/images/favicon.png">   
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/categories">Categories
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>        
+    
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?636802045446222199ae541e32c8133e"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
 </script>
 
 
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+		
+		2018		
 	
+		infinitor
+		<br>
 
-    </div>
+		Built By Theme
+		<a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>	
+		</div>			
+	 
+</footer>   
 
+  
 
-
-
-
-                </main>
-                
-    <aside class="col-md-4 sidebar">
-        
-        
-    <div class="widget">    
-        <h3 class="title">搜索</h3>
-        <div id="search-form">
-            <div id="result-mask" class="hide"></div>
-            <div class="search-area">
-                
-                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
-                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
-                
-                
-                    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Google Search"><button type="submit" class="search-form-submit">谷歌搜索</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-                
-            </div>
-            <div id="result-wrap" class="hide">
-                <div id="search-result"></div>
-            </div>
-            <div class="hide">
-                <template id="search-tpl">
-                    <div class="item">
-                        <a href="/{path}" title="{title}">
-                            <div class="title">{title}</div>
-                            <div class="content">{content}</div>
-                        </a>
-                    </div>
-                </template>
-            </div>
-        </div>
-    </div>
-
-        
-        
-    <div class="widget notification">
-        <h3 class="title">网站公告</h3>
-        <div>
-            <p>大家好，欢迎来到我的个人博客。这里记录了我的成长过程，如果能帮到你一点点，我很开心。 <br/>
-</p>
-        </div>
-    </div>
-
-        
-        
-    <div class="widget">
-      <h3 class="title">社交</h3> 
-        <div class="content social">
-            
-	            <a href="//github.com/xiaoshiyisss" rel="external nofollow" title="Github" target="_blank">
-			    	<i class="git fa fa-git"></i>
-			    </a>
-            
-	            <a href="mailto:2638512393@qq.com" rel="external nofollow" title="邮箱" target="_blank">
-			    	<i class="envelope-o fa fa-envelope-o"></i>
-			    </a>
-            
-	            <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
-			    	<i class="qq fa fa-qq"></i>
-			    </a>
-            
-	            <a href="/" rel="external nofollow" title="微博" target="_blank">
-			    	<i class="weibo fa fa-weibo"></i>
-			    </a>
-            
-	            <a href="/" rel="external nofollow" title="QQ群" target="_blank">
-			    	<i class="users fa fa-users"></i>
-			    </a>
-            
-	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
-			    	<i class="feed fa fa-feed"></i>
-			    </a>
-            
-        </div>
-    </div>
-
-
-        
-        
-    <div class="widget">
-        <h3 class="title">分类</h3>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/全栈/"><i class="fa" aria-hidden="true">全栈</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/"><i class="fa" aria-hidden="true">数据结构</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/"><i class="fa" aria-hidden="true">算法</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/随想/"><i class="fa" aria-hidden="true">随想</i></a><span class="category-list-count">1</span></li></ul>
-    </div>
-
-
-        
-        
-    <div class="widget">
-      <h3 class="title">归档</h3>
-        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">February 2018</i></a><span class="archive-list-count">9</span></li></ul>
-    </div>
-
-
-        
-        
-  <div class="widget">
-    <h3 class="title">标签云</h3>
-    <div class="content tag-cloud">
-        <a href="/tags/Python-游戏/" style="font-size: 10px;">Python, 游戏</a> <a href="/tags/数据结构/" style="font-size: 20px;">数据结构</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/随想/" style="font-size: 10px;">随想</a>
-    </div>
-  </div>
-
-
-        
-        
-    <div class="widget">
-        <h3 class="title">友链</h3>
-        <div class="content friends-link">
-        
-            <a href="https://www.csdn.net/" class="fa" target="_blank">CSDN</a>
-        
-            <a href="https://www.cnblogs.com/" class="fa" target="_blank">博客园</a>
-        
-        </div>
-    </div>
-
-
-        
-    </aside>
-
-            </div>
-        </div>
-    </section>
-    <footer class="main-footer">
-    <div class="container">
-        <div class="row">
-        </div>
-    </div>
-</footer>
-
-<a id="back-to-top" class="hide">
-	<i class="fa fa-chevron-up"></i>
-</a>
-
-
-
-
-    <div class="copyright">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12"> 
-                <span>Copyright &copy; 2017
-                </span> | 
-                <span>
-                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
-                </span> | 
-                <span>
-                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-	<script src="/js/search.js?rev=@@hash"></script>
-
-
-<script src="/js/app.js?rev=@@hash"></script>
-
-
-</body>
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
 </html>

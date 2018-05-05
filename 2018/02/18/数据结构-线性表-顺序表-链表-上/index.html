@@ -1,171 +1,111 @@
-<!DOCTYPE HTML>
-<html lang="">
-<head>
-    <!--Setting-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta name="apple-mobile-web-app-capable" content="无限Coding">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no,email=no,adress=no">
-    <meta name="browsermode" content="application">
-    <meta name="screen-orientation" content="portrait">
-    <link rel="dns-prefetch" href="http://yoursite.com">
-    <!--SEO-->
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  数据结构-线性表|顺序表|链表(上) |   短短的代码写写停停 </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
 
 
-
-
-
-<meta name="robots" content="all" />
-<meta name="google" content="all" />
-<meta name="googlebot" content="all" />
-<meta name="verify" content="all" />
-    <!--Title-->
-
-
-<title>数据结构-线性表|顺序表|链表(上) | 无限Coding</title>
-
-
-    <link rel="alternate" href="/atom.xml" title="无限Coding" type="application/atom+xml">
-
-
-    <link rel="icon" href="/favicon.ico">
-
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
     
+      <header class="header">
+	
+  <nav class="header-nav">        
+   
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
 
+    <a class="header-logo" href="/">infinitor的个人博客</a>  
 
-
-<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
-<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
-
-
-
-
-    
-	<div class="hide">
-		<script type="text/javascript">
-			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-	</div>
-
-
-
-
-
-
-    
-</head>
-
-
-<!--[if lte IE 8]>
-<style>
-    html{ font-size: 1em }
-</style>
-<![endif]-->
-<!--[if lte IE 9]>
-<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
-<![endif]-->
-
-<body>
-    <header class="main-header"  style="background-image:url(http://oyxhmjutw.bkt.clouddn.com/18-2-21/37655074.jpg)"  >
-    <div class="main-header-box">
-        <a class="header-avatar" href="/" title="">
-            <img src="/img/avatar.jpg" alt="logo头像">
-        </a>
-        <div class="branding">
-        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+    <div class="header-menu">          
+              
             
-                 <img src="/img/branding.png" alt="Snippet 博客主题">  
-             
-    	</div>
-    </div>
-</header>
-    <nav class="main-navigation">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
-                    <span class="sr-only">Toggle navigation</span>
-                    <i class="fa fa-bars"></i>
-                    </span>
-                </div>
-                <div class="collapse navbar-collapse" id="main-menu">
-                    <ul class="menu">
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
-                            </li>
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>推荐</a>
-                            </li>
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>资源</a>
-                            </li>
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>随想</a>
-                            </li>
-                        
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>关于</a>
-                            </li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-    <section class="content-wrap">
-        <div class="container">
-            <div class="row">
-                <main class="col-md-8 main-content m-post">
-                    <p id="process"></p>
-<article class="post">
-    <div class="post-head">
-        <h1 id="数据结构-线性表|顺序表|链表(上)">
+
+              <a class="header-menu-link" id="header-menu-home" href="/">Home</a>     
+
             
-	            数据结构-线性表|顺序表|链表(上)
             
-        </h1>
-        <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/数据结构">
-            数据结构
-        </a>
-    </span>
-    
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
             
-            <a href="/tags/数据结构">
-               数据结构
-            </a>
+
+              <a class="header-menu-link" id="header-menu-categories" href="/categories">Categories</a>     
+
             
-        </span>
-    </span>
+            
+            
+
+              <a class="header-menu-link" id="header-menu-archives" href="/archives">Archives</a>     
+
+            
+            
+            
+
+              <a class="header-menu-link" id="header-menu-tags" href="/tags">Tags</a>     
+
+            
+            
+            
+
+              <a class="header-menu-link" id="header-menu-about" href="/about">About</a>     
+
+            
+            
+            
+
+              <a class="iconfont icon-menu-search header-menu-link" id="header-menu-search"></a>
+
+            
+                
+    </div>  
     
-    
-    <span class="fa-wrap">
-        <i class="fa fa-clock-o"></i>
-        <span class="date-meta">2018/02/18</span>
-    </span>
+  </nav>
+</header>   
+
+      <div class="container">       
+          
+          
+            <section class="main">  
+          
+
+          <article class="post">
+  
+	<div class="post-header">
+
+	<p class="post-title">	
+		数据结构-线性表|顺序表|链表(上)
+	</p>
+			
+
+	<div class="meta-info">	
+	<span>
+		Feb 18, 2018
+	</span>
+
+	
+	
+		<i class="iconfont icon-words"></i>
+		<span>
+			5480
+		</span>
+	
 </div>
 
-            
-            
-    </div>
-    
-    <div class="post-body post-content">
-        <p><img src="http://oyxhmjutw.bkt.clouddn.com/18-2-18/1675931.jpg" alt=""></p>
-<h2 id="本节纲要"><a href="#本节纲要" class="headerlink" title="本节纲要"></a>本节纲要</h2><ul>
+</div> 
+	 
+
+	  <div class="post-content slideDownMin">
+
+		
+
+			
+					<h2 id="本节纲要"><a href="#本节纲要" class="headerlink" title="本节纲要"></a>本节纲要</h2><ul>
 <li>预备知识</li>
 <li>顺序表(Sequential List)</li>
 <li>单链表(Singly Linked List )</li>
@@ -173,6 +113,7 @@
 <li>循环链表(circular linked list)</li>
 <li>双向链表(doubly linked list)</li>
 </ul>
+<a id="more"></a>
 <hr>
 <h3 id="01-预备知识"><a href="#01-预备知识" class="headerlink" title="01 预备知识"></a><strong>01 预备知识</strong></h3><h4 id="1-0-什么是线性表"><a href="#1-0-什么是线性表" class="headerlink" title="1.0 什么是线性表?"></a><strong>1.0 什么是线性表?</strong></h4><p>线性表(List)是零个或者多个数据元素的有限序列.</p>
 <ul>
@@ -183,7 +124,7 @@
 <p>关于线性表的基本操作就上面几种，还有几个例如线性表的排序，合并，逆序等等操作。为了文章篇幅，就下次再介绍了。</p>
 <h4 id="1-2-什么是顺序存储结构"><a href="#1-2-什么是顺序存储结构" class="headerlink" title="1.2 什么是顺序存储结构?"></a><strong>1.2 什么是顺序存储结构?</strong></h4><p>线性表的顺序存储结构，就是指 <strong>用一段地址连续的存储单元一次存储线性表的数据元素。</strong>学过高级语言的朋友，相信对数组这玩意儿都不会陌生吧。数组就是一种顺序存储结构。</p>
 <h4 id="1-3-什么是链式存储结构"><a href="#1-3-什么是链式存储结构" class="headerlink" title="1.3 什么是链式存储结构?"></a><strong>1.3 什么是链式存储结构?</strong></h4><p>链式存储结构就是可以用一组任意的内存单元存储线性表中的元素。与顺序存储不同的是，这组内存单元可以是<strong>连续的，也可以是不连续的。</strong>这就意味着，元素可以存储在内存的任意位置。正因为如此，在链式结构中，每个元素不仅要存它的信息，还需要存储它后继元素的存储地址。我们把存储元素信息的域称为数据域，而把存储后继元素地址的域称为指针域。由这两部分共同组成的数据元素ai，则可以称之为节点(Node)。<br>如下面这个图所示：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10386940-da1a21871f66aa0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-da1a21871f66aa0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
 <h4 id="1-5-什么是链表"><a href="#1-5-什么是链表" class="headerlink" title="1.5 什么是链表?"></a><strong>1.5 什么是链表?</strong></h4><p>链表就是链式存储的线性表。结点之间通过逻辑连接，形成链式存储结构。存储结点的内存单元，可以是连续的也可以是不连续的。<strong>逻辑连接与物理存储次序没有关系。</strong></p>
 <h3 id="02-顺序表-Sequential-List"><a href="#02-顺序表-Sequential-List" class="headerlink" title="02 顺序表(Sequential List)"></a><strong>02 顺序表(Sequential List)</strong></h3><h4 id="2-0-什么是顺序表"><a href="#2-0-什么是顺序表" class="headerlink" title="2.0 什么是顺序表?"></a><strong>2.0 什么是顺序表?</strong></h4><blockquote>
 <p>采用顺序存储结构的线性表，就是顺序表。</p>
@@ -196,7 +137,7 @@
 <li>顺序表当前长度：length</li>
 </ul>
 <h4 id="2-2-顺序表的插入操作"><a href="#2-2-顺序表的插入操作" class="headerlink" title="2.2 顺序表的插入操作"></a><strong>2.2 顺序表的插入操作</strong></h4><p>相信大家在排队的时候都有过被插队的体验吧。当一个插队到你前面时，这个时候你内心os mmp外加素质三连的同时，也不得不往后挪一个位置。于是乎这个就不得了了，你后面的也要往后挪，你后面的后面也是……然后队伍里瞬间就狼烟起……<br>那么，这个顺序表的插入其实也差不多的。由于地址是连续存储的，那么在某个地方插入以后，其后的元素不得不往后挪一个位置。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10386940-32dfd93f46911ee4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-32dfd93f46911ee4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
 <p>插入算法描述：</p>
 <ul>
 <li>异常处理(插入位置不合理、顺序表已经满等等)。抛出异常。</li>
@@ -214,219 +155,240 @@
 </li>
 </ul>
 <h4 id="2-3-顺序表的完整代码"><a href="#2-3-顺序表的完整代码" class="headerlink" title="2.3 顺序表的完整代码"></a><strong>2.3 顺序表的完整代码</strong></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 20</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NO 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> YES 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> DataType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> Status;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">List</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data[MAXSIZE];</span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">&#125;SqlList;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitList</span><span class="params">(SqlList * L)</span></span>;                      <span class="comment">//初始化顺序表</span></span><br><span class="line"><span class="function">Status <span class="title">IsEmptyList</span><span class="params">(SqlList *L)</span></span>;               <span class="comment">//判断顺序表是否为空</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ClearList</span><span class="params">(SqlList *L)</span></span>;                      <span class="comment">//清空线性表</span></span><br><span class="line"><span class="function">Status <span class="title">GetElemList</span><span class="params">(SqlList *L,<span class="keyword">int</span> i,DataType *e)</span></span>; <span class="comment">//获取第i个位置的数据</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SearchList</span><span class="params">(SqlList *L, DataType e)</span></span>;         <span class="comment">//查找与数据e相等的元素</span></span><br><span class="line"><span class="function">Status <span class="title">InsertNodeList</span><span class="params">(SqlList *L, <span class="keyword">int</span> i,DataType e)</span></span>;<span class="comment">//在第i个位置插入元素</span></span><br><span class="line"><span class="function">Status <span class="title">DeleteNodeList</span><span class="params">(SqlList *L, <span class="keyword">int</span> i, DataType *e)</span></span>;<span class="comment">//删除第i个位置的元素，e获取删除元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetLengthList</span><span class="params">(SqlList *L)</span></span>;                        <span class="comment">//获取线性表的长度</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintList</span><span class="params">(SqlList *L)</span></span>;                         <span class="comment">//遍历顺序表,此函数测试使用，根据实际类型编写</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> e;</span><br><span class="line">    SqlList *pL = (SqlList*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(SqlList));</span><br><span class="line">    InitList(pL);</span><br><span class="line">    InsertNodeList(pL, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">    InsertNodeList(pL, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    InsertNodeList(pL, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    InsertNodeList(pL, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">    InsertNodeList(pL, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">    InsertNodeList(pL, <span class="number">5</span>, <span class="number">6</span>);</span><br><span class="line"></span><br><span class="line">    PrintList(pL);</span><br><span class="line"></span><br><span class="line">    DeleteNodeList(pL, <span class="number">2</span>, &amp;e);</span><br><span class="line">    DeleteNodeList(pL, <span class="number">4</span>, &amp;e);</span><br><span class="line"></span><br><span class="line">    PrintList(pL);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitList</span><span class="params">(SqlList * L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; MAXSIZE; i++)</span><br><span class="line">        L-&gt;data[i] = <span class="number">0</span>;</span><br><span class="line">    L-&gt;length = <span class="number">0</span>; <span class="comment">//将表设为空</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">IsEmptyList</span><span class="params">(SqlList *L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> YES;<span class="comment">//表为空</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> NO;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ClearList</span><span class="params">(SqlList *L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    InitList(L);<span class="comment">//此操作跟初始化一样。</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这里的第i个位置，为了统一我们也是从0算起的</span></span><br><span class="line"><span class="function">Status <span class="title">GetElemList</span><span class="params">(SqlList *L,<span class="keyword">int</span> i,DataType *e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i &lt; <span class="number">0</span> || i &gt;= L-&gt;length || L-&gt;length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> ERROR;<span class="comment">//异常处理</span></span><br><span class="line">    *e = L-&gt;data[i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//找到与数据e相同的节点，返回下标。-1表示没找到,ERROR表示表为空</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SearchList</span><span class="params">(SqlList *L, DataType e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L-&gt;length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(L-&gt;data[i] == e)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//获取顺序表的长度</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetLengthList</span><span class="params">(SqlList *L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> L-&gt;length;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在位置i插入元素，再次强调，从0开始</span></span><br><span class="line"><span class="function">Status <span class="title">InsertNodeList</span><span class="params">(SqlList *L, <span class="keyword">int</span> i,DataType e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i &lt; <span class="number">0</span> || i &gt; L-&gt;length || L-&gt;length == MAXSIZE)</span><br><span class="line">        <span class="keyword">return</span> ERROR;<span class="comment">//异常处理</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k = L-&gt;length; k &gt; i; k--)</span><br><span class="line">    &#123;</span><br><span class="line">        L-&gt;data[k] = L-&gt;data[k<span class="number">-1</span>]; <span class="comment">//往后挪</span></span><br><span class="line">    &#125;</span><br><span class="line">    L-&gt;data[i] = e;<span class="comment">//插入数据，</span></span><br><span class="line">    L-&gt;length++;   <span class="comment">//长度也要加1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">DeleteNodeList</span><span class="params">(SqlList *L, <span class="keyword">int</span> i, DataType *e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i &lt; <span class="number">0</span> || i &gt; L-&gt;length || L-&gt;length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> ERROR;<span class="comment">//异常处理</span></span><br><span class="line">    *e = L-&gt;data[i];<span class="comment">//获取数据</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k = i; k &lt; L-&gt;length <span class="number">-1</span>; k++)</span><br><span class="line">        L-&gt;data[k] = L-&gt;data[k+<span class="number">1</span>];<span class="comment">//往前挪</span></span><br><span class="line">    L-&gt;length--; <span class="comment">//长度减1</span></span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintList</span><span class="params">(SqlList *L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;length == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"顺序表为空\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"============遍历顺序表如下=============\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L-&gt;length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\tdata[%d] = %d\n"</span>, i, L-&gt;data[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"============共计%d个元素=============\n"</span>, L-&gt;length);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>纯手打哈。。简单测试了一下。如果存在问题，欢迎指正，谢谢大家。<br><img src="http://upload-images.jianshu.io/upload_images/10386940-42dee64942b2a403.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>纯手打哈。。简单测试了一下。如果存在问题，欢迎指正，谢谢大家。<br><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-42dee64942b2a403.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
+  	
+					
+	  </div>     
+	  
 
-    </div>
+	
+<div class="post-meta">
+      
+        <i class="iconfont icon-category"></i>       
+        <a class="category-link" href="/categories/数据结构/">数据结构</a> 	
+     
+      	
 
-    <div class="post-footer">   
-        <div>
-            
-                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">infinitor</a>
-            
-        </div>
-        <div>
-            
-        </div>  
-    </div>
-</article>
-
-<div class="article-nav prev-next-wrap clearfix">
-    
-        <a href="/2018/02/18/数据结构-线性表-顺序表-链表-中/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
-    
-    
+      
+        <i class="iconfont icon-tag"></i>     
+          <a class="tag-link" href="/tags/数据结构/">数据结构</a>    
+      	
 </div>
 
 
-    <div id="comments">
+
+
+
+<div class="post-footer">
+  <div class="pf-left">
+      <img class="pf-avatar lazyload" src="/images/placeholder.png" data-src="/images/header.jpg">
+      <p class="pf-des">hello，大家好。</p>
+  </div>
+
+  <div class="pf-right">           
+      <div class="pf-links">
+        
+
+
+
+
+<span class="donate-btn">
+	<span class="iconfont icon-donate"></span>
+</span>
+
+
+<div id="donate-box" class="sildeUpMin">
+
+	<span class="donate-cancel iconfont icon-cancel"></span>
+
+	<div class="donate-img-box">
+		<img id="donate-qr-wechat" class="donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate1.png">	
+		<img id="donate-qr-alipay" class="donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate2.png">	
+	</div>
+
+	<span class="donate-word">世界美好 你也是</span>
+
+	<div class="donate-list">
+		<span class="iconfont icon-donate-wechat"></span>
+		<span class="iconfont icon-donate-alipay"></span>
+	</div>
+
+</div>
+
+ 
         
 	
-  <script id="dsq-count-scr" src="https://snippet.disqus.com/count.js" async></script>
+<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=21d601593a1de"></script>
+	
+	<span class="share-btn">
+	<span class="iconfont icon-share"></span>
+	</span>
 
 
-<script type="text/javascript">
-  var disqus_config = function () {
-    this.page.url = 'http://yoursite.com/2018/02/18/数据结构-线性表-顺序表-链表-上/';
-    this.page.identifier = '2018/02/18/数据结构-线性表-顺序表-链表-上/';
-    this.page.title = '数据结构-线性表|顺序表|链表(上)';
-  };
-  var d = document, s = d.createElement('script');
-  s.src = 'https://snippet.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', '' + +new Date());
-  (d.head || d.body).appendChild(s);
+	<div class="-mob-share sildeUpMin">
+		   			             
+            <a class="iconfont  icon-share-qq -mob-share-qq"></a>		
+     	   			             
+            <a class="iconfont  icon-share-weixin -mob-share-weixin"></a>		
+     	   			             
+            <a class="iconfont  icon-share-weibo -mob-share-weibo"></a>		
+     	   			             
+            <a class="iconfont  icon-share-douban -mob-share-douban"></a>		
+     	   			             
+            <a class="iconfont  icon-share-facebook -mob-share-facebook"></a>		
+     	   			             
+            <a class="iconfont  icon-share-twitter -mob-share-twitter"></a>		
+     	   			             
+            <a class="iconfont  icon-share-google -mob-share-google"></a>		
+     	   
+	</div>	
+
+      </div>  
+    <nav class="pf-paginator">
+      
+         
+          <a href="/2018/02/18/数据结构-线性表-顺序表-链表-中/" data-hover="数据结构-线性表|顺序表|链表(中)">Prev</a>      
+            
+        
+            
+  </nav>   
+  </div>
+</div> 
+	
+
+
+    
+    <div id="disqus_thread"></div>
+
+    <script>
+    (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://'+'lemonreds'+'.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());    
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+
+    <noscript>Please enable JavaScript to view the  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+
+
+	
+</article>
+
+          </section> 
+      </div>            
+    
+    <a id="backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+
+        
+        <div class="search-container sildeUpMin">
+
+
+            <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">  
+            <span class="search-cancel iconfont icon-cancel"></span>
+          
+            </div>
+              
+            <div id="search-result" class="search-result"></div>
+
+        </div>
+ 
+
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon lazyload" src="/images/placeholder.png" data-src="/images/favicon.png">   
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/categories">Categories
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>        
+    
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?636802045446222199ae541e32c8133e"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
 </script>
 
 
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+		
+		2018		
 	
+		infinitor
+		<br>
 
-    </div>
+		Built By Theme
+		<a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>	
+		</div>			
+	 
+</footer>   
 
+  
 
-
-
-
-                </main>
-                
-    <aside class="col-md-4 sidebar">
-        
-        
-    <div class="widget">    
-        <h3 class="title">搜索</h3>
-        <div id="search-form">
-            <div id="result-mask" class="hide"></div>
-            <div class="search-area">
-                
-                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
-                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
-                
-                
-                    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Google Search"><button type="submit" class="search-form-submit">谷歌搜索</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-                
-            </div>
-            <div id="result-wrap" class="hide">
-                <div id="search-result"></div>
-            </div>
-            <div class="hide">
-                <template id="search-tpl">
-                    <div class="item">
-                        <a href="/{path}" title="{title}">
-                            <div class="title">{title}</div>
-                            <div class="content">{content}</div>
-                        </a>
-                    </div>
-                </template>
-            </div>
-        </div>
-    </div>
-
-        
-        
-    <div class="widget notification">
-        <h3 class="title">网站公告</h3>
-        <div>
-            <p>大家好，欢迎来到我的个人博客。这里记录了我的成长过程，如果能帮到你一点点，我很开心。 <br/>
-</p>
-        </div>
-    </div>
-
-        
-        
-    <div class="widget">
-      <h3 class="title">社交</h3> 
-        <div class="content social">
-            
-	            <a href="//github.com/xiaoshiyisss" rel="external nofollow" title="Github" target="_blank">
-			    	<i class="git fa fa-git"></i>
-			    </a>
-            
-	            <a href="mailto:2638512393@qq.com" rel="external nofollow" title="邮箱" target="_blank">
-			    	<i class="envelope-o fa fa-envelope-o"></i>
-			    </a>
-            
-	            <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
-			    	<i class="qq fa fa-qq"></i>
-			    </a>
-            
-	            <a href="/" rel="external nofollow" title="微博" target="_blank">
-			    	<i class="weibo fa fa-weibo"></i>
-			    </a>
-            
-	            <a href="/" rel="external nofollow" title="QQ群" target="_blank">
-			    	<i class="users fa fa-users"></i>
-			    </a>
-            
-	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
-			    	<i class="feed fa fa-feed"></i>
-			    </a>
-            
-        </div>
-    </div>
-
-
-        
-        
-    <div class="widget">
-        <h3 class="title">分类</h3>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/全栈/"><i class="fa" aria-hidden="true">全栈</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/"><i class="fa" aria-hidden="true">数据结构</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/"><i class="fa" aria-hidden="true">算法</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/随想/"><i class="fa" aria-hidden="true">随想</i></a><span class="category-list-count">1</span></li></ul>
-    </div>
-
-
-        
-        
-    <div class="widget">
-      <h3 class="title">归档</h3>
-        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">February 2018</i></a><span class="archive-list-count">9</span></li></ul>
-    </div>
-
-
-        
-        
-  <div class="widget">
-    <h3 class="title">标签云</h3>
-    <div class="content tag-cloud">
-        <a href="/tags/Python-游戏/" style="font-size: 10px;">Python, 游戏</a> <a href="/tags/数据结构/" style="font-size: 20px;">数据结构</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/随想/" style="font-size: 10px;">随想</a>
-    </div>
-  </div>
-
-
-        
-        
-    <div class="widget">
-        <h3 class="title">友链</h3>
-        <div class="content friends-link">
-        
-            <a href="https://www.csdn.net/" class="fa" target="_blank">CSDN</a>
-        
-            <a href="https://www.cnblogs.com/" class="fa" target="_blank">博客园</a>
-        
-        </div>
-    </div>
-
-
-        
-    </aside>
-
-            </div>
-        </div>
-    </section>
-    <footer class="main-footer">
-    <div class="container">
-        <div class="row">
-        </div>
-    </div>
-</footer>
-
-<a id="back-to-top" class="hide">
-	<i class="fa fa-chevron-up"></i>
-</a>
-
-
-
-
-    <div class="copyright">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12"> 
-                <span>Copyright &copy; 2017
-                </span> | 
-                <span>
-                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
-                </span> | 
-                <span>
-                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-	<script src="/js/search.js?rev=@@hash"></script>
-
-
-<script src="/js/app.js?rev=@@hash"></script>
-
-
-</body>
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
 </html>
