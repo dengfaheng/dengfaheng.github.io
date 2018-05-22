@@ -29,31 +29,31 @@
               
             
 
-              <a class="header-menu-link" id="header-menu-home" href="/">首页</a>     
+              <a class="header-menu-link" id="header-menu-home" href="/">Home</a>     
 
             
             
             
 
-              <a class="header-menu-link" id="header-menu-categories" href="/categories">分类</a>     
+              <a class="header-menu-link" id="header-menu-categories" href="/categories">Categories</a>     
 
             
             
             
 
-              <a class="header-menu-link" id="header-menu-archives" href="/archives">归档</a>     
+              <a class="header-menu-link" id="header-menu-archives" href="/archives">Archives</a>     
 
             
             
             
 
-              <a class="header-menu-link" id="header-menu-tags" href="/tags">标签</a>     
+              <a class="header-menu-link" id="header-menu-tags" href="/tags">Tags</a>     
 
             
             
             
 
-              <a class="header-menu-link" id="header-menu-about" href="/about">关于</a>     
+              <a class="header-menu-link" id="header-menu-about" href="/about">About</a>     
 
             
             
@@ -92,7 +92,7 @@
 	
 		<i class="iconfont icon-words"></i>
 		<span>
-			20522
+			20387
 		</span>
 	
 </div>
@@ -204,10 +204,10 @@
 <p>所以编码的二进制串至少需要22位。</p>
 <p><strong>把一个二进制串(b0,b1,….bn)转化为区间里面对应的实数值可以通过下面两个步骤：</strong></p>
 <p>1) 将一个二进制串代表的二进制数转化为10进制数：</p>
-<pre><code>![](http://oyxhmjutw.bkt.clouddn.com/18-4-28/19594055.jpg)  
-</code></pre><p>2) 对应区间内的实数：</p>
-<pre><code>![](http://oyxhmjutw.bkt.clouddn.com/18-4-28/77256389.jpg)
-</code></pre><p>例如一个二进制串(1000101110110101000111)2通过上面换算以后，表示实数值0.637197。</p>
+<p><img src="/images/placeholder.png" alt="" data-src="http://oyxhmjutw.bkt.clouddn.com/18-4-28/19594055.jpg" class="lazyload">  </p>
+<p>2) 对应区间内的实数：</p>
+<p><img src="/images/placeholder.png" alt="" data-src="http://oyxhmjutw.bkt.clouddn.com/18-4-28/77256389.jpg" class="lazyload"></p>
+<p>例如一个二进制串(1000101110110101000111)2通过上面换算以后，表示实数值0.637197。</p>
 <p>好了，上面的编码方式只是举个例子让大家更好理解而已，编码的方式千奇百怪，层出不穷，每个问题可能采用的编码方式都不一样。在这一点上大家要注意。</p>
 <h2 id="5-3-评价个体的适应度–适应度函数（fitness-function）"><a href="#5-3-评价个体的适应度–适应度函数（fitness-function）" class="headerlink" title="5.3 评价个体的适应度–适应度函数（fitness function）"></a>5.3 评价个体的适应度–适应度函数（fitness function）</h2><p>前面说了，适应度函数主要是通过个体特征从而判断个体的适应度。在本例的袋鼠跳中，我们只关心袋鼠的海拔高度，以此来判断是否该射杀该袋鼠。这样一来，该函数就非常简单了。只要输入袋鼠的位置坐标，在通过相应查找运算，返回袋鼠当前位置的海拔高度就行。</p>
 <p>适应度函数也称评价函数，是根据目标函数确定的用于区分群体中个体好坏的标准。适应度函数总是非负的，而目标函数可能有正有负，故需要在目标函数与适应度函数之间进行变换。</p>
@@ -372,7 +372,13 @@
 <p>  2) 在一定的概率区间。对个体point和个体point.next进行如下操作：</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">循环 i to city_num(i随机产生)</span><br><span class="line"></span><br><span class="line">    找出point.genes中与point.next.genes[i]相等的位置fir</span><br><span class="line"></span><br><span class="line">    找出point.next.genes中与point.genes[i]相等的位置sec</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    然后执行如下交换操作：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">直到结束循环</span><br></pre></td></tr></table></figure>
+<p>循环 i to city_num(i随机产生)</p>
+<pre><code>找出point.genes中与point.next.genes[i]相等的位置fir
+
+找出point.next.genes中与point.genes[i]相等的位置sec
+</code></pre><p><img src="/images/placeholder.png" alt="" data-src="http://oyxhmjutw.bkt.clouddn.com/18-5-22/54041577.jpg" class="lazyload"></p>
+<p>然后执行如下交换操作：<br><img src="/images/placeholder.png" alt="" data-src="http://oyxhmjutw.bkt.clouddn.com/18-5-22/21277324.jpg" class="lazyload"></p>
+<p>直到结束循环</p>
 <ul>
 <li><p>mutate</p>
 <p>  变异操作。每一种物种都有变异的可能，我们以一定概率进行。在这个TSP问题中，我们采用的变异操作其实跟迭代搜索那个two opt有点类似。在基因序列中，随机产生i~j的区间，然后将区间反转，形成新的染色体。很easy吧……</p>
@@ -480,7 +486,7 @@
         
       
         
-        <a href="/2018/05/22/遗传算法求解函数最值问题代码/" data-hover="遗传算法求解函数最值问题"> 下一篇</a>
+        <a href="/2018/05/22/遗传算法求解函数最值问题代码/" data-hover="遗传算法求解函数最值问题"> Next</a>
             
   </nav>   
   </div>
@@ -524,7 +530,7 @@
 
 
             <div class="search-header">
-            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">  
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">  
             <span class="search-cancel iconfont icon-cancel"></span>
           
             </div>
@@ -543,37 +549,37 @@
          
             
 
-            <a class="mobile-menu-link" href="/">首页
+            <a class="mobile-menu-link" href="/">Home
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/categories">分类
+            <a class="mobile-menu-link" href="/categories">Categories
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">归档
+            <a class="mobile-menu-link" href="/archives">Archives
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">标签
+            <a class="mobile-menu-link" href="/tags">Tags
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">关于
+            <a class="mobile-menu-link" href="/about">About
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
             
          
       

@@ -29,31 +29,31 @@
               
             
 
-              <a class="header-menu-link" id="header-menu-home" href="/">首页</a>     
+              <a class="header-menu-link" id="header-menu-home" href="/">Home</a>     
 
             
             
             
 
-              <a class="header-menu-link" id="header-menu-categories" href="/categories">分类</a>     
+              <a class="header-menu-link" id="header-menu-categories" href="/categories">Categories</a>     
 
             
             
             
 
-              <a class="header-menu-link" id="header-menu-archives" href="/archives">归档</a>     
+              <a class="header-menu-link" id="header-menu-archives" href="/archives">Archives</a>     
 
             
             
             
 
-              <a class="header-menu-link" id="header-menu-tags" href="/tags">标签</a>     
+              <a class="header-menu-link" id="header-menu-tags" href="/tags">Tags</a>     
 
             
             
             
 
-              <a class="header-menu-link" id="header-menu-about" href="/about">关于</a>     
+              <a class="header-menu-link" id="header-menu-about" href="/about">About</a>     
 
             
             
@@ -92,7 +92,7 @@
 	
 		<i class="iconfont icon-words"></i>
 		<span>
-			9900
+			9901
 		</span>
 	
 </div>
@@ -107,6 +107,7 @@
 			
 					<p>下面举例来说明遗传算法用以求函数最大值</p>
 <p>函数为y = -x2+ 5的最大值，-32&lt;=x&lt;=31</p>
+<a id="more"></a>
 <p>一、编码以及初始种群的产生<br>编码采用二进制编码，初始种群采用矩阵的形式，每一行表示一个染色体，每一个染色体由若干个基因位组成。关于染色体的长度（即基因位的个数）可根据具体情况而定。比如说根据要求极值的函数的情况，本文-32&lt;=X&lt;=31，该范围内的整数有64个，所以可以取染色体长度为6，（26=64）。综上所述，取染色体长度为6，前5个二进制构成该染色体的值（十进制），第6个表示该染色体的适应度值。若是所取得染色体长度越长，表示解空间搜索范围越大，对应的是待搜索的X范围越大。关于如何将二进制转换为十进制，文后的C代码中函数x即为转换函数。<br>该初始种群共有4个染色体，第1列表示各个染色体的编号，第2列表示该染色体值的正负号，0表示正，1表示负。第3列到第7列为二进制编码，第8列表示各个染色体的适应度值。第2列到第7列的0-1值都是随机产生的。</p>
 <p>二、适应度函数<br>一般情况下，染色体（也叫个体，或一个解）的适应度函数为目标函数的线性组合。本文直接以目标函数作为适应度函数。即每个染色体的适应度值就是它的目标函数值，f(x)=-x^2+ 5。</p>
 <p>三、选择算子<br>初始种群产生后，要从种群中选出若干个体进行交叉、变异，那么如何选择这些个体呢？选择方法就叫做选择算子。一般有轮盘赌选择法、锦标赛选择法、排序法等。本文采用轮盘赌选择法来选择。</p>
@@ -204,12 +205,12 @@
     <nav class="pf-paginator">
       
          
-          <a href="/2018/05/22/超详细遗传算法(Genetic Algorithm)解析附带TSP代码/" data-hover="超详细遗传算法解析附带TSP代码">上一篇</a>      
+          <a href="/2018/05/22/超详细遗传算法(Genetic Algorithm)解析附带TSP代码/" data-hover="超详细遗传算法解析附带TSP代码">Prev</a>      
             
         
       
         
-        <a href="/2018/02/21/来自酷壳一些话的感想/" data-hover="经典语录"> 下一篇</a>
+        <a href="/2018/02/21/来自酷壳一些话的感想/" data-hover="经典语录"> Next</a>
             
   </nav>   
   </div>
@@ -253,7 +254,7 @@
 
 
             <div class="search-header">
-            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">  
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">  
             <span class="search-cancel iconfont icon-cancel"></span>
           
             </div>
@@ -272,37 +273,37 @@
          
             
 
-            <a class="mobile-menu-link" href="/">首页
+            <a class="mobile-menu-link" href="/">Home
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/categories">分类
+            <a class="mobile-menu-link" href="/categories">Categories
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">归档
+            <a class="mobile-menu-link" href="/archives">Archives
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">标签
+            <a class="mobile-menu-link" href="/tags">Tags
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">关于
+            <a class="mobile-menu-link" href="/about">About
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
             
          
       
