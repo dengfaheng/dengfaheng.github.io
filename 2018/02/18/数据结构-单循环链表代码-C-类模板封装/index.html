@@ -1,352 +1,389 @@
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
-<html>
-  <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  
-  
-  <title>  数据结构-单循环链表代码(C++类模板封装) |   短短的代码写写停停 </title>
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="无限Coding">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
 
- 
-  
-    <link rel="icon" href="/images/favicon.png">
-  
 
 
-  <link rel="stylesheet" href="/nayo.min.css"> 
-</head>  
-  <body>   
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>数据结构-单循环链表代码(C++类模板封装) | 无限Coding</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="无限Coding" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
     
-      <header class="header">
-	
-  <nav class="header-nav">        
-   
-    <span class="iconfont icon-menu mobile-toggle"></span>   	
 
-    <a class="header-logo" href="/">改完BUG吃香锅</a>  
 
-    <div class="header-menu">          
-              
-            
 
-              <a class="header-menu-link" id="header-menu-home" href="/">Home</a>     
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
 
-            
-            
-            
 
-              <a class="header-menu-link" id="header-menu-categories" href="/categories">Categories</a>     
 
-            
-            
-            
 
-              <a class="header-menu-link" id="header-menu-archives" href="/archives">Archives</a>     
-
-            
-            
-            
-
-              <a class="header-menu-link" id="header-menu-tags" href="/tags">Tags</a>     
-
-            
-            
-            
-
-              <a class="header-menu-link" id="header-menu-about" href="/about">About</a>     
-
-            
-            
-            
-
-              <a class="iconfont icon-menu-search header-menu-link" id="header-menu-search"></a>
-
-            
-                
-    </div>  
     
-  </nav>
-</header>   
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
 
-      <div class="container">       
-          
-          
-            <section class="main">  
-          
 
-          <article class="post">
-  
-	<div class="post-header">
 
-	<p class="post-title">	
-		数据结构-单循环链表代码(C++类模板封装)
-	</p>
-			
 
-	<div class="meta-info">	
-	<span>
-		Feb 18, 2018
-	</span>
 
-	
-	
-		<i class="iconfont icon-words"></i>
-		<span>
-			9698
-		</span>
-	
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://oyxhmjutw.bkt.clouddn.com/18-2-21/37655074.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题">  
+             
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>推荐</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>随想</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="数据结构-单循环链表代码(C++类模板封装)">
+            
+	            数据结构-单循环链表代码(C++类模板封装)
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/数据结构">
+            数据结构
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a href="/tags/数据结构">
+               数据结构
+            </a>
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/02/18</span>
+    </span>
 </div>
 
-</div> 
-	 
-
-	  <div class="post-content slideDownMin">
-
-		
-
-			
-					<p>循环链表就是末尾指向头形成一个循环的链表.实现思路也很简单,大体把单链表代码做个小小的改动就OK了.这次还是封装在一个类里面吧.</p>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>循环链表就是末尾指向头形成一个循环的链表.实现思路也很简单,大体把单链表代码做个小小的改动就OK了.这次还是封装在一个类里面吧.</p>
 <a id="more"></a>
 <p><strong>CircleLinkList.h 类头文件,各种声明定义</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once <span class="comment">//VC防止头文件重复包含的一条预编译指令</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> status bool</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK true</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR false</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> YES true</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NO false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	DType data;</span><br><span class="line">	Node * pnext;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CCircleLinkList</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Node&lt;DType&gt; *phead;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	CCircleLinkList();</span><br><span class="line">	~CCircleLinkList();</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//初始化链表</span></span><br><span class="line">	<span class="function">status <span class="title">InitCList</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="comment">//获取链表长度</span></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">GetCListLength</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="comment">//增加一个节点 前插法</span></span><br><span class="line">	<span class="function">status <span class="title">AddCListNodeFront</span><span class="params">(DType idata)</span></span>;</span><br><span class="line">	<span class="comment">//增加一个节点 后插法</span></span><br><span class="line">	<span class="function">status <span class="title">AddCListNodeBack</span><span class="params">(DType idata)</span></span>;</span><br><span class="line">	<span class="comment">//判断链表是否为空</span></span><br><span class="line">	<span class="function">status <span class="title">IsCListEmpty</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="comment">//获取指定位置节点值(注意，本程序规定0号为头节点，e获取删除元素)</span></span><br><span class="line">	<span class="function">status <span class="title">GetCListIndexNode</span><span class="params">(DType *e, <span class="keyword">int</span> index)</span></span>;</span><br><span class="line">	<span class="comment">//删除指定位置节点(e获取删除元素)</span></span><br><span class="line">	<span class="function">status <span class="title">DeleteCListIndexNode</span><span class="params">(DType *e, <span class="keyword">int</span> index)</span></span>;</span><br><span class="line">	<span class="comment">//查找链表中指定值(pindex获取位置0==&gt;not found)</span></span><br><span class="line">	<span class="function">status <span class="title">SearchCListNode</span><span class="params">(DType SData, <span class="keyword">int</span> *pindex)</span></span>;</span><br><span class="line">	<span class="comment">//指定位置前插</span></span><br><span class="line">	<span class="function">status <span class="title">InsertCListNodeFront</span><span class="params">(DType IData, <span class="keyword">int</span> index)</span></span>;</span><br><span class="line">	<span class="comment">//指定位置后插</span></span><br><span class="line">	<span class="function">status <span class="title">InsertCListNodeBack</span><span class="params">(DType IData, <span class="keyword">int</span> index)</span></span>;</span><br><span class="line">	<span class="comment">//清空链表(保留根节点)</span></span><br><span class="line">	<span class="function">status <span class="title">ClearCList</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="comment">//销毁链表(all delete)</span></span><br><span class="line">	<span class="function">status <span class="title">DestoryCList</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="comment">//尾部删除一个元素</span></span><br><span class="line">	<span class="function">status <span class="title">DeleteCListNodeBack</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="comment">//打印链表   此函数根据实际情况而定</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">PrintCList</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p><strong>CircleLinkList.cpp 类的具体实现代码</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"CircleLinkList.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">CCircleLinkList&lt;DType&gt;::CCircleLinkList()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"链表创建"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	InitCList();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">CCircleLinkList&lt;DType&gt;::~CCircleLinkList()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"链表销毁"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	DestoryCList();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化链表</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">status CCircleLinkList&lt;DType&gt;::InitCList()</span><br><span class="line">&#123;</span><br><span class="line">	Node&lt;DType&gt; * ph = <span class="keyword">new</span> Node&lt;DType&gt;;</span><br><span class="line">	<span class="keyword">if</span> (ph != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		ph-&gt;pnext = ph;    <span class="comment">//尾指向头</span></span><br><span class="line">		<span class="keyword">this</span>-&gt;phead = ph; <span class="comment">//头结点</span></span><br><span class="line">		<span class="keyword">return</span> OK;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ERROR;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取链表长度(head_node is not included)</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line"><span class="keyword">int</span> CCircleLinkList&lt;DType&gt;::GetCListLength()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line">	Node&lt;DType&gt; * ph = <span class="keyword">this</span>-&gt;phead;</span><br><span class="line">	<span class="keyword">while</span> (ph-&gt;pnext != <span class="keyword">this</span>-&gt;phead)</span><br><span class="line">	&#123;</span><br><span class="line">		length++;</span><br><span class="line">		ph = ph-&gt;pnext;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//增加一个节点 前插法</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">status CCircleLinkList&lt;DType&gt;::AddCListNodeFront(DType idata)</span><br><span class="line">&#123;</span><br><span class="line">	Node&lt;DType&gt; * pnode = <span class="keyword">new</span> Node&lt;DType&gt;;</span><br><span class="line">	<span class="keyword">if</span> (pnode != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		pnode-&gt;data = idata;</span><br><span class="line">		pnode-&gt;pnext = <span class="keyword">this</span>-&gt;phead-&gt;pnext;</span><br><span class="line">		<span class="keyword">this</span>-&gt;phead-&gt;pnext = pnode; <span class="comment">//挂载</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> OK;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ERROR;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//增加一个节点 尾插法</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">status CCircleLinkList&lt;DType&gt;::AddCListNodeBack(DType idata)</span><br><span class="line">&#123;</span><br><span class="line">	Node&lt;DType&gt; * pnode = <span class="keyword">new</span> Node&lt;DType&gt;;</span><br><span class="line">	Node&lt;DType&gt; * ph = <span class="keyword">this</span>-&gt;phead;</span><br><span class="line">	<span class="keyword">if</span> (pnode != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span> (ph-&gt;pnext != <span class="keyword">this</span>-&gt;phead)</span><br><span class="line">		&#123;</span><br><span class="line">			ph = ph-&gt;pnext;</span><br><span class="line">		&#125;</span><br><span class="line">		pnode-&gt;data = idata;</span><br><span class="line">		pnode-&gt;pnext = <span class="keyword">this</span>-&gt;phead;</span><br><span class="line">		ph-&gt;pnext = pnode; <span class="comment">//挂载</span></span><br><span class="line">		<span class="keyword">return</span> OK;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断链表是否为空</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">status CCircleLinkList&lt;DType&gt;::IsCListEmpty()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">this</span>-&gt;phead-&gt;pnext == <span class="keyword">this</span>-&gt;phead)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> YES;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> NO;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//获取指定位置节点值(注意，本程序规定0号为头节点，e获取节点的值)</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">status CCircleLinkList&lt;DType&gt;::GetCListIndexNode(DType *e, <span class="keyword">int</span> index)</span><br><span class="line">&#123;</span><br><span class="line">	Node&lt;DType&gt; * ph = <span class="keyword">this</span>-&gt;phead;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>; <span class="comment">//计数器</span></span><br><span class="line">	<span class="keyword">if</span> (ph-&gt;pnext == <span class="keyword">this</span>-&gt;phead || index &lt; <span class="number">1</span> || index &gt; GetCListLength())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ERROR; <span class="comment">//异常 处理</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (ph-&gt;pnext != <span class="keyword">this</span>-&gt;phead)</span><br><span class="line">	&#123;</span><br><span class="line">		i++;</span><br><span class="line">		ph = ph-&gt;pnext;</span><br><span class="line">		<span class="keyword">if</span> (i == index)</span><br><span class="line">		&#123;</span><br><span class="line">			*e = ph-&gt;data;</span><br><span class="line">			<span class="keyword">return</span> OK;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除指定位置节点(e获取删除元素)</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">status CCircleLinkList&lt;DType&gt;::DeleteCListIndexNode(DType *e, <span class="keyword">int</span> index)</span><br><span class="line">&#123;</span><br><span class="line">	Node&lt;DType&gt; * ph = <span class="keyword">this</span>-&gt;phead;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>; <span class="comment">//计数器</span></span><br><span class="line">	Node&lt;DType&gt; * q = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">if</span> (ph-&gt;pnext == <span class="keyword">this</span>-&gt;phead || index &lt; <span class="number">1</span> || index &gt; GetCListLength())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ERROR; <span class="comment">//异常 处理</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (ph-&gt;pnext != <span class="keyword">this</span>-&gt;phead)</span><br><span class="line">	&#123;</span><br><span class="line">		i++;</span><br><span class="line">		q = ph; <span class="comment">//保存备用</span></span><br><span class="line">		ph = ph-&gt;pnext;</span><br><span class="line">		<span class="keyword">if</span> (i == index)</span><br><span class="line">		&#123;</span><br><span class="line">			*e = ph-&gt;data;</span><br><span class="line">			q-&gt;pnext = ph-&gt;pnext; <span class="comment">//删除出局</span></span><br><span class="line">			<span class="keyword">delete</span> ph;</span><br><span class="line">			<span class="keyword">return</span> OK;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//查找链表中指定值(pindex获取位置   0==&gt;not found)</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">status CCircleLinkList&lt;DType&gt;::SearchCListNode(DType SData, <span class="keyword">int</span> *pindex)</span><br><span class="line">&#123;</span><br><span class="line">	Node&lt;DType&gt; * ph = <span class="keyword">this</span>-&gt;phead;</span><br><span class="line">	<span class="keyword">int</span> iCount = <span class="number">0</span>;<span class="comment">//计数器</span></span><br><span class="line">	<span class="keyword">while</span> (ph-&gt;pnext != <span class="keyword">this</span>-&gt;phead)</span><br><span class="line">	&#123;</span><br><span class="line">		iCount++;</span><br><span class="line">		ph = ph-&gt;pnext;</span><br><span class="line">		<span class="keyword">if</span> (ph-&gt;data == SData)</span><br><span class="line">		&#123;</span><br><span class="line">			*pindex = iCount;</span><br><span class="line">			<span class="keyword">return</span> YES;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	*pindex = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> NO;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//指定位置前插</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">status CCircleLinkList&lt;DType&gt;::InsertCListNodeFront(DType IData, <span class="keyword">int</span> index)</span><br><span class="line">&#123;</span><br><span class="line">	Node&lt;DType&gt; * ph = <span class="keyword">this</span>-&gt;phead;</span><br><span class="line">	<span class="keyword">if</span> (ph-&gt;pnext == <span class="keyword">this</span>-&gt;phead || index &lt; <span class="number">1</span> || index &gt; GetCListLength())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ERROR; <span class="comment">//异常 处理</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> iCount = <span class="number">0</span>; <span class="comment">//计数器</span></span><br><span class="line">	Node&lt;DType&gt; * q = <span class="literal">nullptr</span>; <span class="comment">//备用</span></span><br><span class="line">	<span class="keyword">while</span> (ph-&gt;pnext != <span class="keyword">this</span>-&gt;phead)</span><br><span class="line">	&#123;</span><br><span class="line">		iCount++;</span><br><span class="line">		q = ph;</span><br><span class="line">		ph = ph-&gt;pnext;</span><br><span class="line">		<span class="keyword">if</span> (iCount == index)</span><br><span class="line">		&#123;</span><br><span class="line">			Node&lt;DType&gt; * p = <span class="keyword">new</span> Node&lt;DType&gt;;</span><br><span class="line">			p-&gt;data = IData;</span><br><span class="line">			p-&gt;pnext = ph;</span><br><span class="line">			q-&gt;pnext = p;   <span class="comment">//前插</span></span><br><span class="line">			<span class="keyword">return</span> OK;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//指定位置后插</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">status CCircleLinkList&lt;DType&gt;::InsertCListNodeBack(DType IData, <span class="keyword">int</span> index)</span><br><span class="line">&#123;</span><br><span class="line">	Node&lt;DType&gt; * ph = <span class="keyword">this</span>-&gt;phead;</span><br><span class="line">	<span class="keyword">if</span> (ph-&gt;pnext == <span class="keyword">this</span>-&gt;phead || index &lt; <span class="number">1</span> || index &gt; GetCListLength())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ERROR; <span class="comment">//异常 处理</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> iCount = <span class="number">0</span>; <span class="comment">//计数器</span></span><br><span class="line">	Node&lt;DType&gt; * q = <span class="literal">nullptr</span>; <span class="comment">//备用</span></span><br><span class="line">	<span class="keyword">while</span> (ph-&gt;pnext != <span class="keyword">this</span>-&gt;phead)</span><br><span class="line">	&#123;</span><br><span class="line">		iCount++;</span><br><span class="line">		q = ph;</span><br><span class="line">		ph = ph-&gt;pnext;</span><br><span class="line">		<span class="keyword">if</span> (iCount == index)</span><br><span class="line">		&#123;</span><br><span class="line">			Node&lt;DType&gt; * p = <span class="keyword">new</span> Node&lt;DType&gt;;</span><br><span class="line">			q = ph;</span><br><span class="line">			ph = ph-&gt;pnext; <span class="comment">//后插就是后一个节点的前插咯</span></span><br><span class="line">			p-&gt;data = IData;</span><br><span class="line">			p-&gt;pnext = ph;</span><br><span class="line">			q-&gt;pnext = p;</span><br><span class="line">			<span class="keyword">return</span> OK;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//清空链表(保留根节点)</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">status CCircleLinkList&lt;DType&gt;::ClearCList()</span><br><span class="line">&#123;</span><br><span class="line">	Node&lt;DType&gt; * ph = <span class="keyword">this</span>-&gt;phead;</span><br><span class="line">	Node&lt;DType&gt; * q = <span class="literal">nullptr</span>; <span class="comment">//防止那啥，野指针</span></span><br><span class="line">	ph = ph-&gt;pnext;<span class="comment">//保留头节点</span></span><br><span class="line">	<span class="keyword">while</span> (ph != <span class="keyword">this</span>-&gt;phead)</span><br><span class="line">	&#123;</span><br><span class="line">		q = ph;</span><br><span class="line">		ph = ph-&gt;pnext;</span><br><span class="line">		<span class="keyword">delete</span> q; <span class="comment">//释放</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">this</span>-&gt;phead-&gt;pnext = <span class="keyword">this</span>-&gt;phead;</span><br><span class="line">	<span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//销毁链表(all delete)</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">status CCircleLinkList&lt;DType&gt;::DestoryCList()</span><br><span class="line">&#123;</span><br><span class="line">	ClearCList();</span><br><span class="line">	<span class="keyword">delete</span> <span class="keyword">this</span>-&gt;phead;<span class="comment">//释放头结点 </span></span><br><span class="line">	<span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line">status CCircleLinkList&lt;DType&gt;::DeleteCListNodeBack()</span><br><span class="line">&#123;</span><br><span class="line">	Node&lt;DType&gt; * ph = <span class="keyword">this</span>-&gt;phead;</span><br><span class="line">	Node&lt;DType&gt; * q = <span class="literal">nullptr</span>; <span class="comment">//备用</span></span><br><span class="line">	<span class="keyword">if</span> (ph-&gt;pnext == <span class="keyword">this</span>-&gt;phead)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ERROR; <span class="comment">//链表都空了还删鸡毛</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (ph-&gt;pnext != <span class="keyword">this</span>-&gt;phead)</span><br><span class="line">	&#123;</span><br><span class="line">		q = ph;</span><br><span class="line">		ph = ph-&gt;pnext;</span><br><span class="line">	&#125;</span><br><span class="line">	q-&gt;pnext = <span class="keyword">this</span>-&gt;phead;</span><br><span class="line">	<span class="keyword">delete</span> ph;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> OK;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DType&gt;</span><br><span class="line"><span class="keyword">void</span> CCircleLinkList&lt;DType&gt;::PrintCList()</span><br><span class="line">&#123;</span><br><span class="line">	Node&lt;DType&gt; * ph = <span class="keyword">this</span>-&gt;phead;</span><br><span class="line">	<span class="keyword">if</span> (ph-&gt;pnext == <span class="keyword">this</span>-&gt;phead)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"链表为空，打印鸡毛"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"===============print list================"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">while</span> (ph-&gt;pnext != <span class="keyword">this</span>-&gt;phead)</span><br><span class="line">	&#123;</span><br><span class="line">		ph = ph-&gt;pnext;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"node["</span> &lt;&lt; i++ &lt;&lt; <span class="string">"] = "</span> &lt;&lt; ph-&gt;data &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>CircleLinkListTest.cpp 测试代码</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"CircleLinkList.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"CircleLinkList.cpp"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	CCircleLinkList&lt;<span class="keyword">int</span>&gt; * pMySList = <span class="keyword">new</span> CCircleLinkList&lt;<span class="keyword">int</span>&gt;;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; pMySList-&gt;IsCListEmpty() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	pMySList-&gt;AddCListNodeFront(<span class="number">111</span>);</span><br><span class="line">	pMySList-&gt;AddCListNodeFront(<span class="number">222</span>);</span><br><span class="line">	pMySList-&gt;AddCListNodeFront(<span class="number">333</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"链表长度"</span> &lt;&lt; pMySList-&gt;GetCListLength() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	pMySList-&gt;PrintCList();</span><br><span class="line"></span><br><span class="line">	pMySList-&gt;AddCListNodeBack(<span class="number">444</span>);</span><br><span class="line">	pMySList-&gt;AddCListNodeBack(<span class="number">555</span>);</span><br><span class="line">	pMySList-&gt;AddCListNodeBack(<span class="number">666</span>);</span><br><span class="line"></span><br><span class="line">	pMySList-&gt;PrintCList();</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; pMySList-&gt;IsCListEmpty() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"链表长度"</span> &lt;&lt; pMySList-&gt;GetCListLength() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> GetElem, GetIndex;</span><br><span class="line">	pMySList-&gt;GetCListIndexNode(&amp;GetElem, <span class="number">2</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Got Elem = "</span> &lt;&lt; GetElem &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	pMySList-&gt;GetCListIndexNode(&amp;GetElem, <span class="number">6</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Got Elem = "</span> &lt;&lt; GetElem &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	pMySList-&gt;GetCListIndexNode(&amp;GetElem, <span class="number">4</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Got Elem = "</span> &lt;&lt; GetElem &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	pMySList-&gt;DeleteCListIndexNode(&amp;GetElem, <span class="number">1</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"del Elem = "</span> &lt;&lt; GetElem &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	pMySList-&gt;DeleteCListIndexNode(&amp;GetElem, <span class="number">3</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"del Elem = "</span> &lt;&lt; GetElem &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	pMySList-&gt;PrintCList();</span><br><span class="line"></span><br><span class="line">	pMySList-&gt;SearchCListNode(<span class="number">555</span>, &amp;GetIndex);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Search Index = "</span> &lt;&lt; GetIndex &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	pMySList-&gt;SearchCListNode(<span class="number">111</span>, &amp;GetIndex);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Search Index = "</span> &lt;&lt; GetIndex &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	pMySList-&gt;SearchCListNode(<span class="number">666</span>, &amp;GetIndex);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Search Index = "</span> &lt;&lt; GetIndex &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	pMySList-&gt;InsertCListNodeFront(<span class="number">333</span>, <span class="number">1</span>);</span><br><span class="line">	pMySList-&gt;InsertCListNodeFront(<span class="number">444</span>, <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">	pMySList-&gt;PrintCList();</span><br><span class="line"></span><br><span class="line">	pMySList-&gt;InsertCListNodeBack(<span class="number">777</span>, <span class="number">3</span>);</span><br><span class="line">	pMySList-&gt;InsertCListNodeBack(<span class="number">888</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">	pMySList-&gt;PrintCList();</span><br><span class="line"></span><br><span class="line">	pMySList-&gt;DeleteCListNodeBack();</span><br><span class="line">	pMySList-&gt;PrintCList();</span><br><span class="line">	pMySList-&gt;DeleteCListNodeBack();</span><br><span class="line">	pMySList-&gt;PrintCList();</span><br><span class="line">	pMySList-&gt;DeleteCListNodeBack();</span><br><span class="line">	pMySList-&gt;PrintCList();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>代码未经严谨测试,如果有误,欢迎指正.</p>
-  	
-					
-	  </div>     
-	  
 
-	
-<div class="post-meta">
-      
-        <i class="iconfont icon-category"></i>       
-        <a class="category-link" href="/categories/数据结构/">数据结构</a> 	
-     
-      	
+    </div>
 
-      
-        <i class="iconfont icon-tag"></i>     
-          <a class="tag-link" href="/tags/数据结构/">数据结构</a>    
-      	
-</div>
-
-
-
-
-
-<div class="post-footer">
-  <div class="pf-left">
-      <img class="pf-avatar lazyload" src="/images/placeholder.png" data-src="/images/2.jpg">
-      <p class="pf-des">hello，大家好。</p>
-  </div>
-
-  <div class="pf-right">           
-      <div class="pf-links">
-        
-
-
-
-
-<span class="donate-btn">
-	<span class="iconfont icon-donate"></span>
-</span>
-
-
-<div id="donate-box" class="sildeUpMin">
-
-	<span class="donate-cancel iconfont icon-cancel"></span>
-
-	<div class="donate-img-box">
-		<img id="donate-qr-wechat" class="donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate1.png">	
-		<img id="donate-qr-alipay" class="donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate2.png">	
-	</div>
-
-	<span class="donate-word">世界美好 你也是</span>
-
-	<div class="donate-list">
-		<span class="iconfont icon-donate-wechat"></span>
-		<span class="iconfont icon-donate-alipay"></span>
-	</div>
-
-</div>
-
- 
-        
-	
-<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=21d601593a1de"></script>
-	
-	<span class="share-btn">
-	<span class="iconfont icon-share"></span>
-	</span>
-
-
-	<div class="-mob-share sildeUpMin">
-		   			             
-            <a class="iconfont  icon-share-qq -mob-share-qq"></a>		
-     	   			             
-            <a class="iconfont  icon-share-weixin -mob-share-weixin"></a>		
-     	   			             
-            <a class="iconfont  icon-share-weibo -mob-share-weibo"></a>		
-     	   			             
-            <a class="iconfont  icon-share-douban -mob-share-douban"></a>		
-     	   			             
-            <a class="iconfont  icon-share-facebook -mob-share-facebook"></a>		
-     	   			             
-            <a class="iconfont  icon-share-twitter -mob-share-twitter"></a>		
-     	   			             
-            <a class="iconfont  icon-share-google -mob-share-google"></a>		
-     	   
-	</div>	
-
-      </div>  
-    <nav class="pf-paginator">
-      
-         
-          <a href="/2018/02/18/用回溯法-backtracking-algorithm-求解N皇后问题-N-Queens-puzzle/" data-hover="用回溯法(backtracking algorithm)求解N皇后问题(N-Queens puzzle)">Prev</a>      
+    <div class="post-footer">   
+        <div>
             
-        
-      
-        
-        <a href="/2018/02/18/数据结构-静态链表代码-C-类模板封装/" data-hover="数据结构-静态链表代码(C++类模板封装)"> Next</a>
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">infinitor</a>
             
-  </nav>   
-  </div>
-</div> 
-	
-
-
-    
-    <div id="disqus_thread"></div>
-
-    <script>
-    (function() { 
-    var d = document, s = d.createElement('script');
-    s.src = 'https://'+'lemonreds'+'.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());    
-    (d.head || d.body).appendChild(s);
-    })();
-    </script>
-
-    <noscript>Please enable JavaScript to view the  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-    </noscript>
-
-
-	
+        </div>
+        <div>
+            
+        </div>  
+    </div>
 </article>
 
-          </section> 
-      </div>            
+<div class="article-nav prev-next-wrap clearfix">
     
-    <a id="backTop">
-      <span>
-        <i class="iconfont icon-backtotop"></i>
-      </span>
-    </a> 
-
-  
+        <a href="/2018/02/18/用回溯法-backtracking-algorithm-求解N皇后问题-N-Queens-puzzle/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
     
+    
+        <a href="/2018/02/18/数据结构-静态链表代码-C-类模板封装/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
 
+
+    <div id="comments">
         
-        <div class="search-container sildeUpMin">
+	
+  <script id="dsq-count-scr" src="https://snippet.disqus.com/count.js" async></script>
 
 
-            <div class="search-header">
-            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">  
-            <span class="search-cancel iconfont icon-cancel"></span>
-          
-            </div>
-              
-            <div id="search-result" class="search-result"></div>
-
-        </div>
- 
-
-     <div class="mobile-menu">      
-
-      
-      <img class="mobile-menu-icon lazyload" src="/images/placeholder.png" data-src="/images/favicon.png">   
-      
-
-         
-            
-
-            <a class="mobile-menu-link" href="/">Home
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/categories">Categories
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/archives">Archives
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/tags">Tags
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/about">About
-            </a>
-            
-         
-                          
-
-            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
-            
-         
-      
-</div>        
-    
-
-
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?636802045446222199ae541e32c8133e"; 
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+<script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = 'http://yoursite.com/2018/02/18/数据结构-单循环链表代码-C-类模板封装/';
+    this.page.identifier = '2018/02/18/数据结构-单循环链表代码-C-类模板封装/';
+    this.page.title = '数据结构-单循环链表代码(C++类模板封装)';
+  };
+  var d = document, s = d.createElement('script');
+  s.src = 'https://snippet.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', '' + +new Date());
+  (d.head || d.body).appendChild(s);
 </script>
 
 
-
-
-
-     
-    
-
-
-
-
-<footer id="footer">	    
-
-		
-		<div class="footer-copyright">
-		&copy;
-		
-		2018		
 	
-		infinitor
-		<br>
 
-		Built By Theme
-		<a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>	
-		</div>			
-	 
-</footer>   
+    </div>
 
-  
 
-    <script src="/nayo.bundle.js"></script>           
-  </body>        
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+                    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Google Search"><button type="submit" class="search-form-submit">谷歌搜索</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>大家好，欢迎来到我的个人博客。这里记录了我的成长过程，如果能帮到你一点点，我很开心。 <br/>
+</p>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xiaoshiyisss" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:2638512393@qq.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
+			    	<i class="qq fa fa-qq"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="微博" target="_blank">
+			    	<i class="weibo fa fa-weibo"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="QQ群" target="_blank">
+			    	<i class="users fa fa-users"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/全栈/"><i class="fa" aria-hidden="true">全栈</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/"><i class="fa" aria-hidden="true">数据结构</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/算法/"><i class="fa" aria-hidden="true">算法</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随想/"><i class="fa" aria-hidden="true">随想</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/"><i class="fa" aria-hidden="true">May 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">February 2018</i></a><span class="archive-list-count">9</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Python-游戏/" style="font-size: 10px;">Python, 游戏</a> <a href="/tags/数据结构/" style="font-size: 15px;">数据结构</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/随想/" style="font-size: 10px;">随想</a>
+    </div>
+  </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">友链</h3>
+        <div class="content friends-link">
+        
+            <a href="https://www.csdn.net/" class="fa" target="_blank">CSDN</a>
+        
+            <a href="https://www.cnblogs.com/" class="fa" target="_blank">博客园</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
 </html>

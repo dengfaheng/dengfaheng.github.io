@@ -1,111 +1,170 @@
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
-<html>
-  <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  
-  
-  <title>  遗传算法求解函数最值问题 |   短短的代码写写停停 </title>
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="无限Coding">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
 
- 
-  
-    <link rel="icon" href="/images/favicon.png">
-  
 
 
-  <link rel="stylesheet" href="/nayo.min.css"> 
-</head>  
-  <body>   
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>遗传算法求解函数最值问题 | 无限Coding</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="无限Coding" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
     
-      <header class="header">
-	
-  <nav class="header-nav">        
-   
-    <span class="iconfont icon-menu mobile-toggle"></span>   	
 
-    <a class="header-logo" href="/">改完BUG吃香锅</a>  
 
-    <div class="header-menu">          
-              
-            
 
-              <a class="header-menu-link" id="header-menu-home" href="/">Home</a>     
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
 
-            
-            
-            
 
-              <a class="header-menu-link" id="header-menu-categories" href="/categories">Categories</a>     
 
-            
-            
-            
 
-              <a class="header-menu-link" id="header-menu-archives" href="/archives">Archives</a>     
-
-            
-            
-            
-
-              <a class="header-menu-link" id="header-menu-tags" href="/tags">Tags</a>     
-
-            
-            
-            
-
-              <a class="header-menu-link" id="header-menu-about" href="/about">About</a>     
-
-            
-            
-            
-
-              <a class="iconfont icon-menu-search header-menu-link" id="header-menu-search"></a>
-
-            
-                
-    </div>  
     
-  </nav>
-</header>   
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
 
-      <div class="container">       
-          
-          
-            <section class="main">  
-          
 
-          <article class="post">
-  
-	<div class="post-header">
 
-	<p class="post-title">	
-		遗传算法求解函数最值问题
-	</p>
-			
 
-	<div class="meta-info">	
-	<span>
-		May 22, 2018
-	</span>
 
-	
-	
-		<i class="iconfont icon-words"></i>
-		<span>
-			9901
-		</span>
-	
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://oyxhmjutw.bkt.clouddn.com/18-2-21/37655074.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题">  
+             
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>推荐</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>随想</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="遗传算法求解函数最值问题">
+            
+	            遗传算法求解函数最值问题
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/算法">
+            算法
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a href="/tags/算法">
+               算法
+            </a>
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/05/22</span>
+    </span>
 </div>
 
-</div> 
-	 
-
-	  <div class="post-content slideDownMin">
-
-		
-
-			
-					<p>下面举例来说明遗传算法用以求函数最大值</p>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>下面举例来说明遗传算法用以求函数最大值</p>
 <p>函数为y = -x2+ 5的最大值，-32&lt;=x&lt;=31</p>
 <a id="more"></a>
 <p>一、编码以及初始种群的产生<br>编码采用二进制编码，初始种群采用矩阵的形式，每一行表示一个染色体，每一个染色体由若干个基因位组成。关于染色体的长度（即基因位的个数）可根据具体情况而定。比如说根据要求极值的函数的情况，本文-32&lt;=X&lt;=31，该范围内的整数有64个，所以可以取染色体长度为6，（26=64）。综上所述，取染色体长度为6，前5个二进制构成该染色体的值（十进制），第6个表示该染色体的适应度值。若是所取得染色体长度越长，表示解空间搜索范围越大，对应的是待搜索的X范围越大。关于如何将二进制转换为十进制，文后的C代码中函数x即为转换函数。<br>该初始种群共有4个染色体，第1列表示各个染色体的编号，第2列表示该染色体值的正负号，0表示正，1表示负。第3列到第7列为二进制编码，第8列表示各个染色体的适应度值。第2列到第7列的0-1值都是随机产生的。</p>
@@ -114,242 +173,220 @@
 <p>四、交叉算子<br>那么接下来就要对新种群中选出的两个个体进行交叉操作，一般的交叉方法有单点交叉、两点交叉、多点交叉、均匀交叉、融合交叉。方法不同，效果不同。本文采用最简单的单点交叉。交叉点随机产生。但是交叉操作要在一定的概率下进行，这个概率称为交叉率，一般设置为0.5~0.95之间。通过交叉操作，衍生出子代，以补充被淘汰掉的个体。</p>
 <p>五、变异<br>变异就是对染色体的基因进行变异，使其改变原来的结构（适应值也就改变），达到突变进化的目的。变异操作也要遵从一定的概率来进行，一般设置为0.0001~0.1之间，即以小概率进行基因突变。这符合自然规律。本文的变异方法直接采取基因位反转变异法，即0变为1，1变为0。要进行变异的基因位的选取也是随机的。</p>
 <p>六、终止规则<br>遗传算法是要一代一代更替的，那么什么时候停止迭代呢？这个规则就叫终止规则。一般常用的终止规则有：若干代后终止，得到的解达到一定目标后终止，计算时间达到一定限度后终止等方法。本文采用迭代数来限制。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/****************************************/</span></span><br><span class="line"><span class="comment">//功能：使用遗传算法求解y = -x^2 + 5的最大值</span></span><br><span class="line"><span class="comment">//遗传算法细节：</span></span><br><span class="line"><span class="comment">//编码：二进制</span></span><br><span class="line"><span class="comment">//选择：轮转赌轮</span></span><br><span class="line"><span class="comment">//交叉：单点交叉，交叉概率固定</span></span><br><span class="line"><span class="comment">//变异：平均随机变异，变异概率固定</span></span><br><span class="line"><span class="comment">//具体参数可以事先给定</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/****************************************/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;conio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*****初始化一些参数*****/</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Population_size = <span class="number">100</span>;        <span class="comment">//种群规模</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Chromosome_length = <span class="number">6</span>;    <span class="comment">//假定有64个网络节点，用64位表示每一个节点</span></span><br><span class="line"><span class="keyword">double</span> rate_crossover = <span class="number">0.5</span>;                <span class="comment">//交叉率</span></span><br><span class="line"><span class="keyword">double</span> rate_mutation = <span class="number">0.001</span>;           <span class="comment">//变异率</span></span><br><span class="line"><span class="keyword">int</span> iteration_num = <span class="number">50</span>;                     <span class="comment">//进化50代                                     </span></span><br><span class="line"><span class="comment">/****************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将染色体定义为结构体类型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Chromosome</span>                          </span></span><br><span class="line"><span class="class">&#123;</span>   </span><br><span class="line">    <span class="keyword">short</span> <span class="keyword">int</span> bit[Chromosome_length];           <span class="comment">//染色体二进制码串</span></span><br><span class="line">    <span class="keyword">double</span> value;                                           <span class="comment">//二进制代码对应的实际值</span></span><br><span class="line">    <span class="keyword">double</span> fitness;                                     <span class="comment">//适应值  </span></span><br><span class="line">    <span class="keyword">double</span> rate_fit;                                        <span class="comment">//相对的fit值，即所占的百分比</span></span><br><span class="line">    <span class="keyword">double</span> cumu_fit;                                    <span class="comment">//积累概率  </span></span><br><span class="line">&#125;chromosome;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*****函数声明*****/</span></span><br><span class="line"><span class="comment">//初始化得到个体的二进制字符串</span></span><br><span class="line">void population_initialize(chromosome (&amp;population_current)[Population_size]);</span><br><span class="line"><span class="comment">//对染色体进行解码</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">decode</span><span class="params">(chromosome &amp;population_current)</span> </span>;   </span><br><span class="line"><span class="comment">//计算染色体的适应度值</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">objective_function</span><span class="params">(<span class="keyword">double</span> x)</span></span>;</span><br><span class="line"><span class="comment">//更新种群内个体的属性值</span></span><br><span class="line">void fresh_property(chromosome(&amp;population_current)[Population_size]);</span><br><span class="line"><span class="comment">//基于旋转赌轮的选择操作    proportional roulette wheel selection</span></span><br><span class="line">void seletc_prw(chromosome(&amp;population_current)[Population_size], chromosome(&amp;population_next_generation)[Population_size], chromosome &amp;best_individual);</span><br><span class="line"><span class="comment">//交叉操作</span></span><br><span class="line">void crossover(chromosome (&amp;population_next_generation)[Population_size]);  </span><br><span class="line"><span class="comment">//突变操作</span></span><br><span class="line">void mutation(chromosome (&amp;population_next_generation)[Population_size]);</span><br><span class="line"><span class="comment">/****************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 主函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span>                                   </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*****初始化定义的种群和个体*****/</span></span><br><span class="line">    <span class="keyword">clock_t</span> start, end;<span class="comment">//开始计时,精确到秒</span></span><br><span class="line">    start = clock();</span><br><span class="line">    <span class="comment">/****************************************/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*****初始化定义的种群和个体*****/</span></span><br><span class="line">    chromosome population_current[Population_size];                    <span class="comment">//当前种群  </span></span><br><span class="line">    chromosome population_next_generation[Population_size];       <span class="comment">//产生的下一代的种群                        </span></span><br><span class="line">    chromosome best_individual;                                                 <span class="comment">//记录适应度的最大值</span></span><br><span class="line">    chromosome zeros_chromosome;                                                <span class="comment">//定义一个全为0的个体，用于群体中某个个体的重置</span></span><br><span class="line">    <span class="comment">/****************************************/</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>,j = <span class="number">0</span>;<span class="comment">//循环变量</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//*****初始化定义的种群和个体*****</span></span><br><span class="line">    <span class="comment">//首先初始化zeros_chromosome，后使用之初始化其他个体</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; Chromosome_length; i++)</span><br><span class="line">        zeros_chromosome.bit[i] = <span class="number">0</span>;</span><br><span class="line">    zeros_chromosome.fitness = <span class="number">0.0</span>;</span><br><span class="line">    zeros_chromosome.value = <span class="number">0.0</span>;</span><br><span class="line">    zeros_chromosome.rate_fit = <span class="number">0.0</span>;</span><br><span class="line">    zeros_chromosome.cumu_fit = <span class="number">0.0</span>;</span><br><span class="line"></span><br><span class="line">    best_individual = zeros_chromosome;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; Population_size; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        population_current[i] = zeros_chromosome;</span><br><span class="line">        population_next_generation[i] = zeros_chromosome;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/****************************************/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nWelcome to the Genetic Algorithm！\n"</span>);  <span class="comment">//   </span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The Algorithm is based on the function y = -x^2 + 5 to find the maximum value of the function.\n"</span>);</span><br><span class="line"></span><br><span class="line">enter:<span class="built_in">printf</span>(<span class="string">"\nPlease enter the no. of iterations\n请输入您要设定的迭代数 : "</span>);</span><br><span class="line">    <span class="comment">// 输入迭代次数，传送给参数 iteration_num</span></span><br><span class="line">    scanf_s(<span class="string">"%d"</span>, &amp;iteration_num);                           </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断输入的迭代次数是否为负或零，是的话重新输入</span></span><br><span class="line">    <span class="keyword">if</span> (iteration_num &lt;<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">goto</span> enter;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//种群初始化，得到个体的二进制字符串</span></span><br><span class="line">    population_initialize(population_current); </span><br><span class="line">    <span class="comment">//更新种群内个体的属性值</span></span><br><span class="line">    fresh_property(population_current);</span><br><span class="line">    <span class="comment">// 开始迭代</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt; iteration_num; i++)                            </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 输出当前迭代次数</span></span><br><span class="line">        <span class="comment">//printf("\ni = %d\n", i); </span></span><br><span class="line">        <span class="comment">//挑选优秀个体组成新的种群</span></span><br><span class="line">        seletc_prw(population_current,population_next_generation,best_individual);                 </span><br><span class="line">        <span class="comment">//对选择后的种群进行交叉操作</span></span><br><span class="line">        crossover(population_next_generation);              </span><br><span class="line">        <span class="comment">//对交叉后的种群进行变异操作</span></span><br><span class="line">        mutation(population_next_generation);                      </span><br><span class="line">        <span class="comment">//更新种群内个体的属性值</span></span><br><span class="line">        fresh_property(population_next_generation);</span><br><span class="line">        <span class="comment">//将population_next_generation的值赋给population_current，并清除population_next_generation的值</span></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; Population_size; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            population_current[i] = population_next_generation[i];</span><br><span class="line">            population_next_generation[i] = zeros_chromosome;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//检验时间是否到90s</span></span><br><span class="line">        end = clock();</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">double</span>(end - start) / CLK_TCK&gt; <span class="number">89</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="comment">//输出所用时间</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n 迭代%d次所用时间为： %f\n"</span>, iteration_num, <span class="keyword">double</span>(end - start) / CLK_TCK);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//输出结果</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n 函数得到最大值为： %f ,适应度为：%f \n"</span>, best_individual.value, best_individual.fitness);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;Population_size; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" population_current[%d]="</span>, i);</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; Chromosome_length; j++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" %d"</span>, population_current[i].bit[j]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"        value=%f    fitness = %f\n"</span>, population_current[i].value, population_current[i].fitness);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPress any key to end ! "</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清除所有缓冲区</span></span><br><span class="line"><span class="comment">//  flushall();                                   </span></span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//函数：种群初始化  </span></span><br><span class="line"><span class="comment">//输入是数组的引用</span></span><br><span class="line"><span class="comment">//调用时，只需输入数组名</span></span><br><span class="line">void population_initialize(chromosome (&amp;population_current)[Population_size])   </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//产生随机数种子</span></span><br><span class="line">    srand((<span class="keyword">unsigned</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="comment">//遍历种群中的每个染色体</span></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j&lt;Population_size; j++)                              </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//随机初始化染色体的每一位</span></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;Chromosome_length; i++)                       </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 随机产生染色体上每一个基因位的值，0或1</span></span><br><span class="line">            population_current[j].bit[i] = rand()% <span class="number">2</span>;         </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数：将二进制换算为十进制 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">decode</span><span class="params">(chromosome &amp;population_current)</span>   </span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//此处的染色体长度为，其中个表示符号位  </span></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    population_current.value = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//地位在前，高位再后</span></span><br><span class="line">    <span class="keyword">for</span>( i = <span class="number">0</span> ; i &lt; Chromosome_length <span class="number">-1</span>; i++ ) </span><br><span class="line">        population_current.value += (<span class="keyword">double</span>)<span class="built_in">pow</span>(<span class="number">2</span>, i) * (<span class="keyword">double</span>)population_current.bit[i];    <span class="comment">//遍历染色体二进制编码, </span></span><br><span class="line">    <span class="comment">//最高位为符号位，如果是1代表负数</span></span><br><span class="line">    <span class="keyword">if</span> (population_current.bit[Chromosome_length - <span class="number">1</span>] == <span class="number">1</span>)</span><br><span class="line">        population_current.value = <span class="number">0</span> - population_current.value;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数:计算适应度</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">objective_function</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> y;</span><br><span class="line">    <span class="comment">// 目标函数：y= - ( (x-1)^ 2 ) +5</span></span><br><span class="line">    y = -((x - <span class="number">1</span>) *(x - <span class="number">1</span>)) + <span class="number">5</span>;                                </span><br><span class="line">    <span class="keyword">return</span>(y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数：更新种群内个体的属性值</span></span><br><span class="line"><span class="comment">//说明：当种群中个体的二进制串确定后，就可以计算每个个体fitness、value、rate_fit 、cumu_fit</span></span><br><span class="line"><span class="comment">//输入：</span></span><br><span class="line"><span class="comment">//chromosome (&amp;population_current)[Population_size] 当前代种群的引用</span></span><br><span class="line">void fresh_property(chromosome (&amp;population_current)[Population_size])</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; Population_size; j++)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//染色体解码，将二进制换算为十进制，得到一个整数值</span></span><br><span class="line">        <span class="comment">//计算二进制串对应的10进制数值</span></span><br><span class="line">        decode(population_current[j]);                 </span><br><span class="line">        <span class="comment">//计算染色体的适应度</span></span><br><span class="line">        population_current[j].fitness = objective_function(population_current[j].value); </span><br><span class="line">        sum = sum + population_current[j].fitness;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//计算每条染色体的适应值百分比及累计适应度值的百分比，在轮盘赌选择法时用它选择染色体  </span></span><br><span class="line">    population_current[<span class="number">0</span>].rate_fit = population_current[<span class="number">0</span>].fitness / sum;</span><br><span class="line">    population_current[<span class="number">0</span>].cumu_fit = population_current[<span class="number">0</span>].rate_fit;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt; Population_size; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        population_current[j].rate_fit = population_current[j].fitness / sum;</span><br><span class="line">        population_current[j].cumu_fit = population_current[j].rate_fit + population_current[j<span class="number">-1</span>].cumu_fit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数：基于轮盘赌选择方法，对种群中的染色体进行选择  </span></span><br><span class="line"><span class="comment">//输入：</span></span><br><span class="line"><span class="comment">//chromosome (&amp;population_current)[Population_size] 当前代种群的引用</span></span><br><span class="line"><span class="comment">//chromosome (&amp;population_next_generation)[Population_size] 选择出的下一代种群的引用</span></span><br><span class="line"><span class="comment">//chromosome &amp;best_individual 当前代种群中的最优个体</span></span><br><span class="line">void seletc_prw(chromosome (&amp;population_current)[Population_size],chromosome (&amp;population_next_generation)[Population_size],chromosome &amp;best_individual)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> rate_rand = <span class="number">0.0</span>;</span><br><span class="line">    best_individual = population_current[<span class="number">0</span>];</span><br><span class="line">    <span class="comment">//产生随机数种子</span></span><br><span class="line">    srand((<span class="keyword">unsigned</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; Population_size; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        rate_rand = (<span class="keyword">float</span>)rand() / (RAND_MAX);</span><br><span class="line">        <span class="keyword">if</span> (rate_rand &lt; population_current[<span class="number">0</span>].cumu_fit)</span><br><span class="line">            population_next_generation[i] = population_current[<span class="number">0</span>];      </span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; Population_size; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (population_current[j].cumu_fit &lt;= rate_rand &amp;&amp; rate_rand &lt; population_current[j + <span class="number">1</span>].cumu_fit)</span><br><span class="line">                &#123;</span><br><span class="line">                    population_next_generation[i] = population_current[j + <span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果当前个体比目前的最有个体还要优秀，则将当前个体设为最优个体</span></span><br><span class="line">        <span class="keyword">if</span>(population_current[i].fitness &gt; best_individual.fitness)</span><br><span class="line">            best_individual = population_current[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数：交叉操作</span></span><br><span class="line">void crossover(chromosome (&amp;population_next_generation)[Population_size])          </span><br><span class="line">&#123;   </span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>,j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> rate_rand = <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">short</span> <span class="keyword">int</span> bit_temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> num1_rand = <span class="number">0</span>, num2_rand = <span class="number">0</span>, position_rand = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//产生随机数种子</span></span><br><span class="line">    srand((<span class="keyword">unsigned</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="comment">//应当交叉变异多少次呢？先设定为种群数量</span></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j&lt;Population_size; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        rate_rand = (<span class="keyword">float</span>)rand()/(RAND_MAX);</span><br><span class="line">        <span class="comment">//如果大于交叉概率就进行交叉操作</span></span><br><span class="line">        <span class="keyword">if</span>(rate_rand &lt;= rate_crossover)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//随机产生两个染色体</span></span><br><span class="line">            num1_rand = (<span class="keyword">int</span>)rand()%(Population_size);</span><br><span class="line">            num2_rand = (<span class="keyword">int</span>)rand()%(Population_size);</span><br><span class="line">            <span class="comment">//随机产生两个染色体的交叉位置</span></span><br><span class="line">            position_rand = (<span class="keyword">int</span>)rand()%(Chromosome_length - <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//采用单点交叉，交叉点之后的位数交换</span></span><br><span class="line">            <span class="keyword">for</span> (i = position_rand; i&lt;Chromosome_length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                bit_temp = population_next_generation[num1_rand].bit[i];</span><br><span class="line">                population_next_generation[num1_rand].bit[i] = population_next_generation[num2_rand].bit[i];     </span><br><span class="line">                population_next_generation[num2_rand].bit[i] = bit_temp;     </span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数：变异操作</span></span><br><span class="line">void mutation(chromosome (&amp;population_next_generation)[Population_size])               </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> position_rand = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> rate_rand = <span class="number">0.0</span>;</span><br><span class="line">    <span class="comment">//产生随机数种子</span></span><br><span class="line">    srand((<span class="keyword">unsigned</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="comment">//变异次数设定为种群数量</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;Population_size; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        rate_rand = (<span class="keyword">float</span>)rand()/(RAND_MAX);</span><br><span class="line">        <span class="comment">//如果大于交叉概率就进行变异操作</span></span><br><span class="line">        <span class="keyword">if</span>(rate_rand &lt;= rate_mutation)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//随机产生突变位置</span></span><br><span class="line">            position_rand = (<span class="keyword">int</span>)rand()%(Chromosome_length);</span><br><span class="line">            <span class="comment">//突变</span></span><br><span class="line">            <span class="keyword">if</span> (population_next_generation[i].bit[position_rand] == <span class="number">0</span>)</span><br><span class="line">                population_next_generation[i].bit[position_rand] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                population_next_generation[i].bit[position_rand] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  	
-					
-	  </div>     
-	  
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/****************************************/</span></span><br><span class="line"><span class="comment">//功能：使用遗传算法求解y = -x^2 + 5的最大值</span></span><br><span class="line"><span class="comment">//遗传算法细节：</span></span><br><span class="line"><span class="comment">//编码：二进制</span></span><br><span class="line"><span class="comment">//选择：轮转赌轮</span></span><br><span class="line"><span class="comment">//交叉：单点交叉，交叉概率固定</span></span><br><span class="line"><span class="comment">//变异：平均随机变异，变异概率固定</span></span><br><span class="line"><span class="comment">//具体参数可以事先给定</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/****************************************/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;conio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*****初始化一些参数*****/</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Population_size = <span class="number">100</span>;        <span class="comment">//种群规模</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Chromosome_length = <span class="number">6</span>;    <span class="comment">//假定有64个网络节点，用64位表示每一个节点</span></span><br><span class="line"><span class="keyword">double</span> rate_crossover = <span class="number">0.5</span>;                <span class="comment">//交叉率</span></span><br><span class="line"><span class="keyword">double</span> rate_mutation = <span class="number">0.001</span>;           <span class="comment">//变异率</span></span><br><span class="line"><span class="keyword">int</span> iteration_num = <span class="number">50</span>;                     <span class="comment">//进化50代                                     </span></span><br><span class="line"><span class="comment">/****************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将染色体定义为结构体类型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Chromosome</span>                          </span></span><br><span class="line"><span class="class">&#123;</span>   </span><br><span class="line">    <span class="keyword">short</span> <span class="keyword">int</span> bit[Chromosome_length];           <span class="comment">//染色体二进制码串</span></span><br><span class="line">    <span class="keyword">double</span> value;                                           <span class="comment">//二进制代码对应的实际值</span></span><br><span class="line">    <span class="keyword">double</span> fitness;                                     <span class="comment">//适应值  </span></span><br><span class="line">    <span class="keyword">double</span> rate_fit;                                        <span class="comment">//相对的fit值，即所占的百分比</span></span><br><span class="line">    <span class="keyword">double</span> cumu_fit;                                    <span class="comment">//积累概率  </span></span><br><span class="line">&#125;chromosome;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*****函数声明*****/</span></span><br><span class="line"><span class="comment">//初始化得到个体的二进制字符串</span></span><br><span class="line">void population_initialize(chromosome (&amp;population_current)[Population_size]);</span><br><span class="line"><span class="comment">//对染色体进行解码</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">decode</span><span class="params">(chromosome &amp;population_current)</span> </span>;   </span><br><span class="line"><span class="comment">//计算染色体的适应度值</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">objective_function</span><span class="params">(<span class="keyword">double</span> x)</span></span>;</span><br><span class="line"><span class="comment">//更新种群内个体的属性值</span></span><br><span class="line">void fresh_property(chromosome(&amp;population_current)[Population_size]);</span><br><span class="line"><span class="comment">//基于旋转赌轮的选择操作    proportional roulette wheel selection</span></span><br><span class="line">void seletc_prw(chromosome(&amp;population_current)[Population_size], chromosome(&amp;population_next_generation)[Population_size], chromosome &amp;best_individual);</span><br><span class="line"><span class="comment">//交叉操作</span></span><br><span class="line">void crossover(chromosome (&amp;population_next_generation)[Population_size]);  </span><br><span class="line"><span class="comment">//突变操作</span></span><br><span class="line">void mutation(chromosome (&amp;population_next_generation)[Population_size]);</span><br><span class="line"><span class="comment">/****************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 主函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span>                                   </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*****初始化定义的种群和个体*****/</span></span><br><span class="line">    <span class="keyword">clock_t</span> start, end;<span class="comment">//开始计时,精确到秒</span></span><br><span class="line">    start = clock();</span><br><span class="line">    <span class="comment">/****************************************/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*****初始化定义的种群和个体*****/</span></span><br><span class="line">    chromosome population_current[Population_size];                    <span class="comment">//当前种群  </span></span><br><span class="line">    chromosome population_next_generation[Population_size];       <span class="comment">//产生的下一代的种群                        </span></span><br><span class="line">    chromosome best_individual;                                                 <span class="comment">//记录适应度的最大值</span></span><br><span class="line">    chromosome zeros_chromosome;                                                <span class="comment">//定义一个全为0的个体，用于群体中某个个体的重置</span></span><br><span class="line">    <span class="comment">/****************************************/</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>,j = <span class="number">0</span>;<span class="comment">//循环变量</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//*****初始化定义的种群和个体*****</span></span><br><span class="line">    <span class="comment">//首先初始化zeros_chromosome，后使用之初始化其他个体</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; Chromosome_length; i++)</span><br><span class="line">        zeros_chromosome.bit[i] = <span class="number">0</span>;</span><br><span class="line">    zeros_chromosome.fitness = <span class="number">0.0</span>;</span><br><span class="line">    zeros_chromosome.value = <span class="number">0.0</span>;</span><br><span class="line">    zeros_chromosome.rate_fit = <span class="number">0.0</span>;</span><br><span class="line">    zeros_chromosome.cumu_fit = <span class="number">0.0</span>;</span><br><span class="line"></span><br><span class="line">    best_individual = zeros_chromosome;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; Population_size; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        population_current[i] = zeros_chromosome;</span><br><span class="line">        population_next_generation[i] = zeros_chromosome;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/****************************************/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nWelcome to the Genetic Algorithm！\n"</span>);  <span class="comment">//   </span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The Algorithm is based on the function y = -x^2 + 5 to find the maximum value of the function.\n"</span>);</span><br><span class="line"></span><br><span class="line">enter:<span class="built_in">printf</span>(<span class="string">"\nPlease enter the no. of iterations\n请输入您要设定的迭代数 : "</span>);</span><br><span class="line">    <span class="comment">// 输入迭代次数，传送给参数 iteration_num</span></span><br><span class="line">    scanf_s(<span class="string">"%d"</span>, &amp;iteration_num);                           </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断输入的迭代次数是否为负或零，是的话重新输入</span></span><br><span class="line">    <span class="keyword">if</span> (iteration_num &lt;<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">goto</span> enter;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//种群初始化，得到个体的二进制字符串</span></span><br><span class="line">    population_initialize(population_current); </span><br><span class="line">    <span class="comment">//更新种群内个体的属性值</span></span><br><span class="line">    fresh_property(population_current);</span><br><span class="line">    <span class="comment">// 开始迭代</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt; iteration_num; i++)                            </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 输出当前迭代次数</span></span><br><span class="line">        <span class="comment">//printf("\ni = %d\n", i); </span></span><br><span class="line">        <span class="comment">//挑选优秀个体组成新的种群</span></span><br><span class="line">        seletc_prw(population_current,population_next_generation,best_individual);                 </span><br><span class="line">        <span class="comment">//对选择后的种群进行交叉操作</span></span><br><span class="line">        crossover(population_next_generation);              </span><br><span class="line">        <span class="comment">//对交叉后的种群进行变异操作</span></span><br><span class="line">        mutation(population_next_generation);                      </span><br><span class="line">        <span class="comment">//更新种群内个体的属性值</span></span><br><span class="line">        fresh_property(population_next_generation);</span><br><span class="line">        <span class="comment">//将population_next_generation的值赋给population_current，并清除population_next_generation的值</span></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; Population_size; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            population_current[i] = population_next_generation[i];</span><br><span class="line">            population_next_generation[i] = zeros_chromosome;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//检验时间是否到90s</span></span><br><span class="line">        end = clock();</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">double</span>(end - start) / CLK_TCK&gt; <span class="number">89</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="comment">//输出所用时间</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n 迭代%d次所用时间为： %f\n"</span>, iteration_num, <span class="keyword">double</span>(end - start) / CLK_TCK);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//输出结果</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n 函数得到最大值为： %f ,适应度为：%f \n"</span>, best_individual.value, best_individual.fitness);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;Population_size; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" population_current[%d]="</span>, i);</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; Chromosome_length; j++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" %d"</span>, population_current[i].bit[j]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"        value=%f    fitness = %f\n"</span>, population_current[i].value, population_current[i].fitness);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPress any key to end ! "</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清除所有缓冲区</span></span><br><span class="line"><span class="comment">//  flushall();                                   </span></span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//函数：种群初始化  </span></span><br><span class="line"><span class="comment">//输入是数组的引用</span></span><br><span class="line"><span class="comment">//调用时，只需输入数组名</span></span><br><span class="line">void population_initialize(chromosome (&amp;population_current)[Population_size])   </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//产生随机数种子</span></span><br><span class="line">    srand((<span class="keyword">unsigned</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="comment">//遍历种群中的每个染色体</span></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j&lt;Population_size; j++)                              </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//随机初始化染色体的每一位</span></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;Chromosome_length; i++)                       </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 随机产生染色体上每一个基因位的值，0或1</span></span><br><span class="line">            population_current[j].bit[i] = rand()% <span class="number">2</span>;         </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数：将二进制换算为十进制 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">decode</span><span class="params">(chromosome &amp;population_current)</span>   </span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//此处的染色体长度为，其中个表示符号位  </span></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    population_current.value = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//地位在前，高位再后</span></span><br><span class="line">    <span class="keyword">for</span>( i = <span class="number">0</span> ; i &lt; Chromosome_length <span class="number">-1</span>; i++ ) </span><br><span class="line">        population_current.value += (<span class="keyword">double</span>)<span class="built_in">pow</span>(<span class="number">2</span>, i) * (<span class="keyword">double</span>)population_current.bit[i];    <span class="comment">//遍历染色体二进制编码, </span></span><br><span class="line">    <span class="comment">//最高位为符号位，如果是1代表负数</span></span><br><span class="line">    <span class="keyword">if</span> (population_current.bit[Chromosome_length - <span class="number">1</span>] == <span class="number">1</span>)</span><br><span class="line">        population_current.value = <span class="number">0</span> - population_current.value;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数:计算适应度</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">objective_function</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> y;</span><br><span class="line">    <span class="comment">// 目标函数：y= - ( (x-1)^ 2 ) +5</span></span><br><span class="line">    y = -((x - <span class="number">1</span>) *(x - <span class="number">1</span>)) + <span class="number">5</span>;                                </span><br><span class="line">    <span class="keyword">return</span>(y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数：更新种群内个体的属性值</span></span><br><span class="line"><span class="comment">//说明：当种群中个体的二进制串确定后，就可以计算每个个体fitness、value、rate_fit 、cumu_fit</span></span><br><span class="line"><span class="comment">//输入：</span></span><br><span class="line"><span class="comment">//chromosome (&amp;population_current)[Population_size] 当前代种群的引用</span></span><br><span class="line">void fresh_property(chromosome (&amp;population_current)[Population_size])</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; Population_size; j++)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//染色体解码，将二进制换算为十进制，得到一个整数值</span></span><br><span class="line">        <span class="comment">//计算二进制串对应的10进制数值</span></span><br><span class="line">        decode(population_current[j]);                 </span><br><span class="line">        <span class="comment">//计算染色体的适应度</span></span><br><span class="line">        population_current[j].fitness = objective_function(population_current[j].value); </span><br><span class="line">        sum = sum + population_current[j].fitness;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//计算每条染色体的适应值百分比及累计适应度值的百分比，在轮盘赌选择法时用它选择染色体  </span></span><br><span class="line">    population_current[<span class="number">0</span>].rate_fit = population_current[<span class="number">0</span>].fitness / sum;</span><br><span class="line">    population_current[<span class="number">0</span>].cumu_fit = population_current[<span class="number">0</span>].rate_fit;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt; Population_size; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        population_current[j].rate_fit = population_current[j].fitness / sum;</span><br><span class="line">        population_current[j].cumu_fit = population_current[j].rate_fit + population_current[j<span class="number">-1</span>].cumu_fit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数：基于轮盘赌选择方法，对种群中的染色体进行选择  </span></span><br><span class="line"><span class="comment">//输入：</span></span><br><span class="line"><span class="comment">//chromosome (&amp;population_current)[Population_size] 当前代种群的引用</span></span><br><span class="line"><span class="comment">//chromosome (&amp;population_next_generation)[Population_size] 选择出的下一代种群的引用</span></span><br><span class="line"><span class="comment">//chromosome &amp;best_individual 当前代种群中的最优个体</span></span><br><span class="line">void seletc_prw(chromosome (&amp;population_current)[Population_size],chromosome (&amp;population_next_generation)[Population_size],chromosome &amp;best_individual)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> rate_rand = <span class="number">0.0</span>;</span><br><span class="line">    best_individual = population_current[<span class="number">0</span>];</span><br><span class="line">    <span class="comment">//产生随机数种子</span></span><br><span class="line">    srand((<span class="keyword">unsigned</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; Population_size; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        rate_rand = (<span class="keyword">float</span>)rand() / (RAND_MAX);</span><br><span class="line">        <span class="keyword">if</span> (rate_rand &lt; population_current[<span class="number">0</span>].cumu_fit)</span><br><span class="line">            population_next_generation[i] = population_current[<span class="number">0</span>];      </span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; Population_size; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (population_current[j].cumu_fit &lt;= rate_rand &amp;&amp; rate_rand &lt; population_current[j + <span class="number">1</span>].cumu_fit)</span><br><span class="line">                &#123;</span><br><span class="line">                    population_next_generation[i] = population_current[j + <span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果当前个体比目前的最有个体还要优秀，则将当前个体设为最优个体</span></span><br><span class="line">        <span class="keyword">if</span>(population_current[i].fitness &gt; best_individual.fitness)</span><br><span class="line">            best_individual = population_current[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数：交叉操作</span></span><br><span class="line">void crossover(chromosome (&amp;population_next_generation)[Population_size])          </span><br><span class="line">&#123;   </span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>,j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> rate_rand = <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">short</span> <span class="keyword">int</span> bit_temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> num1_rand = <span class="number">0</span>, num2_rand = <span class="number">0</span>, position_rand = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//产生随机数种子</span></span><br><span class="line">    srand((<span class="keyword">unsigned</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="comment">//应当交叉变异多少次呢？先设定为种群数量</span></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j&lt;Population_size; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        rate_rand = (<span class="keyword">float</span>)rand()/(RAND_MAX);</span><br><span class="line">        <span class="comment">//如果大于交叉概率就进行交叉操作</span></span><br><span class="line">        <span class="keyword">if</span>(rate_rand &lt;= rate_crossover)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//随机产生两个染色体</span></span><br><span class="line">            num1_rand = (<span class="keyword">int</span>)rand()%(Population_size);</span><br><span class="line">            num2_rand = (<span class="keyword">int</span>)rand()%(Population_size);</span><br><span class="line">            <span class="comment">//随机产生两个染色体的交叉位置</span></span><br><span class="line">            position_rand = (<span class="keyword">int</span>)rand()%(Chromosome_length - <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//采用单点交叉，交叉点之后的位数交换</span></span><br><span class="line">            <span class="keyword">for</span> (i = position_rand; i&lt;Chromosome_length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                bit_temp = population_next_generation[num1_rand].bit[i];</span><br><span class="line">                population_next_generation[num1_rand].bit[i] = population_next_generation[num2_rand].bit[i];     </span><br><span class="line">                population_next_generation[num2_rand].bit[i] = bit_temp;     </span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数：变异操作</span></span><br><span class="line">void mutation(chromosome (&amp;population_next_generation)[Population_size])               </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> position_rand = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> rate_rand = <span class="number">0.0</span>;</span><br><span class="line">    <span class="comment">//产生随机数种子</span></span><br><span class="line">    srand((<span class="keyword">unsigned</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="comment">//变异次数设定为种群数量</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;Population_size; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        rate_rand = (<span class="keyword">float</span>)rand()/(RAND_MAX);</span><br><span class="line">        <span class="comment">//如果大于交叉概率就进行变异操作</span></span><br><span class="line">        <span class="keyword">if</span>(rate_rand &lt;= rate_mutation)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//随机产生突变位置</span></span><br><span class="line">            position_rand = (<span class="keyword">int</span>)rand()%(Chromosome_length);</span><br><span class="line">            <span class="comment">//突变</span></span><br><span class="line">            <span class="keyword">if</span> (population_next_generation[i].bit[position_rand] == <span class="number">0</span>)</span><br><span class="line">                population_next_generation[i].bit[position_rand] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                population_next_generation[i].bit[position_rand] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
 
-	
-<div class="post-meta">
-      
-        <i class="iconfont icon-category"></i>       
-        <a class="category-link" href="/categories/算法/">算法</a> 	
-     
-      	
-
-      
-        <i class="iconfont icon-tag"></i>     
-          <a class="tag-link" href="/tags/算法/">算法</a>    
-      	
-</div>
-
-
-
-
-
-<div class="post-footer">
-  <div class="pf-left">
-      <img class="pf-avatar lazyload" src="/images/placeholder.png" data-src="/images/2.jpg">
-      <p class="pf-des">hello，大家好。</p>
-  </div>
-
-  <div class="pf-right">           
-      <div class="pf-links">
-        
-
-
-
-
-<span class="donate-btn">
-	<span class="iconfont icon-donate"></span>
-</span>
-
-
-<div id="donate-box" class="sildeUpMin">
-
-	<span class="donate-cancel iconfont icon-cancel"></span>
-
-	<div class="donate-img-box">
-		<img id="donate-qr-wechat" class="donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate1.png">	
-		<img id="donate-qr-alipay" class="donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate2.png">	
-	</div>
-
-	<span class="donate-word">世界美好 你也是</span>
-
-	<div class="donate-list">
-		<span class="iconfont icon-donate-wechat"></span>
-		<span class="iconfont icon-donate-alipay"></span>
-	</div>
-
-</div>
-
- 
-        
-	
-<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=21d601593a1de"></script>
-	
-	<span class="share-btn">
-	<span class="iconfont icon-share"></span>
-	</span>
-
-
-	<div class="-mob-share sildeUpMin">
-		   			             
-            <a class="iconfont  icon-share-qq -mob-share-qq"></a>		
-     	   			             
-            <a class="iconfont  icon-share-weixin -mob-share-weixin"></a>		
-     	   			             
-            <a class="iconfont  icon-share-weibo -mob-share-weibo"></a>		
-     	   			             
-            <a class="iconfont  icon-share-douban -mob-share-douban"></a>		
-     	   			             
-            <a class="iconfont  icon-share-facebook -mob-share-facebook"></a>		
-     	   			             
-            <a class="iconfont  icon-share-twitter -mob-share-twitter"></a>		
-     	   			             
-            <a class="iconfont  icon-share-google -mob-share-google"></a>		
-     	   
-	</div>	
-
-      </div>  
-    <nav class="pf-paginator">
-      
-         
-          <a href="/2018/05/22/超详细遗传算法(Genetic Algorithm)解析附带TSP代码/" data-hover="超详细遗传算法解析附带TSP代码">Prev</a>      
+    <div class="post-footer">   
+        <div>
             
-        
-      
-        
-        <a href="/2018/02/21/来自酷壳一些话的感想/" data-hover="经典语录"> Next</a>
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">infinitor</a>
             
-  </nav>   
-  </div>
-</div> 
-	
-
-
-    
-    <div id="disqus_thread"></div>
-
-    <script>
-    (function() { 
-    var d = document, s = d.createElement('script');
-    s.src = 'https://'+'lemonreds'+'.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());    
-    (d.head || d.body).appendChild(s);
-    })();
-    </script>
-
-    <noscript>Please enable JavaScript to view the  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-    </noscript>
-
-
-	
+        </div>
+        <div>
+            
+        </div>  
+    </div>
 </article>
 
-          </section> 
-      </div>            
+<div class="article-nav prev-next-wrap clearfix">
     
-    <a id="backTop">
-      <span>
-        <i class="iconfont icon-backtotop"></i>
-      </span>
-    </a> 
-
-  
+        <a href="/2018/05/22/超详细遗传算法(Genetic Algorithm)解析附带TSP代码/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
     
+    
+        <a href="/2018/02/21/来自酷壳一些话的感想/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
 
+
+    <div id="comments">
         
-        <div class="search-container sildeUpMin">
+	
+  <script id="dsq-count-scr" src="https://snippet.disqus.com/count.js" async></script>
 
 
-            <div class="search-header">
-            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">  
-            <span class="search-cancel iconfont icon-cancel"></span>
-          
-            </div>
-              
-            <div id="search-result" class="search-result"></div>
-
-        </div>
- 
-
-     <div class="mobile-menu">      
-
-      
-      <img class="mobile-menu-icon lazyload" src="/images/placeholder.png" data-src="/images/favicon.png">   
-      
-
-         
-            
-
-            <a class="mobile-menu-link" href="/">Home
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/categories">Categories
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/archives">Archives
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/tags">Tags
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/about">About
-            </a>
-            
-         
-                          
-
-            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
-            
-         
-      
-</div>        
-    
-
-
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?636802045446222199ae541e32c8133e"; 
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+<script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = 'http://yoursite.com/2018/05/22/遗传算法求解函数最值问题代码/';
+    this.page.identifier = '2018/05/22/遗传算法求解函数最值问题代码/';
+    this.page.title = '遗传算法求解函数最值问题';
+  };
+  var d = document, s = d.createElement('script');
+  s.src = 'https://snippet.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', '' + +new Date());
+  (d.head || d.body).appendChild(s);
 </script>
 
 
-
-
-
-     
-    
-
-
-
-
-<footer id="footer">	    
-
-		
-		<div class="footer-copyright">
-		&copy;
-		
-		2018		
 	
-		infinitor
-		<br>
 
-		Built By Theme
-		<a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>	
-		</div>			
-	 
-</footer>   
+    </div>
 
-  
 
-    <script src="/nayo.bundle.js"></script>           
-  </body>        
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+                    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Google Search"><button type="submit" class="search-form-submit">谷歌搜索</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>大家好，欢迎来到我的个人博客。这里记录了我的成长过程，如果能帮到你一点点，我很开心。 <br/>
+</p>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xiaoshiyisss" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:2638512393@qq.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
+			    	<i class="qq fa fa-qq"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="微博" target="_blank">
+			    	<i class="weibo fa fa-weibo"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="QQ群" target="_blank">
+			    	<i class="users fa fa-users"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/全栈/"><i class="fa" aria-hidden="true">全栈</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/"><i class="fa" aria-hidden="true">数据结构</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/算法/"><i class="fa" aria-hidden="true">算法</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随想/"><i class="fa" aria-hidden="true">随想</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/"><i class="fa" aria-hidden="true">May 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">February 2018</i></a><span class="archive-list-count">9</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Python-游戏/" style="font-size: 10px;">Python, 游戏</a> <a href="/tags/数据结构/" style="font-size: 15px;">数据结构</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/随想/" style="font-size: 10px;">随想</a>
+    </div>
+  </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">友链</h3>
+        <div class="content friends-link">
+        
+            <a href="https://www.csdn.net/" class="fa" target="_blank">CSDN</a>
+        
+            <a href="https://www.cnblogs.com/" class="fa" target="_blank">博客园</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
 </html>

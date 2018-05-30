@@ -1,124 +1,183 @@
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
-<html>
-  <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  
-  
-  <title>  用模拟退火(SA, Simulated Annealing)算法解决旅行商问题 (TSP, Traveling Salesman Problem) |   短短的代码写写停停 </title>
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="无限Coding">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
 
- 
-  
-    <link rel="icon" href="/images/favicon.png">
-  
 
 
-  <link rel="stylesheet" href="/nayo.min.css"> 
-</head>  
-  <body>   
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>用模拟退火(SA, Simulated Annealing)算法解决旅行商问题 (TSP, Traveling Salesman Problem) | 无限Coding</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="无限Coding" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
     
-      <header class="header">
-	
-  <nav class="header-nav">        
-   
-    <span class="iconfont icon-menu mobile-toggle"></span>   	
 
-    <a class="header-logo" href="/">改完BUG吃香锅</a>  
 
-    <div class="header-menu">          
-              
-            
 
-              <a class="header-menu-link" id="header-menu-home" href="/">Home</a>     
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
 
-            
-            
-            
 
-              <a class="header-menu-link" id="header-menu-categories" href="/categories">Categories</a>     
 
-            
-            
-            
 
-              <a class="header-menu-link" id="header-menu-archives" href="/archives">Archives</a>     
-
-            
-            
-            
-
-              <a class="header-menu-link" id="header-menu-tags" href="/tags">Tags</a>     
-
-            
-            
-            
-
-              <a class="header-menu-link" id="header-menu-about" href="/about">About</a>     
-
-            
-            
-            
-
-              <a class="iconfont icon-menu-search header-menu-link" id="header-menu-search"></a>
-
-            
-                
-    </div>  
     
-  </nav>
-</header>   
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
 
-      <div class="container">       
-          
-          
-            <section class="main">  
-          
 
-          <article class="post">
-  
-	<div class="post-header">
 
-	<p class="post-title">	
-		用模拟退火(SA, Simulated Annealing)算法解决旅行商问题 (TSP, Traveling Salesman Problem)
-	</p>
-			
 
-	<div class="meta-info">	
-	<span>
-		Feb 18, 2018
-	</span>
 
-	
-	
-		<i class="iconfont icon-words"></i>
-		<span>
-			6148
-		</span>
-	
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://oyxhmjutw.bkt.clouddn.com/18-2-21/37655074.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题">  
+             
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>推荐</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>随想</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="用模拟退火(SA, Simulated Annealing)算法解决旅行商问题 (TSP, Traveling Salesman Problem)">
+            
+	            用模拟退火(SA, Simulated Annealing)算法解决旅行商问题 (TSP, Traveling Salesman Problem)
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/算法">
+            算法
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a href="/tags/算法">
+               算法
+            </a>
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/02/18</span>
+    </span>
 </div>
 
-</div> 
-	 
-
-	  <div class="post-content slideDownMin">
-
-		
-
-			
-					<h1 id="01-什么是旅行商问题-TSP"><a href="#01-什么是旅行商问题-TSP" class="headerlink" title="01 什么是旅行商问题(TSP)?"></a>01 什么是旅行商问题(TSP)?</h1><blockquote>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="01-什么是旅行商问题-TSP"><a href="#01-什么是旅行商问题-TSP" class="headerlink" title="01 什么是旅行商问题(TSP)?"></a>01 什么是旅行商问题(TSP)?</h1><blockquote>
 <p>TSP问题（Traveling Salesman Problem，旅行商问题），由威廉哈密顿爵士和英国数学家克克曼T.P.Kirkman于19世纪初提出。问题描述如下：<br><strong>有若干个城市，任何两个城市之间的距离都是确定的，现要求一旅行商从某城市出发必须经过每一个城市且只在一个城市逗留一次，最后回到出发的城市，问如何事先确定一条最短的线路已保证其旅行的费用最少？</strong></p>
 </blockquote>
 <a id="more"></a>
-<p>如下图所示：<br><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-5d2dbcdacb7d3e9f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
+<p>如下图所示：<br><img src="http://upload-images.jianshu.io/upload_images/10386940-5d2dbcdacb7d3e9f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h1 id="02-模拟退火算法（Simulate-Annealing-Arithmetic，SAA）"><a href="#02-模拟退火算法（Simulate-Annealing-Arithmetic，SAA）" class="headerlink" title="02 模拟退火算法（Simulate Annealing Arithmetic，SAA）"></a>02 模拟退火算法（Simulate Annealing Arithmetic，SAA）</h1><h2 id="2-1-什么是模拟退火算法-简介"><a href="#2-1-什么是模拟退火算法-简介" class="headerlink" title="2.1 什么是模拟退火算法(简介)?"></a>2.1 什么是模拟退火算法(简介)?</h2><p>模拟退火算法（Simulate Annealing Arithmetic，SAA）<strong>是一种通用概率演算法，用来在一个大的搜寻空间内找寻命题的最优解。</strong>它是基于Monte-Carlo迭代求解策略的一种随机寻优算法。</p>
 <p>模拟退火算法是S.Kirkpatrick, C.D.Gelatt和M.P.Vecchi等人在1983年发明的，1985年，V.Černý也独立发明了此演算法。模拟退火算法是解决TSP问题的有效方法之一。</p>
 <h2 id="2-2-模拟退火算法的来源"><a href="#2-2-模拟退火算法的来源" class="headerlink" title="2.2 模拟退火算法的来源"></a>2.2 模拟退火算法的来源</h2><p><strong>模拟退火算法来源于固体退火原理。</strong></p>
 <p><strong>物理退火</strong>: 将材料加热后再经特定速率冷却，目的是增大晶粒的体积，并且减少晶格中的缺陷。材料中的原子原来会停留在使内能有局部最小值的位置，加热使能量变大，原子会离开原来位置，而随机在其他位置中移动。退火冷却时速度较慢，使得原子有较多可能可以找到内能比原先更低的位置。</p>
 <p><strong>模拟退火</strong>: 其原理也和固体退火的原理近似。模拟退火算法从某一较高初温出发，伴随温度参数的不断下降,结合概率突跳特性在解空间中随机寻找目标函数的全局最优解，即在局部最优解能概率性地跳出并最终趋于全局最优。</p>
 <h2 id="2-3-模拟退火算法思想"><a href="#2-3-模拟退火算法思想" class="headerlink" title="2.3 模拟退火算法思想"></a>2.3 模拟退火算法思想</h2><p>在介绍模拟退火算法之前，有必要给大家科普一下<strong>爬山算法 (Hill Climbing)。</strong></p>
-<h3 id="2-3-1-爬山算法"><a href="#2-3-1-爬山算法" class="headerlink" title="2.3.1 爬山算法"></a>2.3.1 爬山算法</h3><p>爬山算法是一种简单的贪心搜索算法，该算法<strong>每次从当前解的临近解空间中选择一个最优解作为当前解，直到达到一个局部最优解。</strong>这种算法思想很单纯，但是也存在一个很大的缺陷。在搜索选择的过程中有可能会陷入局部最优解，<strong>而这个局部最优解不一定是全局最优解。</strong>比如下面这个问题：<br><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-2e7faa6c09c66186.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
+<h3 id="2-3-1-爬山算法"><a href="#2-3-1-爬山算法" class="headerlink" title="2.3.1 爬山算法"></a>2.3.1 爬山算法</h3><p>爬山算法是一种简单的贪心搜索算法，该算法<strong>每次从当前解的临近解空间中选择一个最优解作为当前解，直到达到一个局部最优解。</strong>这种算法思想很单纯，但是也存在一个很大的缺陷。在搜索选择的过程中有可能会陷入局部最优解，<strong>而这个局部最优解不一定是全局最优解。</strong>比如下面这个问题：<br><img src="http://upload-images.jianshu.io/upload_images/10386940-2e7faa6c09c66186.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>假设A是当前解，爬山算法往前继续搜索，当搜索到B这个局部最优解时就会停止搜索了。<strong>因为此时在B点无论是往哪边走都不会得到更优的解了。</strong>但是，聪明的同学已经发现了，全局最优解在C点。</p>
-<h3 id="2-3-2-模拟退火算法"><a href="#2-3-2-模拟退火算法" class="headerlink" title="2.3.2 模拟退火算法"></a>2.3.2 模拟退火算法</h3><p>爬山法是完完全全的贪心法，这种贪心是很鼠目寸光的，只把眼光放在局部最优解上，因此只能搜索到局部的最优值。<strong>模拟退火其实也是一种贪心算法，只不过与爬山法不同的是，模拟退火算法在搜索过程引入了随机因素。模拟退火算法以一定的概率来接受一个比当前解要差的解，因此有可能会跳出这个局部的最优解，达到全局的最优解。</strong>从上图来说，模拟退火算法在搜索到局部最优解B后，会以一定的概率接受向右的移动。也许经过几次这样的不是局部最优的移动后会到达BC之间的峰点D，这样一来便跳出了局部最优解B，继续往右移动就有可能获得全局最优解C。如下图：<br><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-77caffb6537167de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
+<h3 id="2-3-2-模拟退火算法"><a href="#2-3-2-模拟退火算法" class="headerlink" title="2.3.2 模拟退火算法"></a>2.3.2 模拟退火算法</h3><p>爬山法是完完全全的贪心法，这种贪心是很鼠目寸光的，只把眼光放在局部最优解上，因此只能搜索到局部的最优值。<strong>模拟退火其实也是一种贪心算法，只不过与爬山法不同的是，模拟退火算法在搜索过程引入了随机因素。模拟退火算法以一定的概率来接受一个比当前解要差的解，因此有可能会跳出这个局部的最优解，达到全局的最优解。</strong>从上图来说，模拟退火算法在搜索到局部最优解B后，会以一定的概率接受向右的移动。也许经过几次这样的不是局部最优的移动后会到达BC之间的峰点D，这样一来便跳出了局部最优解B，继续往右移动就有可能获得全局最优解C。如下图：<br><img src="http://upload-images.jianshu.io/upload_images/10386940-77caffb6537167de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>关于普通Greedy算法与模拟退火，这里也有一个有趣的比喻：</p>
 <p><strong>普通Greedy算法</strong>：兔子朝着比现在低的地方跳去。它找到了不远处的最低的山谷。但是这座山谷不一定最低的。</p>
 <p><strong>模拟退火</strong>：兔子喝醉了。它随机地跳了很长时间。这期间，它可能走向低处，也可能踏入平地。但是，它渐渐清醒了并朝最低的方向跳去。</p>
@@ -130,7 +189,7 @@
 <p>其中k是一个常数，exp表示自然指数，且dE&lt;0(温度总是降低的)。这条公式指明了：<br>1) 温度越高，出现一次能量差为dE的降温的概率就越大；<br>2) 温度越低，则出现降温的概率就越小。<strong>又由于dE总是小于0（不然怎么叫退火），因此dE/kT &lt; 0 ，exp(dE/kT)取值是(0,1),那么P(dE)的函数取值范围是(0,1) 。</strong></p>
 <p>随着温度T的降低，P(dE)会逐渐降低。我们将一次向较差解的移动看做一次温度跳变过程，<strong>我们以概率P(dE)来接受这样的移动。</strong>也就是说，在用固体退火模拟组合优化问题，<strong>将内能E模拟为目标函数值 f，温度T演化成控制参数 t，</strong>即得到解组合优化问题的模拟退火演算法：由初始解 i 和控制参数初值 t 开始，对当前解重复<strong>“产生新解→计算目标函数差→接受或丢弃”</strong>的迭代，并逐步衰减 t 值，算法终止时的当前解即为所得近似最优解。</p>
 <p>因此我们归结起来就是以下几点：<br>1) <strong>若f( Y(i+1) ) &lt;= f( Y(i) )</strong>  (即移动后得到更优解)，则总是接受该移动；<br>2) <strong>若f( Y(i+1) ) &gt; f( Y(i) )</strong>  (即移动后的解比当前解要差)，则以一定的概率接受移动，而且这个概率随着时间推移逐渐降低（逐渐降低才能趋向稳定）相当于上图中，<strong>从B移向BC之间的小波峰D时，每次右移(即接受一个更糟糕值)的概率在逐渐降低。</strong>如果这个坡特别长，那么很有可能最终我们并不会翻过这个坡。如果它不太长，<strong>这很有可能会翻过它</strong>，这取决于衰减 t 值的设定。</p>
-<h2 id="2-4-模拟退火算法伪代码"><a href="#2-4-模拟退火算法伪代码" class="headerlink" title="2.4 模拟退火算法伪代码"></a>2.4 模拟退火算法伪代码</h2><p>相信通过上面的讲解，大家已经对模拟退火算法认识得差不多了。下面我们来看看它的伪代码是怎么实现的。<br><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-1308f0201f28a247.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
+<h2 id="2-4-模拟退火算法伪代码"><a href="#2-4-模拟退火算法伪代码" class="headerlink" title="2.4 模拟退火算法伪代码"></a>2.4 模拟退火算法伪代码</h2><p>相信通过上面的讲解，大家已经对模拟退火算法认识得差不多了。下面我们来看看它的伪代码是怎么实现的。<br><img src="http://upload-images.jianshu.io/upload_images/10386940-1308f0201f28a247.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h1 id="03-使用模拟退火算法解决旅行商问题"><a href="#03-使用模拟退火算法解决旅行商问题" class="headerlink" title="03 使用模拟退火算法解决旅行商问题"></a>03 使用模拟退火算法解决旅行商问题</h1><p>旅行商问题属于<strong>所谓的NP完全问题</strong>。精确的解决TSP只能通过穷举所有的路径组合，其时间复杂度是O(N!) 。而使用模拟退火算法则可以较快速算法一条近似的最优路径。大体的思路如下：</p>
 <ol>
 <li>产生一条新的遍历路径P(i+1)，<strong>计算路径P(i+1)的长度L( P(i+1) )</strong></li>
@@ -138,244 +197,222 @@
 <li>重复步骤1，2直到满足退出条件</li>
 </ol>
 <p>好了多说无益，下面大家一起看代码吧。基于中国31个城市跑的。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 使用模拟退火算法(SA)求解TSP问题(以中国TSP问题为例)</span></span><br><span class="line"><span class="comment"> * 参考自《Matlab 智能算法30个案例分析》</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> T0 50000.0  <span class="comment">// 初始温度</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> T_end (1e-8)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> q  0.98   <span class="comment">// 退火系数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> L 1000  <span class="comment">// 每个温度时的迭代次数，即链长</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 31  <span class="comment">// 城市数量</span></span></span><br><span class="line"><span class="keyword">int</span> city_list[N]; <span class="comment">// 用于存放一个解</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 中国31个城市坐标</span></span><br><span class="line"><span class="keyword">double</span> city_pos[N][<span class="number">2</span>] =</span><br><span class="line">    &#123;</span><br><span class="line">    &#123;<span class="number">1304</span>,<span class="number">2312</span>&#125;,&#123;<span class="number">3639</span>,<span class="number">1315</span>&#125;,&#123;<span class="number">4177</span>,<span class="number">2244</span>&#125;,&#123;<span class="number">3712</span>,<span class="number">1399</span>&#125;,</span><br><span class="line">    &#123;<span class="number">3488</span>,<span class="number">1535</span>&#125;,&#123;<span class="number">3326</span>,<span class="number">1556</span>&#125;,&#123;<span class="number">3238</span>,<span class="number">1229</span>&#125;,&#123;<span class="number">4196</span>,<span class="number">1004</span>&#125;,</span><br><span class="line">    &#123;<span class="number">4312</span>,<span class="number">790</span>&#125;,&#123;<span class="number">4386</span>,<span class="number">570</span>&#125;,&#123;<span class="number">3007</span>,<span class="number">1970</span>&#125;,&#123;<span class="number">2562</span>,<span class="number">1756</span>&#125;,</span><br><span class="line">    &#123;<span class="number">2788</span>,<span class="number">1491</span>&#125;,&#123;<span class="number">2381</span>,<span class="number">1676</span>&#125;,&#123;<span class="number">1332</span>,<span class="number">695</span>&#125;,</span><br><span class="line">    &#123;<span class="number">3715</span>,<span class="number">1678</span>&#125;,&#123;<span class="number">3918</span>,<span class="number">2179</span>&#125;,&#123;<span class="number">4061</span>,<span class="number">2370</span>&#125;,</span><br><span class="line">    &#123;<span class="number">3780</span>,<span class="number">2212</span>&#125;,&#123;<span class="number">3676</span>,<span class="number">2578</span>&#125;,&#123;<span class="number">4029</span>,<span class="number">2838</span>&#125;,</span><br><span class="line">    &#123;<span class="number">4263</span>,<span class="number">2931</span>&#125;,&#123;<span class="number">3429</span>,<span class="number">1908</span>&#125;,&#123;<span class="number">3507</span>,<span class="number">2367</span>&#125;,</span><br><span class="line">    &#123;<span class="number">3394</span>,<span class="number">2643</span>&#125;,&#123;<span class="number">3439</span>,<span class="number">3201</span>&#125;,&#123;<span class="number">2935</span>,<span class="number">3240</span>&#125;,</span><br><span class="line">    &#123;<span class="number">3140</span>,<span class="number">3550</span>&#125;,&#123;<span class="number">2545</span>,<span class="number">2357</span>&#125;,&#123;<span class="number">2778</span>,<span class="number">2826</span>&#125;,</span><br><span class="line">    &#123;<span class="number">2370</span>,<span class="number">2975</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">distance</span><span class="params">(<span class="keyword">double</span> *,<span class="keyword">double</span> *)</span></span>; <span class="comment">// 计算两个城市距离</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">path_len</span><span class="params">(<span class="keyword">int</span> *)</span></span>;  <span class="comment">// 计算路径长度</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">init</span><span class="params">()</span></span>;  <span class="comment">//初始化函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">create_new</span><span class="params">()</span></span>; <span class="comment">// 产生新解</span></span><br><span class="line"><span class="comment">// 距离函数</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">distance</span><span class="params">(<span class="keyword">double</span> * city1,<span class="keyword">double</span> * city2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> x1 = *city1;</span><br><span class="line">    <span class="keyword">double</span> y1 = *(city1+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">double</span> x2 = *(city2);</span><br><span class="line">    <span class="keyword">double</span> y2 = *(city2+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">double</span> dis = <span class="built_in">sqrt</span>((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));</span><br><span class="line">    <span class="keyword">return</span> dis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算路径长度</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">path_len</span><span class="params">(<span class="keyword">int</span> * arr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> path = <span class="number">0</span>; <span class="comment">// 初始化路径长度</span></span><br><span class="line">    <span class="keyword">int</span> index = *arr; <span class="comment">// 定位到第一个数字(城市序号)</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N<span class="number">-1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> index1 = *(arr+i);</span><br><span class="line">        <span class="keyword">int</span> index2 = *(arr+i+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">double</span> dis = distance(city_pos[index1<span class="number">-1</span>],</span><br><span class="line">                                city_pos[index2<span class="number">-1</span>]);</span><br><span class="line"></span><br><span class="line">        path += dis;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> last_index = *(arr+N<span class="number">-1</span>); <span class="comment">// 最后一个城市序号</span></span><br><span class="line">    <span class="keyword">int</span> first_index = *arr; <span class="comment">// 第一个城市序号</span></span><br><span class="line">    <span class="keyword">double</span> last_dis = distance(city_pos[last_index<span class="number">-1</span>],</span><br><span class="line">                                city_pos[first_index<span class="number">-1</span>]);</span><br><span class="line">    path = path + last_dis;</span><br><span class="line">    <span class="keyword">return</span> path; <span class="comment">// 返回总的路径长度</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">        city_list[i] = i+<span class="number">1</span>;  <span class="comment">// 初始化一个解</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 产生一个新解</span></span><br><span class="line"><span class="comment">// 此处采用随机交换两个位置的方式产生新的解</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">create_new</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> r1 = ((<span class="keyword">double</span>)rand())/(RAND_MAX+<span class="number">1.0</span>);</span><br><span class="line">    <span class="keyword">double</span> r2 = ((<span class="keyword">double</span>)rand())/(RAND_MAX+<span class="number">1.0</span>);</span><br><span class="line">    <span class="keyword">int</span> pos1 = (<span class="keyword">int</span>)(N*r1); <span class="comment">//第一个交叉点的位置</span></span><br><span class="line">    <span class="keyword">int</span> pos2 = (<span class="keyword">int</span>)(N*r2);</span><br><span class="line">    <span class="keyword">int</span> temp = city_list[pos1];</span><br><span class="line">    city_list[pos1] = city_list[pos2];</span><br><span class="line">    city_list[pos2] = temp;   <span class="comment">// 交换两个点</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    srand((<span class="keyword">unsigned</span>)time(<span class="literal">NULL</span>)); <span class="comment">//初始化随机数种子</span></span><br><span class="line">    <span class="keyword">time_t</span> start,finish;</span><br><span class="line">    start = clock(); <span class="comment">// 程序运行开始计时</span></span><br><span class="line">    <span class="keyword">double</span> T;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>; <span class="comment">// 记录降温次数</span></span><br><span class="line">    T = T0; <span class="comment">//初始温度</span></span><br><span class="line">    init(); <span class="comment">//初始化一个解</span></span><br><span class="line">    <span class="keyword">int</span> city_list_copy[N]; <span class="comment">// 用于保存原始解</span></span><br><span class="line">    <span class="keyword">double</span> f1,f2,df; <span class="comment">//f1为初始解目标函数值，</span></span><br><span class="line">                     <span class="comment">//f2为新解目标函数值，df为二者差值</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> r; <span class="comment">// 0-1之间的随机数，用来决定是否接受新解</span></span><br><span class="line">    <span class="keyword">while</span>(T &gt; T_end) <span class="comment">// 当温度低于结束温度时，退火结束</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;L;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 复制数组</span></span><br><span class="line">            <span class="built_in">memcpy</span>(city_list_copy,city_list,N*<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">            create_new(); <span class="comment">// 产生新解</span></span><br><span class="line">            f1 = path_len(city_list_copy);</span><br><span class="line">            f2 = path_len(city_list);</span><br><span class="line">            df = f2 - f1;</span><br><span class="line">            <span class="comment">// 以下是Metropolis准则</span></span><br><span class="line">            <span class="keyword">if</span>(df &gt;= <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                r = ((<span class="keyword">double</span>)rand())/(RAND_MAX);</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">exp</span>(-df/T) &lt;= r) <span class="comment">// 保留原来的解</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">memcpy</span>(city_list,city_list_copy,N*<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        T *= q; <span class="comment">// 降温</span></span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">    finish = clock(); <span class="comment">// 退火过程结束</span></span><br><span class="line">    <span class="keyword">double</span> duration = ((<span class="keyword">double</span>)(finish-start))/CLOCKS_PER_SEC; <span class="comment">// 计算时间</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"模拟退火算法，初始温度T0=%.2f,降温系数q=%.2f,每个温度迭代%d次,共降温%d次，得到的TSP最优路径为:\n"</span>,T0,q,L,count);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N<span class="number">-1</span>;i++)  <span class="comment">// 输出最优路径</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d---&gt;"</span>,city_list[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,city_list[N<span class="number">-1</span>]);</span><br><span class="line">    <span class="keyword">double</span> len = path_len(city_list); <span class="comment">// 最优路径长度</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"最优路径长度为:%lf\n"</span>,len);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"程序运行耗时:%lf秒.\n"</span>,duration);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>代码运行结果：</strong><br><img src="/images/placeholder.png" alt="" data-src="http://upload-images.jianshu.io/upload_images/10386940-b7781e9c565ca557.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload"></p>
+<p><strong>代码运行结果：</strong><br><img src="http://upload-images.jianshu.io/upload_images/10386940-b7781e9c565ca557.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h1 id="04-小结"><a href="#04-小结" class="headerlink" title="04 小结"></a>04 小结</h1><p>从上面的过程我们可以看出，<strong>模拟退火算法是一种随机算法，它有一定的概率能求得全局最优解，但不一定。</strong>用模拟退火算法可以较快速地找出问题的最优近似解。<strong>它的关键之处还是在于允许一定的差解。</strong>不过，在小编不成熟的眼光看来，人生亦有相似之处。有时候可能放弃眼前短浅的利益，最终才可能获得更好的未来。<strong>现在失去的，在未来会以另一种方式归来。</strong></p>
-  	
-					
-	  </div>     
-	  
 
-	
-<div class="post-meta">
-      
-        <i class="iconfont icon-category"></i>       
-        <a class="category-link" href="/categories/算法/">算法</a> 	
-     
-      	
+    </div>
 
-      
-        <i class="iconfont icon-tag"></i>     
-          <a class="tag-link" href="/tags/算法/">算法</a>    
-      	
-</div>
-
-
-
-
-
-<div class="post-footer">
-  <div class="pf-left">
-      <img class="pf-avatar lazyload" src="/images/placeholder.png" data-src="/images/2.jpg">
-      <p class="pf-des">hello，大家好。</p>
-  </div>
-
-  <div class="pf-right">           
-      <div class="pf-links">
-        
-
-
-
-
-<span class="donate-btn">
-	<span class="iconfont icon-donate"></span>
-</span>
-
-
-<div id="donate-box" class="sildeUpMin">
-
-	<span class="donate-cancel iconfont icon-cancel"></span>
-
-	<div class="donate-img-box">
-		<img id="donate-qr-wechat" class="donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate1.png">	
-		<img id="donate-qr-alipay" class="donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate2.png">	
-	</div>
-
-	<span class="donate-word">世界美好 你也是</span>
-
-	<div class="donate-list">
-		<span class="iconfont icon-donate-wechat"></span>
-		<span class="iconfont icon-donate-alipay"></span>
-	</div>
-
-</div>
-
- 
-        
-	
-<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=21d601593a1de"></script>
-	
-	<span class="share-btn">
-	<span class="iconfont icon-share"></span>
-	</span>
-
-
-	<div class="-mob-share sildeUpMin">
-		   			             
-            <a class="iconfont  icon-share-qq -mob-share-qq"></a>		
-     	   			             
-            <a class="iconfont  icon-share-weixin -mob-share-weixin"></a>		
-     	   			             
-            <a class="iconfont  icon-share-weibo -mob-share-weibo"></a>		
-     	   			             
-            <a class="iconfont  icon-share-douban -mob-share-douban"></a>		
-     	   			             
-            <a class="iconfont  icon-share-facebook -mob-share-facebook"></a>		
-     	   			             
-            <a class="iconfont  icon-share-twitter -mob-share-twitter"></a>		
-     	   			             
-            <a class="iconfont  icon-share-google -mob-share-google"></a>		
-     	   
-	</div>	
-
-      </div>  
-    <nav class="pf-paginator">
-      
-         
-          <a href="/2018/02/19/Python实现贪吃蛇(超详细)/" data-hover="10分钟教你用python打造贪吃蛇超详细教程">Prev</a>      
+    <div class="post-footer">   
+        <div>
             
-        
-      
-        
-        <a href="/2018/02/18/关于图论中的最小生成树-Minimum-Spanning-Tree-详解/" data-hover="关于图论中的最小生成树(Minimum Spanning Tree)详解"> Next</a>
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">infinitor</a>
             
-  </nav>   
-  </div>
-</div> 
-	
-
-
-    
-    <div id="disqus_thread"></div>
-
-    <script>
-    (function() { 
-    var d = document, s = d.createElement('script');
-    s.src = 'https://'+'lemonreds'+'.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());    
-    (d.head || d.body).appendChild(s);
-    })();
-    </script>
-
-    <noscript>Please enable JavaScript to view the  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-    </noscript>
-
-
-	
+        </div>
+        <div>
+            
+        </div>  
+    </div>
 </article>
 
-          </section> 
-      </div>            
+<div class="article-nav prev-next-wrap clearfix">
     
-    <a id="backTop">
-      <span>
-        <i class="iconfont icon-backtotop"></i>
-      </span>
-    </a> 
-
-  
+        <a href="/2018/02/19/Python实现贪吃蛇(超详细)/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
     
+    
+        <a href="/2018/02/18/关于图论中的最小生成树-Minimum-Spanning-Tree-详解/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
 
+
+    <div id="comments">
         
-        <div class="search-container sildeUpMin">
+	
+  <script id="dsq-count-scr" src="https://snippet.disqus.com/count.js" async></script>
 
 
-            <div class="search-header">
-            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">  
-            <span class="search-cancel iconfont icon-cancel"></span>
-          
-            </div>
-              
-            <div id="search-result" class="search-result"></div>
-
-        </div>
- 
-
-     <div class="mobile-menu">      
-
-      
-      <img class="mobile-menu-icon lazyload" src="/images/placeholder.png" data-src="/images/favicon.png">   
-      
-
-         
-            
-
-            <a class="mobile-menu-link" href="/">Home
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/categories">Categories
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/archives">Archives
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/tags">Tags
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/about">About
-            </a>
-            
-         
-                          
-
-            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
-            
-         
-      
-</div>        
-    
-
-
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?636802045446222199ae541e32c8133e"; 
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+<script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = 'http://yoursite.com/2018/02/18/用模拟退火-SA-Simulated-Annealing-算法解决旅行商问题-TSP-Traveling-Salesman-Problem/';
+    this.page.identifier = '2018/02/18/用模拟退火-SA-Simulated-Annealing-算法解决旅行商问题-TSP-Traveling-Salesman-Problem/';
+    this.page.title = '用模拟退火(SA, Simulated Annealing)算法解决旅行商问题 (TSP, Traveling Salesman Problem)';
+  };
+  var d = document, s = d.createElement('script');
+  s.src = 'https://snippet.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', '' + +new Date());
+  (d.head || d.body).appendChild(s);
 </script>
 
 
-
-
-
-     
-    
-
-
-
-
-<footer id="footer">	    
-
-		
-		<div class="footer-copyright">
-		&copy;
-		
-		2018		
 	
-		infinitor
-		<br>
 
-		Built By Theme
-		<a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>	
-		</div>			
-	 
-</footer>   
+    </div>
 
-  
 
-    <script src="/nayo.bundle.js"></script>           
-  </body>        
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+                    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Google Search"><button type="submit" class="search-form-submit">谷歌搜索</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>大家好，欢迎来到我的个人博客。这里记录了我的成长过程，如果能帮到你一点点，我很开心。 <br/>
+</p>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xiaoshiyisss" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:2638512393@qq.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
+			    	<i class="qq fa fa-qq"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="微博" target="_blank">
+			    	<i class="weibo fa fa-weibo"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="QQ群" target="_blank">
+			    	<i class="users fa fa-users"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/全栈/"><i class="fa" aria-hidden="true">全栈</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/"><i class="fa" aria-hidden="true">数据结构</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/算法/"><i class="fa" aria-hidden="true">算法</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随想/"><i class="fa" aria-hidden="true">随想</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/"><i class="fa" aria-hidden="true">May 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">February 2018</i></a><span class="archive-list-count">9</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Python-游戏/" style="font-size: 10px;">Python, 游戏</a> <a href="/tags/数据结构/" style="font-size: 15px;">数据结构</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/随想/" style="font-size: 10px;">随想</a>
+    </div>
+  </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">友链</h3>
+        <div class="content friends-link">
+        
+            <a href="https://www.csdn.net/" class="fa" target="_blank">CSDN</a>
+        
+            <a href="https://www.cnblogs.com/" class="fa" target="_blank">博客园</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
 </html>
